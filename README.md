@@ -14,7 +14,7 @@ Repository for educational practice.We develop a 2D platform game called Wake Up
 - Character animation:
     - movement (left, right, jump/double jump)
 - The levels of the game
-- UI;
+- UI:
     - HP bar
     - Pause button, etc.
 ---
