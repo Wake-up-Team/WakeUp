@@ -1,6 +1,6 @@
 # WakeUp
 
-Repository for educational practice.We are developing a 2D platform game called Wake Up.Development is carried out using:
+Repository for educational practice.We are developing a 2D platformer game called Wake Up. Development is carried out using:
  - Godot Engine
  - Programming language C#
 ---
