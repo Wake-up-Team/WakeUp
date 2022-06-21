@@ -3,32 +3,58 @@ using System;
 
 public class PlayerController : KinematicBody2D
 {
-	private int speed = 100;
-	private int gravity = 1000;
+	private Vector2 velocity = new Vector2();
 
-	// Called when the node enters the scene tree for the first time.
+	private int speed = 100;
+	private int gravity = 400;
+	private int jumpHeigth = 200;
+
+	private float acceleration = .25f;
+	private float friction = .5f;
+
+	private bool isInAir = false;
 	public override void _Ready()
 	{
 		
 	}
 
-//  // Called every frame. 'delta' is the elapsed time since the previous frame.
  public override void _Process(float delta)
  {
-     Vector2 velocity = new Vector2();
-	 int direction = 0;
-		if(Input.IsActionPressed("move_left")) {
-			velocity.x -= speed;
-			direction = -1;
-		}		
-		if(Input.IsActionPressed("move_right")) {
-			velocity.x += speed;
-			direction = 1;
-		}
+	velocity.y += gravity*delta;
+	int direction = 0;
+	if(Input.IsActionPressed("move_left")) {
+		direction = -1;
+		GetNode<AnimatedSprite>("AnimatedSprite").FlipH = true;
+
+	}		
+	if(Input.IsActionPressed("move_right")) {
+		direction = 1;
+		GetNode<AnimatedSprite>("AnimatedSprite").FlipH = false;
+	}
+
+	if(IsOnFloor()) {
 		if (Input.IsActionJustPressed("jump")) {
-			velocity.y += 100;
+			velocity.y -= jumpHeigth;
+			GetNode<AnimatedSprite>("AnimatedSprite").Play("Jump");
+			isInAir = true;
+		} 
+		else {
+			isInAir = false;
 		}
-		//velocity.y -= gravity;
-		MoveAndSlide(velocity, Vector2.Up);
+	} 
+
+	if(direction != 0) {
+		velocity.x = Mathf.Lerp(velocity.x, direction*speed, acceleration);
+		if (!isInAir) {
+			GetNode<AnimatedSprite>("AnimatedSprite").Play("running");
+		}
+	} else {
+		velocity.x = Mathf.Lerp(velocity.x, 0, friction);
+		if (!isInAir) {
+			GetNode<AnimatedSprite>("AnimatedSprite").Play("idle");
+		}
+
+	}
+	velocity = MoveAndSlide(velocity, Vector2.Up);
  }
 }
