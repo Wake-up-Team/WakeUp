@@ -1,0 +1,87 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Title screen/Fonts/ConnectionII.otf" type="DynamicFontData" id=1]
+[ext_resource path="res://Title screen/icon_tg.png" type="Texture" id=2]
+[ext_resource path="res://Title screen/About the game/AboutScene.cs" type="Script" id=3]
+[ext_resource path="res://Title screen/darker_icon_tg.png" type="Texture" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 40
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 40
+font_data = ExtResource( 1 )
+
+[node name="AboutMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.247059, 0.286275, 0.529412, 1 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+margin_right = 1024.0
+margin_bottom = 600.0
+
+[node name="AboutInfo" type="Label" parent="MarginContainer/VBoxContainer"]
+margin_right = 1024.0
+margin_bottom = 298.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+custom_colors/font_color = Color( 0.984314, 0.984314, 0.0392157, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "<About the game>
+<About developers>
+"
+align = 1
+valign = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+margin_top = 302.0
+margin_right = 1024.0
+margin_bottom = 600.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/margin_top = 30
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer"]
+margin_top = 30.0
+margin_right = 1024.0
+margin_bottom = 298.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Contact" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+margin_right = 788.0
+margin_bottom = 268.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+custom_colors/font_color = Color( 0.984314, 0.984314, 0.0392157, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Found any problems?
+Write to us (just click on 
+the button on the right).
+Describe your problemin the message.
+Thank you!"
+
+[node name="ContactBtn" type="TextureButton" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+margin_left = 792.0
+margin_right = 1024.0
+margin_bottom = 268.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 2 )
+texture_hover = ExtResource( 4 )
+
+[connection signal="button_up" from="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/ContactBtn" to="." method="_on_ContactBtn_button_up"]

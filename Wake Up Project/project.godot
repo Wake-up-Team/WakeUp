@@ -11,8 +11,14 @@ config_version=4
 [application]
 
 config/name="Wake Up"
-run/main_scene="res://Core.tscn"
+run/main_scene="res://Title screen/TitleScreen.tscn"
 config/icon="res://icon.png"
+
+[display]
+
+window/dpi/allow_hidpi=true
+window/stretch/mode="2d"
+window/stretch/aspect="keep_height"
 
 [input]
 
