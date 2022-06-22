@@ -15,7 +15,7 @@ public class PlayerController : KinematicBody2D
 //  // Called every frame. 'delta' is the elapsed time since the previous frame.
  public override void _Process(float delta)
  {
-     Vector2 velocity = new Vector2();
+	 Vector2 velocity = new Vector2();
 	 int direction = 0;
 		if(Input.IsActionPressed("move_left")) {
 			velocity.x -= speed;
