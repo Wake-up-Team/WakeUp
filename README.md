@@ -18,7 +18,7 @@ Repository for educational practice.We are developing a 2D platformer game calle
     - HP bar
     - Pause button, etc.
 ---
-Контакты разработчиков:
+Contact with developers:
 - [Kirill](https://t.me/A1nzz)
 - [Sergey](https://t.me/Charles_YS)
 - [Timofey](https://t.me/t1vlas)
