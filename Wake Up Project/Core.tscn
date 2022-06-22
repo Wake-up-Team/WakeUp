@@ -98,15 +98,15 @@ animations = [ {
 "name": "idle",
 "speed": 6.0
 }, {
-"frames": [ ExtResource( 14 ), ExtResource( 13 ) ],
-"loop": false,
-"name": "Jump",
-"speed": 3.0
-}, {
 "frames": [ ExtResource( 8 ), ExtResource( 1 ), ExtResource( 5 ), ExtResource( 6 ) ],
 "loop": true,
 "name": "running",
 "speed": 15.0
+}, {
+"frames": [ ExtResource( 14 ), ExtResource( 13 ) ],
+"loop": false,
+"name": "Jump",
+"speed": 3.0
 } ]
 
 [node name="Core" type="Node2D"]
