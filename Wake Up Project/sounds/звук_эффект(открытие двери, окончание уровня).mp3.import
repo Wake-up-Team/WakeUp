@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/звук_эффект(открытие двери, окончание уровня).mp3-b35a5a3ee39c0d393adae31ee62d05f1.mp3str"
+
+[deps]
+
+source_file="res://sounds/звук_эффект(открытие двери, окончание уровня).mp3"
+dest_files=[ "res://.import/звук_эффект(открытие двери, окончание уровня).mp3-b35a5a3ee39c0d393adae31ee62d05f1.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

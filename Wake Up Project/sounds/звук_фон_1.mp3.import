@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/звук_фон_1.mp3-f7b9b4778db156a4ca56cbce7fb3ea93.mp3str"
+
+[deps]
+
+source_file="res://sounds/звук_фон_1.mp3"
+dest_files=[ "res://.import/звук_фон_1.mp3-f7b9b4778db156a4ca56cbce7fb3ea93.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
