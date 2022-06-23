@@ -3,6 +3,7 @@ using System;
 
 public class TitleScreen : Control
 {
+
     public override void _Ready()
     {
         var first = GetNode<MarginContainer>("MarginContainer");
@@ -20,7 +21,7 @@ public class TitleScreen : Control
 
     public void _on_OptionsBtn_button_up()
     {
-
+        GetNode<Popup>("OptionsMenu").PopupCentered();
     }
 
     public void _on_AboutBtn_button_up()

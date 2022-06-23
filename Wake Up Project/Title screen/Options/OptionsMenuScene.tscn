@@ -1,0 +1,171 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Title screen/Fonts/ConnectionII.otf" type="DynamicFontData" id=1]
+[ext_resource path="res://Title screen/Options/OptionsMenu.cs" type="Script" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 26
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 26
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 26
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 26
+font_data = ExtResource( 1 )
+
+[node name="OptionsMenu" type="Popup"]
+visible = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -350.0
+margin_top = -250.0
+margin_right = 350.0
+margin_bottom = 250.0
+rect_min_size = Vector2( 700, 500 )
+script = ExtResource( 2 )
+
+[node name="Background" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.247059, 0.286275, 0.529412, 1 )
+
+[node name="OptionsTabs" type="TabContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+tab_align = 0
+
+[node name="Video" type="Tabs" parent="OptionsTabs"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="MarginContainer" type="MarginContainer" parent="OptionsTabs/Video"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 25
+custom_constants/margin_top = 25
+custom_constants/margin_left = 25
+custom_constants/margin_bottom = 25
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="VideoOptions" type="GridContainer" parent="OptionsTabs/Video/MarginContainer"]
+margin_left = 25.0
+margin_top = 25.0
+margin_right = 667.0
+margin_bottom = 439.0
+custom_constants/vseparation = 23
+columns = 2
+
+[node name="DisplayModeLbl" type="Label" parent="OptionsTabs/Video/MarginContainer/VideoOptions"]
+margin_top = 11.0
+margin_right = 174.0
+margin_bottom = 38.0
+custom_fonts/font = SubResource( 1 )
+text = "Display mode"
+
+[node name="DisplayModeBtn" type="OptionButton" parent="OptionsTabs/Video/MarginContainer/VideoOptions"]
+margin_left = 476.0
+margin_right = 642.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 100, 50 )
+size_flags_horizontal = 10
+custom_fonts/font = SubResource( 2 )
+text = "Windowed"
+items = [ "Windowed", null, false, 0, null, "Fullscreen", null, false, 1, null ]
+selected = 0
+
+[node name="VsyncLbl" type="Label" parent="OptionsTabs/Video/MarginContainer/VideoOptions"]
+margin_top = 79.0
+margin_right = 174.0
+margin_bottom = 106.0
+custom_fonts/font = SubResource( 3 )
+text = "Vsync"
+
+[node name="VsyncBtn" type="CheckButton" parent="OptionsTabs/Video/MarginContainer/VideoOptions"]
+margin_left = 566.0
+margin_top = 73.0
+margin_right = 642.0
+margin_bottom = 113.0
+size_flags_horizontal = 10
+
+[node name="BrightnessLbl" type="Label" parent="OptionsTabs/Video/MarginContainer/VideoOptions"]
+margin_top = 136.0
+margin_right = 174.0
+margin_bottom = 163.0
+custom_fonts/font = SubResource( 4 )
+text = "Brightness"
+
+[node name="BrightnessSlider" type="HSlider" parent="OptionsTabs/Video/MarginContainer/VideoOptions"]
+margin_left = 242.0
+margin_top = 136.0
+margin_right = 642.0
+margin_bottom = 163.0
+rect_min_size = Vector2( 400, 0 )
+size_flags_horizontal = 10
+size_flags_vertical = 1
+max_value = 2.0
+step = 0.1
+value = 1.0
+
+[node name="Audio" type="Tabs" parent="OptionsTabs"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="MarginContainer" type="MarginContainer" parent="OptionsTabs/Audio"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 25
+custom_constants/margin_top = 25
+custom_constants/margin_left = 25
+custom_constants/margin_bottom = 25
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="AudioOptions" type="GridContainer" parent="OptionsTabs/Audio/MarginContainer"]
+margin_left = 25.0
+margin_top = 25.0
+margin_right = 667.0
+margin_bottom = 439.0
+custom_constants/vseparation = 23
+columns = 2
+
+[node name="VolumeLbl" type="Label" parent="OptionsTabs/Audio/MarginContainer/AudioOptions"]
+margin_right = 92.0
+margin_bottom = 27.0
+custom_fonts/font = SubResource( 4 )
+text = "Volume"
+
+[node name="VolumeSlider" type="HSlider" parent="OptionsTabs/Audio/MarginContainer/AudioOptions"]
+margin_left = 242.0
+margin_right = 642.0
+margin_bottom = 27.0
+rect_min_size = Vector2( 400, 0 )
+size_flags_horizontal = 10
+size_flags_vertical = 1
+min_value = -40.0
+max_value = 2.0
+value = -20.0
+
+[connection signal="item_selected" from="OptionsTabs/Video/MarginContainer/VideoOptions/DisplayModeBtn" to="." method="_on_DisplayModeBtn_item_selected"]
+[connection signal="toggled" from="OptionsTabs/Video/MarginContainer/VideoOptions/VsyncBtn" to="." method="_on_VsyncBtn_toggled"]
+[connection signal="value_changed" from="OptionsTabs/Video/MarginContainer/VideoOptions/BrightnessSlider" to="." method="_on_BrightnessSlider_value_changed"]
+[connection signal="value_changed" from="OptionsTabs/Audio/MarginContainer/AudioOptions/VolumeSlider" to="." method="_on_VolumeSlider_value_changed"]

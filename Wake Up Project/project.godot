@@ -14,6 +14,12 @@ config/name="Wake Up"
 run/main_scene="res://Title screen/TitleScreen.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+GlobalOptions="*res://Globaloptions.cs"
+MusicScene="*res://Title screen/Sounds/MusicScene.tscn"
+WorldEnvironmentScript="*res://WorldEnvironmentScript.cs"
+
 [display]
 
 window/dpi/allow_hidpi=true
