@@ -1,7 +1,0 @@
-1.Main menu(button play, about че то еще хз)
-2.Tile Maps
-3.Player sprite and animation
-4.Movement of player(left, rigth, jump, double jump)
-5.
-5. UI(hp bar, pause button)
-

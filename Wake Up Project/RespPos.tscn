@@ -1,0 +1,4 @@
+[gd_scene format=2]
+
+[node name="RespPos" type="Position2D"]
+position = Vector2( -48, -79 )
