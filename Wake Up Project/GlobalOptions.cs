@@ -1,46 +1,46 @@
 using Godot;
-using System;
 
 public class GlobalOptions : Node
 {
     [Signal]
-    public delegate void brightness_changed(float value);
+    public delegate void BrightnessChanged(float value);
 
-    private static GlobalOptions instance = new GlobalOptions();
+    private static GlobalOptions s_instance = new GlobalOptions();
     private GlobalOptions() { }
     public static GlobalOptions GetInstance
     {
         get
         {
-            return instance;
+            return s_instance;
         }
     }
 
     public override void _Ready()
     {
+
     }
 
-    public void FullScreen(bool value)
+    public void UpdateDisplayMode(bool shouldBeFullScreen)
     {
-        OS.WindowFullscreen = value;
-        if (!value)
+        OS.WindowFullscreen = shouldBeFullScreen;
+        if (!shouldBeFullScreen)
         {
             OS.WindowSize = new Vector2(1280, 720);
             OS.WindowPosition = new Vector2((OS.GetScreenSize().x - OS.WindowSize.x) / 2, (OS.GetScreenSize().y - OS.WindowSize.y) / 2);
         }
     }
 
-    public void VSync(bool value)
+    public void EnableVsync(bool turnOnVsync)
     {
-        OS.VsyncEnabled = value;
+        OS.VsyncEnabled = turnOnVsync;
     }
 
-    public void Brightness(float value)
+    public void UpdateBrightness(float value)
     {
 
     }
 
-    public void Volume(float value)
+    public void UpdateVolume(float value)
     {
         AudioServer.SetBusVolumeDb(0, value);
     }

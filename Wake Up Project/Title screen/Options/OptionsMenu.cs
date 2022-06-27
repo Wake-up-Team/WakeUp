@@ -1,15 +1,14 @@
 using Godot;
-using System;
 
 public class OptionsMenu : Popup
 {
-    GlobalOptions globalOptions;
+    private GlobalOptions _globalOptions;
 
     public OptionsMenu()
     {
-        globalOptions = GlobalOptions.GetInstance;
+        _globalOptions = GlobalOptions.GetInstance;
     }
-    // video settings
+    // Video settings.
     public override void _Ready()
     {
 
@@ -17,23 +16,23 @@ public class OptionsMenu : Popup
 
     public void _on_DisplayModeBtn_item_selected(int index)
     {
-        globalOptions.FullScreen(index == 1);
+        _globalOptions.UpdateDisplayMode(index == 1);
     }
 
     public void _on_VsyncBtn_toggled(bool buttonIsPressed)
     {
-        globalOptions.VSync(buttonIsPressed);
+        _globalOptions.EnableVsync(buttonIsPressed);
     }
 
     public void _on_BrightnessSlider_value_changed(float value)
     {
-        globalOptions.Brightness(value);
+        _globalOptions.UpdateBrightness(value);
     }
 
-    // audio settings
+    // Audio settings.
     public void _on_VolumeSlider_value_changed(float value)
     {
-        globalOptions.Volume(value);
+        _globalOptions.UpdateVolume(value);
     }
 
     public override void _UnhandledInput(InputEvent @event)

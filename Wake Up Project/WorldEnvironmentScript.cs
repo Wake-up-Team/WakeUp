@@ -1,13 +1,12 @@
 using Godot;
-using System;
 
 public class WorldEnvironmentScript : WorldEnvironment
 {
-    GlobalOptions globalOptions;
+    private GlobalOptions _globalOptions;
 
     public WorldEnvironmentScript()
     {
-        globalOptions = GlobalOptions.GetInstance;
+        _globalOptions = GlobalOptions.GetInstance;
     }
 
     public override void _Ready()

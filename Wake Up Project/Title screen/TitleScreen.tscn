@@ -183,6 +183,7 @@ text = "Quit"
 [node name="WorldEnvironment" parent="." instance=ExtResource( 3 )]
 
 [node name="OptionsMenu" parent="." instance=ExtResource( 4 )]
+visible = false
 
 [connection signal="button_up" from="MarginContainer/VBoxContainer/Buttons/Play/PlayBtn" to="." method="_on_PlayBtn_button_up"]
 [connection signal="button_up" from="MarginContainer/VBoxContainer/Buttons/Options/OptionsBtn" to="." method="_on_OptionsBtn_button_up"]

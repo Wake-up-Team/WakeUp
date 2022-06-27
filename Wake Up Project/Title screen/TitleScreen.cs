@@ -1,17 +1,12 @@
 using Godot;
-using System;
 
 public class TitleScreen : Control
 {
 
     public override void _Ready()
     {
-        var first = GetNode<MarginContainer>("MarginContainer");
-        var second = first.GetNode<VBoxContainer>("VBoxContainer");
-        var third = second.GetNode<VBoxContainer>("Buttons");
-        var fourth = third.GetNode<MarginContainer>("Play");
-        var fifth = fourth.GetNode<Button>("PlayBtn");
-        fifth.GrabFocus();
+        Button playBtn = GetNode<Button>("MarginContainer/VBoxContainer/Buttons/Play/PlayBtn");
+        playBtn.GrabFocus();
     }
 
     public void _on_PlayBtn_button_up()
