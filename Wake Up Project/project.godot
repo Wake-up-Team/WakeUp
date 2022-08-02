@@ -11,14 +11,14 @@ config_version=4
 [application]
 
 config/name="Wake Up"
-run/main_scene="res://Title screen/TitleScreen.tscn"
+run/main_scene="res://scenes/TitleScreen.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
-GlobalOptions="*res://Globaloptions.cs"
-MusicScene="*res://Title screen/Sounds/MusicScene.tscn"
-WorldEnvironmentScript="*res://WorldEnvironmentScript.cs"
+MusicScene="*res://scenes/MusicScene.tscn"
+GlobalOptions="*res://scripts/GlobalOptions.cs"
+GlobalWorldEnvironment="*res://scenes/WorldEnvironment.tscn"
 
 [display]
 

@@ -11,7 +11,7 @@ public class TitleScreen : Control
 
     public void _on_PlayBtn_button_up()
     {
-        GetTree().ChangeScene("res://Core.tscn");
+        GetTree().ChangeScene("res://scenes/Core.tscn");
     }
 
     public void _on_OptionsBtn_button_up()
@@ -21,7 +21,7 @@ public class TitleScreen : Control
 
     public void _on_AboutBtn_button_up()
     {
-        GetTree().ChangeScene("res://Title screen/About the game/AboutScene.tscn");
+        GetTree().ChangeScene("res://scenes/AboutScene.tscn");
     }
 
     public void _on_QuitBtn_button_up()

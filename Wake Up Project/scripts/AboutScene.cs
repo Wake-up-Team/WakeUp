@@ -18,7 +18,7 @@ public class AboutScene : Control
         {
             if (eventKey.Pressed && eventKey.Scancode == (int)KeyList.Escape)
             {
-                GetTree().ChangeScene("res://Title screen/TitleScreen.tscn");
+                GetTree().ChangeScene("res://scenes/TitleScreen.tscn");
             }
         }
     }

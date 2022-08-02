@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Wake Up Project_sounds_звук_фон_2.mp3-24f2e3536c59ec72e5ed80b75b56a748.mp3str"
+
+[deps]
+
+source_file="res://sounds/Wake Up Project_sounds_звук_фон_2.mp3"
+dest_files=[ "res://.import/Wake Up Project_sounds_звук_фон_2.mp3-24f2e3536c59ec72e5ed80b75b56a748.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

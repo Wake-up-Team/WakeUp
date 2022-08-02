@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/darker_icon_tg.png-42c7285613a3274a35c257c1ccb764cf.stex"
+path="res://.import/icon_tg.png-fe944a32488a456e042dba5d7d9b52c3.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Title screen/darker_icon_tg.png"
-dest_files=[ "res://.import/darker_icon_tg.png-42c7285613a3274a35c257c1ccb764cf.stex" ]
+source_file="res://Images/icon_tg.png"
+dest_files=[ "res://.import/icon_tg.png-fe944a32488a456e042dba5d7d9b52c3.stex" ]
 
 [params]
 
