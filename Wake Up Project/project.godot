@@ -18,7 +18,6 @@ config/icon="res://icon.png"
 
 MusicScene="*res://scenes/MusicScene.tscn"
 GlobalOptions="*res://scripts/GlobalOptions.cs"
-GlobalWorldEnvironment="*res://scenes/WorldEnvironment.tscn"
 
 [display]
 
