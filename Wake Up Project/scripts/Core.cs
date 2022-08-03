@@ -1,5 +1,4 @@
 using Godot;
-using System;
 
 public class Core : Node2D
 {
@@ -7,22 +6,22 @@ public class Core : Node2D
     [Export]
     public Position2D RespPos;
 
-    
+
     public override void _Ready()
     {
 
     }
 
 
-    public void RespawnPlayer()
+    public void RespawnPlayer(Vector2 spawnPosition)
     {
         PlayerController playerController = GetNode<PlayerController>("Player");
-        playerController.GlobalPosition = RespPos.GlobalPosition;
-        playerController.RespawnPlayer();
+        playerController.RespawnPlayer(spawnPosition);
     }
 
     private void _on_Player_Death()
     {
-        RespawnPlayer();
+        Vector2 spawnPosition = GetNode<Position2D>("RespPos").Position;
+        RespawnPlayer(spawnPosition);
     }
 }

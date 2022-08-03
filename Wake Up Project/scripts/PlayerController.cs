@@ -1,5 +1,4 @@
 using Godot;
-using System;
 
 public class PlayerController : KinematicBody2D
 {
@@ -9,8 +8,8 @@ public class PlayerController : KinematicBody2D
     private int gravity = 400;
     private int jumpHeigth = 200;
 
-    private float acceleration = .25f;
-    private float friction = .5f;
+    private float acceleration = 0.25f;
+    private float friction = 0.5f;
 
     private bool isInAir = false;
 
@@ -19,7 +18,7 @@ public class PlayerController : KinematicBody2D
     private int direction = 0;
 
     private bool isTakingDamage = false;
-    public int health = 3;
+    private int health = 3;
 
     [Signal]
     public delegate void Death();
@@ -121,8 +120,9 @@ public class PlayerController : KinematicBody2D
         }
     }
 
-    public void RespawnPlayer()
+    public void RespawnPlayer(Vector2 spawnPosition)
     {
+        Position = spawnPosition;
         Show();
         health = 3;
     }
