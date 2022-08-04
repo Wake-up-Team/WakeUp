@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://Sprites/player/running/2.png" type="Texture" id=1]
 [ext_resource path="res://Sprites/tiles/upper.png" type="Texture" id=2]
@@ -27,6 +27,7 @@
 [ext_resource path="res://Sprites/death/default/3.png" type="Texture" id=25]
 [ext_resource path="res://scripts/Core.cs" type="Script" id=26]
 [ext_resource path="res://scenes/RespPos.tscn" type="PackedScene" id=27]
+[ext_resource path="res://scenes/HUD.tscn" type="PackedScene" id=28]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -183,6 +184,9 @@ shape = SubResource( 12 )
 [node name="RespPos" parent="." instance=ExtResource( 27 )]
 position = Vector2( -100, -180 )
 
+[node name="HUD" parent="." instance=ExtResource( 28 )]
+
 [connection signal="Death" from="Player" to="." method="_on_Player_Death"]
 [connection signal="animation_finished" from="Player/AnimatedSprite" to="Player" method="_on_AnimatedSprite_animation_finished"]
 [connection signal="body_entered" from="Spike/Area2D" to="Spike" method="_on_Area2D_body_entered"]
+[connection signal="RestartGame" from="HUD" to="." method="_on_HUD_RestartGame"]
