@@ -2,6 +2,9 @@ using Godot;
 
 public class OptionsMenu : Popup
 {
+
+    [Export]
+    private string _sceneName = "OptionsMenu";
     private GlobalOptions _globalOptions;
 
     public OptionsMenu()

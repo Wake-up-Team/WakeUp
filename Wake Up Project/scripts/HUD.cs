@@ -6,6 +6,9 @@ public class HUD : CanvasLayer
     [Signal]
     public delegate void RestartGame();
 
+    [Signal]
+    public delegate void ChangeScene(string nextSceneName);
+
     public override void _Ready()
     {
     }
@@ -40,7 +43,7 @@ public class HUD : CanvasLayer
 
     private void _on_BackToMenuButton_pressed()
     {
-        GetTree().ChangeScene("res://scenes/TitleScreen.tscn");
+        EmitSignal("ChangeScene", "TitleScreen");
     }
 
     private void _on_MessageTimer_timeout()

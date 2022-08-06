@@ -1,7 +1,6 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scripts/TitleScreen.cs" type="Script" id=1]
-[ext_resource path="res://scenes/WorldEnvironment.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/OptionsMenuScene.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Fonts/ConnectionII.otf" type="DynamicFontData" id=4]
 
@@ -22,14 +21,14 @@ bg_color = Color( 0.00392157, 0.00392157, 0.0666667, 0.784314 )
 [sub_resource type="StyleBoxFlat" id=6]
 bg_color = Color( 0.00392157, 0.00392157, 0.0666667, 0.588235 )
 
-[sub_resource type="StyleBoxFlat" id=3]
+[sub_resource type="StyleBoxFlat" id=7]
 bg_color = Color( 0.00392157, 0.00392157, 0.0666667, 0.392157 )
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[sub_resource type="StyleBoxFlat" id=7]
+[sub_resource type="StyleBoxFlat" id=10]
 bg_color = Color( 0.00392157, 0.00392157, 0.0666667, 0.588235 )
 
 [sub_resource type="StyleBoxFlat" id=8]
@@ -108,7 +107,7 @@ custom_fonts/font = SubResource( 2 )
 custom_styles/hover = SubResource( 4 )
 custom_styles/pressed = SubResource( 5 )
 custom_styles/focus = SubResource( 6 )
-custom_styles/normal = SubResource( 3 )
+custom_styles/normal = SubResource( 7 )
 text = "Play"
 
 [node name="Options" type="MarginContainer" parent="MarginContainer/VBoxContainer/Buttons"]
@@ -130,8 +129,8 @@ size_flags_vertical = 3
 custom_fonts/font = SubResource( 2 )
 custom_styles/hover = SubResource( 4 )
 custom_styles/pressed = SubResource( 5 )
-custom_styles/focus = SubResource( 7 )
-custom_styles/normal = SubResource( 3 )
+custom_styles/focus = SubResource( 10 )
+custom_styles/normal = SubResource( 7 )
 text = "Options"
 
 [node name="About" type="MarginContainer" parent="MarginContainer/VBoxContainer/Buttons"]
@@ -153,7 +152,7 @@ custom_fonts/font = SubResource( 2 )
 custom_styles/hover = SubResource( 4 )
 custom_styles/pressed = SubResource( 5 )
 custom_styles/focus = SubResource( 8 )
-custom_styles/normal = SubResource( 3 )
+custom_styles/normal = SubResource( 7 )
 text = "About the game"
 
 [node name="Quit" type="MarginContainer" parent="MarginContainer/VBoxContainer/Buttons"]
@@ -177,10 +176,8 @@ custom_fonts/font = SubResource( 2 )
 custom_styles/hover = SubResource( 4 )
 custom_styles/pressed = SubResource( 5 )
 custom_styles/focus = SubResource( 9 )
-custom_styles/normal = SubResource( 3 )
+custom_styles/normal = SubResource( 7 )
 text = "Quit"
-
-[node name="WorldEnvironment" parent="." instance=ExtResource( 2 )]
 
 [node name="OptionsMenu" parent="." instance=ExtResource( 3 )]
 visible = false

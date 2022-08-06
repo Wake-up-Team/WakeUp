@@ -3,6 +3,10 @@ using Godot;
 public class TitleScreen : Control
 {
 
+    [Signal]
+    public delegate void ChangeScene(string nextSceneName);
+    [Export]
+    private string _sceneName = "TitleScreen";
     public override void _Ready()
     {
         Button playBtn = GetNode<Button>("MarginContainer/VBoxContainer/Buttons/Play/PlayBtn");
@@ -11,7 +15,7 @@ public class TitleScreen : Control
 
     public void _on_PlayBtn_button_up()
     {
-        GetTree().ChangeScene("res://scenes/Core.tscn");
+        EmitSignal("ChangeScene", "Core");
     }
 
     public void _on_OptionsBtn_button_up()
@@ -21,7 +25,7 @@ public class TitleScreen : Control
 
     public void _on_AboutBtn_button_up()
     {
-        GetTree().ChangeScene("res://scenes/AboutScene.tscn");
+        EmitSignal("ChangeScene", "AboutScene");
     }
 
     public void _on_QuitBtn_button_up()

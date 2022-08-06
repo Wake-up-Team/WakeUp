@@ -11,7 +11,7 @@ config_version=4
 [application]
 
 config/name="Wake Up"
-run/main_scene="res://scenes/TitleScreen.tscn"
+run/main_scene="res://scenes/SceneSwitcher.tscn"
 config/icon="res://icon.png"
 
 [autoload]
