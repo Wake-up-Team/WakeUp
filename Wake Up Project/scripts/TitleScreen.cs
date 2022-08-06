@@ -2,20 +2,21 @@ using Godot;
 
 public class TitleScreen : Control
 {
-
-    [Signal]
-    public delegate void ChangeScene(string nextSceneName);
-    [Export]
-    private string _sceneName = "TitleScreen";
     public override void _Ready()
     {
         Button playBtn = GetNode<Button>("MarginContainer/VBoxContainer/Buttons/Play/PlayBtn");
         playBtn.GrabFocus();
     }
 
+    private void SwitchScene(string nextScenePath)
+    {
+        var sceneSwitcher = GetNode<SceneSwitcher>("/root/SceneSwitcher");
+        sceneSwitcher.SwitchScene(nextScenePath);
+    }
+    
     public void _on_PlayBtn_button_up()
     {
-        EmitSignal("ChangeScene", "Core");
+        SwitchScene("res://scenes/Core.tscn");
     }
 
     public void _on_OptionsBtn_button_up()
@@ -25,7 +26,7 @@ public class TitleScreen : Control
 
     public void _on_AboutBtn_button_up()
     {
-        EmitSignal("ChangeScene", "AboutScene");
+        SwitchScene("res://scenes/AboutScene.tscn");
     }
 
     public void _on_QuitBtn_button_up()

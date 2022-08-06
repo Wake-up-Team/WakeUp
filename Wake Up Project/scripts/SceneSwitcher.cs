@@ -1,31 +1,22 @@
 using Godot;
-using System.Collections.Generic;
+using System;
 
 public class SceneSwitcher : Node
 {
-    private Node _currentScene;
-
-    private Dictionary<string, string> _sceneNameAndPath = new Dictionary<string, string>{
-        {"TitleScreen", "res://scenes/TitleScreen.tscn"},
-        {"Core", "res://scenes/Core.tscn"},
-        {"AboutScene", "res://scenes/AboutScene.tscn"},
-    };
+    public Node CurrentScene { get; set; }
 
     public override void _Ready()
     {
-        _currentScene = GetNode<Control>("TitleScreen");
+        Viewport root = GetTree().Root;
+        CurrentScene = root.GetChild(root.GetChildCount() - 1);
     }
 
-    private void _on_ChangeScene(string nextSceneName)
+    public void SwitchScene(string nextScenePath)
     {
-        if (_sceneNameAndPath.ContainsKey(nextSceneName))
-        {
-            string nextScenePath = _sceneNameAndPath[nextSceneName];
-            var nextScene = ((PackedScene)ResourceLoader.Load(nextScenePath)).Instance();
-            _currentScene.QueueFree();
-            _currentScene = nextScene;
-            AddChild(_currentScene);
-            _currentScene.Connect("ChangeScene", this, nameof(_on_ChangeScene));
-        }
+        CurrentScene.QueueFree();
+        var nextScene = (PackedScene)GD.Load(nextScenePath);
+        CurrentScene = nextScene.Instance();
+        GetTree().Root.AddChild(CurrentScene);
+        GetTree().CurrentScene = CurrentScene;
     }
 }

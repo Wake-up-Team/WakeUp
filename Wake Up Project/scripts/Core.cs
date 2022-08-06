@@ -6,12 +6,6 @@ public class Core : Node2D
     [Export]
     public Position2D RespPos;
 
-    [Export]
-    private string _sceneName = "Core";
-
-    [Signal]
-    public delegate void ChangeScene(string nextSceneName);
-
     public override void _Ready()
     {
         GetNode<MarginContainer>("HUD/MarginContainer").Hide();
@@ -38,10 +32,5 @@ public class Core : Node2D
 
         var hud = GetNode<HUD>("HUD");
         hud.ShowMessage("Get Ready!");
-    }
-
-    private void _on_HUD_ChangeScene(string nextSceneName)
-    {
-        EmitSignal("ChangeScene", nextSceneName);
     }
 }

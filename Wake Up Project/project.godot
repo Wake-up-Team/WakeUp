@@ -11,13 +11,14 @@ config_version=4
 [application]
 
 config/name="Wake Up"
-run/main_scene="res://scenes/SceneSwitcher.tscn"
+run/main_scene="res://scenes/TitleScreen.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
 MusicScene="*res://scenes/MusicScene.tscn"
 GlobalOptions="*res://scripts/GlobalOptions.cs"
+SceneSwitcher="*res://scripts/SceneSwitcher.cs"
 
 [display]
 
