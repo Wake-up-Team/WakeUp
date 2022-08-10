@@ -1,5 +1,4 @@
 using Godot;
-
 public class TitleScreen : Control
 {
     public override void _Ready()
@@ -13,7 +12,7 @@ public class TitleScreen : Control
         var sceneSwitcher = GetNode<SceneSwitcher>("/root/SceneSwitcher");
         sceneSwitcher.SwitchScene(nextScenePath);
     }
-    
+
     public void _on_PlayBtn_button_up()
     {
         SwitchScene("res://scenes/Core.tscn");

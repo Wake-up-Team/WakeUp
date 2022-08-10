@@ -3,7 +3,6 @@
 [ext_resource path="res://Fonts/ConnectionII.otf" type="DynamicFontData" id=1]
 [ext_resource path="res://scripts/OptionsMenu.cs" type="Script" id=2]
 
-
 [sub_resource type="DynamicFont" id=1]
 size = 26
 font_data = ExtResource( 1 )
@@ -44,7 +43,6 @@ anchor_bottom = 1.0
 tab_align = 0
 
 [node name="Video" type="Tabs" parent="OptionsTabs"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -103,26 +101,8 @@ margin_right = 642.0
 margin_bottom = 113.0
 size_flags_horizontal = 10
 
-[node name="BrightnessLbl" type="Label" parent="OptionsTabs/Video/MarginContainer/VideoOptions"]
-margin_top = 136.0
-margin_right = 174.0
-margin_bottom = 163.0
-custom_fonts/font = SubResource( 4 )
-text = "Brightness"
-
-[node name="BrightnessSlider" type="HSlider" parent="OptionsTabs/Video/MarginContainer/VideoOptions"]
-margin_left = 242.0
-margin_top = 136.0
-margin_right = 642.0
-margin_bottom = 163.0
-rect_min_size = Vector2( 400, 0 )
-size_flags_horizontal = 10
-size_flags_vertical = 1
-max_value = 2.0
-step = 0.1
-value = 1.0
-
 [node name="Audio" type="Tabs" parent="OptionsTabs"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -168,5 +148,4 @@ value = -20.0
 
 [connection signal="item_selected" from="OptionsTabs/Video/MarginContainer/VideoOptions/DisplayModeBtn" to="." method="_on_DisplayModeBtn_item_selected"]
 [connection signal="toggled" from="OptionsTabs/Video/MarginContainer/VideoOptions/VsyncBtn" to="." method="_on_VsyncBtn_toggled"]
-[connection signal="value_changed" from="OptionsTabs/Video/MarginContainer/VideoOptions/BrightnessSlider" to="." method="_on_BrightnessSlider_value_changed"]
 [connection signal="value_changed" from="OptionsTabs/Audio/MarginContainer/AudioOptions/VolumeSlider" to="." method="_on_VolumeSlider_value_changed"]

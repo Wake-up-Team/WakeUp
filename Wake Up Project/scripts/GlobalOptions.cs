@@ -15,11 +15,6 @@ public class GlobalOptions : Node
         }
     }
 
-    public override void _Ready()
-    {
-
-    }
-
     public void UpdateDisplayMode(bool shouldBeFullScreen)
     {
         OS.WindowFullscreen = shouldBeFullScreen;
@@ -33,11 +28,6 @@ public class GlobalOptions : Node
     public void EnableVsync(bool turnOnVsync)
     {
         OS.VsyncEnabled = turnOnVsync;
-    }
-
-    public void UpdateBrightness(float value)
-    {
-
     }
 
     public void UpdateVolume(float value)

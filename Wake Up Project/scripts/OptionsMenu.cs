@@ -2,19 +2,11 @@ using Godot;
 
 public class OptionsMenu : Popup
 {
-
-    [Export]
-    private string _sceneName = "OptionsMenu";
     private GlobalOptions _globalOptions;
 
     public OptionsMenu()
     {
         _globalOptions = GlobalOptions.GetInstance;
-    }
-    // Video settings.
-    public override void _Ready()
-    {
-
     }
 
     public void _on_DisplayModeBtn_item_selected(int index)
@@ -27,12 +19,6 @@ public class OptionsMenu : Popup
         _globalOptions.EnableVsync(buttonIsPressed);
     }
 
-    public void _on_BrightnessSlider_value_changed(float value)
-    {
-        _globalOptions.UpdateBrightness(value);
-    }
-
-    // Audio settings.
     public void _on_VolumeSlider_value_changed(float value)
     {
         _globalOptions.UpdateVolume(value);
