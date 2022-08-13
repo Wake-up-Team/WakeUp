@@ -21,20 +21,14 @@ public class HUD : CanvasLayer
     public void ShowGameOver()
     {
         ShowMessage("Game Over! Try again!");
-
-        var messageTimer = GetNode<Timer>("MessageTimer");
-
-        var message = GetNode<Label>("MarginContainer/VBoxContainer/Message");
-        message.Show();
-
-        GetNode<Button>("MarginContainer/VBoxContainer/BackToMenuButton").Show();
-        GetNode<Button>("MarginContainer/VBoxContainer/RestartButton").Show();
+    }
+    public void SetScore(int score)
+    {
+        GetNode<Label>("MarginContainer/VBoxContainer/Score").Text = "Score: " + score.ToString();
     }
 
     private void _on_RestartButton_pressed()
     {
-        GetNode<Button>("MarginContainer/VBoxContainer/RestartButton").Hide();
-        GetNode<Button>("MarginContainer/VBoxContainer/BackToMenuButton").Hide();
         EmitSignal("RestartGame");
     }
 
@@ -48,5 +42,4 @@ public class HUD : CanvasLayer
     {
         GetNode<Label>("MarginContainer/VBoxContainer/Message").Hide();
     }
-
 }
