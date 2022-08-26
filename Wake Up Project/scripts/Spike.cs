@@ -11,7 +11,7 @@ public class Spike : Node2D
     {
         if (body is PlayerController playerController && body is KinematicBody2D)
         {
-            playerController.TakeDamage();
+            playerController.TakeDamage(1);
         }
     }
 }

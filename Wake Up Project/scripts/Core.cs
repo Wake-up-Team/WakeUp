@@ -6,8 +6,12 @@ public class Core : Node2D
     [Export]
     public Position2D RespPos;
     private int _score = 0;
+
+    public Vector2 ScreenSize; // Size of the game window.
+
     public override void _Ready()
     {
+        ScreenSize = GetViewportRect().Size;
         GetNode<MarginContainer>("HUD/MarginContainer").Hide();
         GetNode<Timer>("ScoreTimer").Start();
     }

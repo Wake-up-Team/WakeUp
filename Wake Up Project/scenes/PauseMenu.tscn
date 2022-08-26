@@ -18,20 +18,18 @@ margin_right = 3.0
 margin_bottom = -2.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
-anchor_right = 0.113
-anchor_bottom = 0.165
 margin_left = 459.0
 margin_top = 278.0
 margin_right = 565.0
 margin_bottom = 322.0
 
 [node name="ResumeButton" type="Button" parent="CenterContainer/VBoxContainer"]
-margin_right = 221.0
+margin_right = 106.0
 margin_bottom = 20.0
 text = "Resume Game"
 
 [node name="Button2" type="Button" parent="CenterContainer/VBoxContainer"]
 margin_top = 24.0
-margin_right = 221.0
+margin_right = 106.0
 margin_bottom = 44.0
 text = "Menu"

@@ -94,9 +94,9 @@ public class PlayerController : KinematicBody2D
     }
 
 
-    public void TakeDamage()
+    public void TakeDamage(int damage)
     {
-        health -= 1;
+        health -= damage;
         GD.Print("health: " + health);
         animatedPlayerSprite.Play("TakeDamage");
         velocity = MoveAndSlide(new Vector2(800f * -direction, -120), Vector2.Up);

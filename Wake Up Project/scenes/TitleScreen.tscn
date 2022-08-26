@@ -180,7 +180,6 @@ custom_styles/normal = SubResource( 7 )
 text = "Quit"
 
 [node name="OptionsMenu" parent="." instance=ExtResource( 3 )]
-visible = false
 
 [connection signal="button_up" from="MarginContainer/VBoxContainer/Buttons/Play/PlayBtn" to="." method="_on_PlayBtn_button_up"]
 [connection signal="button_up" from="MarginContainer/VBoxContainer/Buttons/Options/OptionsBtn" to="." method="_on_OptionsBtn_button_up"]
