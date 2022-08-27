@@ -54,7 +54,11 @@ public class PlayerController : KinematicBody2D
 
                 if (IsOnFloor())
                 {
-                    if (Input.IsActionJustPressed("jump"))
+                    if(GetNode<RayCast2D>("DownRaycast").IsColliding() && Input.IsActionJustPressed("move_down")) {
+                        Position = new Vector2(Position.x, Position.y +1);
+                        GD.Print("Platform detected");
+                    }
+                    else if (Input.IsActionJustPressed("jump"))
                     {
                         velocity.y -= jumpHeigth;
                         animatedPlayerSprite.Play("Jump");
