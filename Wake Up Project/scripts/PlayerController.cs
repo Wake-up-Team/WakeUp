@@ -11,6 +11,8 @@ public class PlayerController : KinematicBody2D
     private float acceleration = 0.25f;
     private float friction = 0.5f;
 
+    private int impulse = 10;
+
     private bool isInAir = false;
 
     private AnimatedSprite animatedPlayerSprite;
@@ -29,7 +31,7 @@ public class PlayerController : KinematicBody2D
     }
 
 
-    public override void _Process(float delta)
+    public override void _PhysicsProcess(float delta)
     {
 
         if (health != 0)
@@ -88,7 +90,13 @@ public class PlayerController : KinematicBody2D
                     isTakingDamage = false;
                 }
             }
-            velocity = MoveAndSlide(velocity, Vector2.Up);
+            velocity = MoveAndSlide(velocity, Vector2.Up, false, 4, 0.785398f, false);
+            for (int i = 0; i < GetSlideCount(); i++) {
+                var collision = GetSlideCollision(i);
+                if (((Node)collision.Collider) is MovableBlock) {
+                    ((RigidBody2D)collision.Collider).ApplyCentralImpulse(-collision.Normal*impulse);
+                } 
+            }
         }
 
     }
