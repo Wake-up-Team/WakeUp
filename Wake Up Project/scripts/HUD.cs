@@ -35,7 +35,7 @@ public class HUD : CanvasLayer
 
     public void SetScore(int score)
     {
-        GetNode<Label>("MarginContainer/VBoxContainer/Score").Text = "Score: " + score.ToString();
+        GetNode<Label>("MarginContainer/VBoxContainer/Score/ScoreLabel").Text = score.ToString();
     }
 
     private void SwitchScene(string nextScenePath)

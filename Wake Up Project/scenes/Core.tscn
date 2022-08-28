@@ -251,11 +251,6 @@ animations = [ {
 "name": "idle",
 "speed": 6.0
 }, {
-"frames": [ ExtResource( 18 ), ExtResource( 17 ), ExtResource( 16 ) ],
-"loop": true,
-"name": "TakeDamage",
-"speed": 15.0
-}, {
 "frames": [ ExtResource( 14 ), ExtResource( 13 ) ],
 "loop": false,
 "name": "Jump",
@@ -269,6 +264,11 @@ animations = [ {
 "frames": [ ExtResource( 8 ), ExtResource( 5 ), ExtResource( 1 ), ExtResource( 6 ) ],
 "loop": true,
 "name": "running",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 18 ), ExtResource( 17 ), ExtResource( 16 ) ],
+"loop": true,
+"name": "TakeDamage",
 "speed": 15.0
 } ]
 
@@ -494,8 +494,6 @@ playing = true
 position = Vector2( -1, 0 )
 shape = SubResource( 14 )
 
-[node name="ScoreTimer" type="Timer" parent="."]
-
 [node name="RayCast2D" type="RayCast2D" parent="."]
 pause_mode = 1
 visible = false
@@ -515,6 +513,7 @@ default_color = Color( 1, 0, 0, 1 )
 pause_mode = 1
 position = Vector2( 396, -69 )
 
+[connection signal="CoinCollected" from="Player" to="." method="_on_Player_CoinCollected"]
 [connection signal="Death" from="Player" to="." method="_on_Player_Death"]
 [connection signal="animation_finished" from="Player/AnimatedSprite" to="Player" method="_on_AnimatedSprite_animation_finished"]
 [connection signal="body_entered" from="Spike2/Area2D" to="Spike2" method="_on_Area2D_body_entered"]
@@ -526,4 +525,3 @@ position = Vector2( 396, -69 )
 [connection signal="body_entered" from="Spike8/Area2D" to="Spike8" method="_on_Area2D_body_entered"]
 [connection signal="RestartGame" from="HUD" to="." method="_on_HUD_RestartGame"]
 [connection signal="body_entered" from="saw/Area2D" to="saw" method="_on_Area2D_body_entered"]
-[connection signal="timeout" from="ScoreTimer" to="." method="_on_ScoreTimer_timeout"]

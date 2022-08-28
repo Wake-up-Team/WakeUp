@@ -61,11 +61,6 @@ public class Core : Node2D
         GetNode<Timer>("ScoreTimer").Start();
     }
 
-    private void _on_ScoreTimer_timeout()
-    {
-        _score++;
-    }
-
     private void ShowPauseMenu()
     {
         GetNode<Button>("HUD/MarginContainer/VBoxContainer/ResumeButton").Show();
@@ -94,5 +89,10 @@ public class Core : Node2D
                 HidePauseMenu();
             }
         }
+    }
+
+    private void _on_Player_CoinCollected()
+    {
+        _score++;
     }
 }

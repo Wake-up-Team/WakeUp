@@ -2,6 +2,8 @@ using Godot;
 
 public class PlayerController : KinematicBody2D
 {
+    [Signal]
+    public delegate void CoinCollected();
     private Vector2 velocity = new Vector2();
 
     private int speed = 100;
