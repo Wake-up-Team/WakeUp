@@ -3,5 +3,6 @@
 [ext_resource path="res://sounds/Wake Up Project_sounds_звук_фон_2.mp3" type="AudioStream" id=1]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer"]
+pause_mode = 2
 stream = ExtResource( 1 )
 autoplay = true

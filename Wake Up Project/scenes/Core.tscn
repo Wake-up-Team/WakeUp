@@ -257,6 +257,11 @@ animations = [ {
 "name": "TakeDamage",
 "speed": 15.0
 }, {
+"frames": [ ExtResource( 14 ), ExtResource( 13 ) ],
+"loop": false,
+"name": "Jump",
+"speed": 3.0
+}, {
 "frames": [ ExtResource( 24 ), ExtResource( 23 ), ExtResource( 25 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ) ],
 "loop": true,
 "name": "default death",
@@ -266,11 +271,6 @@ animations = [ {
 "loop": true,
 "name": "running",
 "speed": 15.0
-}, {
-"frames": [ ExtResource( 14 ), ExtResource( 13 ) ],
-"loop": false,
-"name": "Jump",
-"speed": 3.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=12]
@@ -288,6 +288,7 @@ animations = [ {
 radius = 13.0
 
 [node name="Core" type="Node2D"]
+pause_mode = 2
 position = Vector2( 96, 167 )
 script = ExtResource( 26 )
 
@@ -313,6 +314,7 @@ tile_data = PoolIntArray( -1572878, 0, 0, -1572877, 0, 0, -1572876, 0, 0, -15728
 position = Vector2( 94, -40 )
 
 [node name="Player" type="KinematicBody2D" parent="."]
+pause_mode = 1
 position = Vector2( -42, -233 )
 script = ExtResource( 12 )
 __meta__ = {
@@ -476,6 +478,7 @@ position = Vector2( -43, -228 )
 [node name="HUD" parent="." instance=ExtResource( 28 )]
 
 [node name="saw" type="Node2D" parent="."]
+pause_mode = 1
 position = Vector2( 325, -188 )
 script = ExtResource( 33 )
 __meta__ = {
@@ -498,6 +501,7 @@ shape = SubResource( 14 )
 [node name="ScoreTimer" type="Timer" parent="."]
 
 [node name="ghost" parent="." instance=ExtResource( 35 )]
+pause_mode = 1
 position = Vector2( 396, -69 )
 
 [connection signal="Death" from="Player" to="." method="_on_Player_Death"]

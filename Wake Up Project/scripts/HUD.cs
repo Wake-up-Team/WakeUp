@@ -10,6 +10,16 @@ public class HUD : CanvasLayer
     {
     }
 
+    public void HideAllContent()
+    {
+        GetNode<Label>("MarginContainer/VBoxContainer/Score").Hide();
+        GetNode<Label>("MarginContainer/VBoxContainer/Message").Hide();
+        GetNode<Button>("MarginContainer/VBoxContainer/ResumeButton").Hide();
+        GetNode<Button>("MarginContainer/VBoxContainer/PauseMenuButton").Hide();
+        GetNode<Button>("MarginContainer/VBoxContainer/RestartButton").Hide();
+        GetNode<Button>("MarginContainer/VBoxContainer/BackToMenuButton").Hide();
+    }
+
     public void ShowMessage(string text)
     {
         var message = GetNode<Label>("MarginContainer/VBoxContainer/Message");
@@ -22,9 +32,39 @@ public class HUD : CanvasLayer
     {
         ShowMessage("Game Over! Try again!");
     }
+
     public void SetScore(int score)
     {
         GetNode<Label>("MarginContainer/VBoxContainer/Score").Text = "Score: " + score.ToString();
+    }
+
+    private void SwitchScene(string nextScenePath)
+    {
+        var sceneSwitcher = GetNode<SceneSwitcher>("/root/SceneSwitcher");
+        sceneSwitcher.SwitchScene(nextScenePath);
+    }
+
+    public void Pause()
+    {
+        GetTree().Paused = true;
+    }
+
+    public void Resume()
+    {
+        GetTree().Paused = false;
+    }
+
+    private void _on_ResumeButton_pressed()
+    {
+        Resume();
+        GetNode<Button>("MarginContainer/VBoxContainer/ResumeButton").Hide();
+        GetNode<Button>("MarginContainer/VBoxContainer/PauseMenuButton").Hide();
+    }
+
+    private void _on_PauseMenuButton_pressed()
+    {
+        Resume();
+        SwitchScene("res://scenes/TitleScreen.tscn");
     }
 
     private void _on_RestartButton_pressed()
