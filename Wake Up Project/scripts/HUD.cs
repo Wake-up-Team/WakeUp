@@ -6,13 +6,44 @@ public class HUD : CanvasLayer
     [Signal]
     public delegate void RestartGame();
 
+    private TextureRect[] _hpHearts = new TextureRect[3];
+
+    private int _lastVisibleHeartIndex;
+
     public override void _Ready()
     {
+        _hpHearts[0] = GetNode<TextureRect>("HBoxContainer/heart1");
+        _hpHearts[1] = GetNode<TextureRect>("HBoxContainer/heart2");
+        _hpHearts[2] = GetNode<TextureRect>("HBoxContainer/heart3");
+        _lastVisibleHeartIndex = _hpHearts.Length - 1;
+    }
+
+    private void HideHeart(int index)
+    {
+        _hpHearts[index].Hide();
+    }
+
+    public void HideNHearts(int numberOfHeartsToHide)
+    {
+        for (int i = 0; i < numberOfHeartsToHide && _lastVisibleHeartIndex >= 0; i++)
+        {
+            HideHeart(_lastVisibleHeartIndex);
+            _lastVisibleHeartIndex--;
+        }
+    }
+
+    public void ShowAllHearts()
+    {
+        foreach (TextureRect heart in _hpHearts)
+        {
+            heart.Show();
+        }
+        _lastVisibleHeartIndex = _hpHearts.Length - 1;
     }
 
     public void HideAllContent()
     {
-        GetNode<Label>("MarginContainer/VBoxContainer/Score").Hide();
+        GetNode<MarginContainer>("MarginContainer/VBoxContainer/Score").Hide();
         GetNode<Label>("MarginContainer/VBoxContainer/Message").Hide();
         GetNode<Button>("MarginContainer/VBoxContainer/ResumeButton").Hide();
         GetNode<Button>("MarginContainer/VBoxContainer/PauseMenuButton").Hide();
