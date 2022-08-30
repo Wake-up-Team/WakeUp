@@ -48,6 +48,8 @@ margin_left = 4.0
 margin_top = 32.0
 margin_right = -4.0
 margin_bottom = -4.0
+focus_neighbour_left = NodePath("../Audio")
+focus_neighbour_right = NodePath("../Audio")
 
 [node name="MarginContainer" type="MarginContainer" parent="OptionsTabs/Video"]
 anchor_right = 1.0
@@ -76,15 +78,15 @@ custom_fonts/font = SubResource( 1 )
 text = "Display mode"
 
 [node name="DisplayModeBtn" type="OptionButton" parent="OptionsTabs/Video/MarginContainer/VideoOptions"]
-margin_left = 476.0
+margin_left = 484.0
 margin_right = 642.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 100, 50 )
 size_flags_horizontal = 10
 custom_fonts/font = SubResource( 2 )
-text = "Windowed"
+text = "Fullscreen"
 items = [ "Windowed", null, false, 0, null, "Fullscreen", null, false, 1, null ]
-selected = 0
+selected = 1
 
 [node name="VsyncLbl" type="Label" parent="OptionsTabs/Video/MarginContainer/VideoOptions"]
 margin_top = 79.0
@@ -108,6 +110,8 @@ margin_left = 4.0
 margin_top = 32.0
 margin_right = -4.0
 margin_bottom = -4.0
+focus_neighbour_left = NodePath("../Video")
+focus_neighbour_right = NodePath("../Video")
 
 [node name="MarginContainer" type="MarginContainer" parent="OptionsTabs/Audio"]
 anchor_right = 1.0

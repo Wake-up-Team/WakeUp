@@ -18,7 +18,6 @@ public class Core : Node2D
     {
         ScreenSize = GetViewportRect().Size;
         HideAllHudContent();
-        GetNode<Timer>("ScoreTimer").Start();
     }
 
 
@@ -30,6 +29,7 @@ public class Core : Node2D
 
     private void ShowPosthumousMenu()
     {
+        GetNode<MarginContainer>("HUD/MarginContainer/VBoxContainer/Score").Show();
         GetNode<Button>("HUD/MarginContainer/VBoxContainer/RestartButton").Show();
         GetNode<Button>("HUD/MarginContainer/VBoxContainer/BackToMenuButton").Show();
         GetNode<Button>("HUD/MarginContainer/VBoxContainer/RestartButton").GrabFocus();
@@ -37,6 +37,7 @@ public class Core : Node2D
 
     private void HidePosthumousMenu()
     {
+        GetNode<MarginContainer>("HUD/MarginContainer/VBoxContainer/Score").Hide();
         GetNode<Button>("HUD/MarginContainer/VBoxContainer/RestartButton").Hide();
         GetNode<Button>("HUD/MarginContainer/VBoxContainer/BackToMenuButton").Hide();
     }
@@ -46,24 +47,18 @@ public class Core : Node2D
         ShowPosthumousMenu();
         GetNode<HUD>("HUD").ShowGameOver();
         GetNode<HUD>("HUD").SetScore(_score);
-        GetNode<Timer>("ScoreTimer").Stop();
     }
 
     private void _on_HUD_RestartGame()
     {
         HidePosthumousMenu();
+        GetNode<HUD>("HUD").ShowAllHearts();
         _score = 0;
 
         Vector2 spawnPosition = GetNode<Position2D>("RespPos").Position;
         RespawnPlayer(spawnPosition);
 
         var hud = GetNode<HUD>("HUD");
-        GetNode<Timer>("ScoreTimer").Start();
-    }
-
-    private void _on_ScoreTimer_timeout()
-    {
-        _score++;
     }
 
     private void ShowPauseMenu()
@@ -94,5 +89,15 @@ public class Core : Node2D
                 HidePauseMenu();
             }
         }
+    }
+
+    private void _on_Player_CoinCollected()
+    {
+        _score++;
+    }
+
+    private void _on_Player_DamageTaken(int numberOfHeartsToHide)
+    {
+        GetNode<HUD>("HUD").HideNHearts(numberOfHeartsToHide);
     }
 }

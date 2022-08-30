@@ -33,7 +33,7 @@
 [ext_resource path="res://Sprites/bariers/pila3.png" type="Texture" id=31]
 [ext_resource path="res://Sprites/bariers/pila2.png" type="Texture" id=32]
 [ext_resource path="res://scripts/saw.cs" type="Script" id=33]
-[ext_resource path="res://scripts/MovabalePlatform.cs" type="Script" id=34]
+[ext_resource path="res://scripts/MovablePlatform.cs" type="Script" id=34]
 [ext_resource path="res://scenes/ghost.tscn" type="PackedScene" id=35]
 [ext_resource path="res://scenes/Spike.tscn" type="PackedScene" id=36]
 [ext_resource path="res://Sprites/tiles/platform/left platform part.png" type="Texture" id=37]
@@ -262,6 +262,11 @@ animations = [ {
 "name": "TakeDamage",
 "speed": 15.0
 }, {
+"frames": [ ExtResource( 24 ), ExtResource( 23 ), ExtResource( 25 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ) ],
+"loop": true,
+"name": "default death",
+"speed": 10.0
+}, {
 "frames": [ ExtResource( 14 ), ExtResource( 13 ) ],
 "loop": false,
 "name": "Jump",
@@ -271,11 +276,6 @@ animations = [ {
 "loop": true,
 "name": "running",
 "speed": 15.0
-}, {
-"frames": [ ExtResource( 24 ), ExtResource( 23 ), ExtResource( 25 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ) ],
-"loop": true,
-"name": "default death",
-"speed": 10.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=12]
@@ -317,25 +317,25 @@ color = Color( 0.313726, 0.313726, 0.313726, 1 )
 [node name="Movable Block" parent="." instance=ExtResource( 43 )]
 position = Vector2( 48, 0 )
 
-[node name="MovabalePlatform" type="Node2D" parent="."]
+[node name="MovablePlatform" type="Node2D" parent="."]
 position = Vector2( 22, -44 )
 script = ExtResource( 34 )
 
-[node name="PlatformBody" type="KinematicBody2D" parent="MovabalePlatform"]
+[node name="PlatformBody" type="KinematicBody2D" parent="MovablePlatform"]
 
-[node name="Sprite" type="Sprite" parent="MovabalePlatform/PlatformBody"]
+[node name="Sprite" type="Sprite" parent="MovablePlatform/PlatformBody"]
 texture = ExtResource( 45 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="MovabalePlatform/PlatformBody"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MovablePlatform/PlatformBody"]
 shape = SubResource( 26 )
 
-[node name="Tween" type="Tween" parent="MovabalePlatform/PlatformBody"]
+[node name="Tween" type="Tween" parent="MovablePlatform/PlatformBody"]
 
-[node name="MovementPositions" type="Node2D" parent="MovabalePlatform"]
+[node name="MovementPositions" type="Node2D" parent="MovablePlatform"]
 
-[node name="Position1" type="Position2D" parent="MovabalePlatform/MovementPositions"]
+[node name="Position1" type="Position2D" parent="MovablePlatform/MovementPositions"]
 
-[node name="Position2" type="Position2D" parent="MovabalePlatform/MovementPositions"]
+[node name="Position2" type="Position2D" parent="MovablePlatform/MovementPositions"]
 position = Vector2( 63, 0 )
 
 [node name="OneWayPlatform" parent="." instance=ExtResource( 44 )]
@@ -517,6 +517,7 @@ __meta__ = {
 position = Vector2( -1, 0 )
 frames = SubResource( 13 )
 animation = "saw"
+frame = 2
 playing = true
 
 [node name="Area2D" type="Area2D" parent="saw"]
@@ -525,12 +526,13 @@ playing = true
 position = Vector2( -1, 0 )
 shape = SubResource( 14 )
 
-[node name="ScoreTimer" type="Timer" parent="."]
-
 [node name="ghost" parent="." instance=ExtResource( 35 )]
 pause_mode = 1
 position = Vector2( 396, -69 )
 
+[connection signal="tween_completed" from="MovablePlatform/PlatformBody/Tween" to="MovablePlatform" method="_on_Tween_tween_completed"]
+[connection signal="CoinCollected" from="Player" to="." method="_on_Player_CoinCollected"]
+[connection signal="DamageTaken" from="Player" to="." method="_on_Player_DamageTaken"]
 [connection signal="Death" from="Player" to="." method="_on_Player_Death"]
 [connection signal="animation_finished" from="Player/AnimatedSprite" to="Player" method="_on_AnimatedSprite_animation_finished"]
 [connection signal="body_entered" from="Spike2/Area2D" to="Spike2" method="_on_Area2D_body_entered"]
@@ -542,4 +544,3 @@ position = Vector2( 396, -69 )
 [connection signal="body_entered" from="Spike8/Area2D" to="Spike8" method="_on_Area2D_body_entered"]
 [connection signal="RestartGame" from="HUD" to="." method="_on_HUD_RestartGame"]
 [connection signal="body_entered" from="saw/Area2D" to="saw" method="_on_Area2D_body_entered"]
-[connection signal="timeout" from="ScoreTimer" to="." method="_on_ScoreTimer_timeout"]

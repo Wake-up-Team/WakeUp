@@ -2,6 +2,12 @@ using Godot;
 
 public class PlayerController : KinematicBody2D
 {
+    [Signal]
+    public delegate void CoinCollected();
+
+    [Signal]
+    public delegate void DamageTaken(int numberOfHeartsToHide);
+
     private Vector2 velocity = new Vector2();
 
     private int speed = 100;
@@ -20,6 +26,7 @@ public class PlayerController : KinematicBody2D
     private int direction = 0;
 
     private bool isTakingDamage = false;
+
     private int health = 3;
 
     [Signal]
@@ -108,6 +115,7 @@ public class PlayerController : KinematicBody2D
 
     public void TakeDamage(int damage)
     {
+        EmitSignal("DamageTaken", damage);
         health -= damage;
         GD.Print("health: " + health);
         animatedPlayerSprite.Play("TakeDamage");
