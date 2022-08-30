@@ -11,7 +11,7 @@ public class PlayerController : KinematicBody2D
     private float acceleration = 0.25f;
     private float friction = 0.5f;
 
-    private int impulse = 10;
+    private int impulse = 5;
 
     private bool isInAir = false;
 
