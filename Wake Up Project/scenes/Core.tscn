@@ -247,7 +247,10 @@ pause_mode = 2
 position = Vector2( 96, 165 )
 script = ExtResource( 26 )
 
+[node name="HUD" parent="." instance=ExtResource( 28 )]
+
 [node name="background" type="Sprite" parent="."]
+visible = false
 position = Vector2( -215, -361 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 42 )
@@ -425,8 +428,6 @@ shape = SubResource( 12 )
 [node name="RespPos" parent="." instance=ExtResource( 27 )]
 position = Vector2( -43, -228 )
 
-[node name="HUD" parent="." instance=ExtResource( 28 )]
-
 [node name="saw" type="Node2D" parent="."]
 pause_mode = 1
 position = Vector2( 325, -188 )
@@ -439,6 +440,7 @@ __meta__ = {
 position = Vector2( -1, 0 )
 frames = SubResource( 13 )
 animation = "saw"
+frame = 2
 playing = true
 
 [node name="Area2D" type="Area2D" parent="saw"]
@@ -451,6 +453,7 @@ shape = SubResource( 14 )
 pause_mode = 1
 position = Vector2( 396, -69 )
 
+[connection signal="RestartGame" from="HUD" to="." method="_on_HUD_RestartGame"]
 [connection signal="tween_completed" from="MovablePlatform/PlatformBody/Tween" to="MovablePlatform" method="_on_Tween_tween_completed"]
 [connection signal="body_entered" from="Spike2/Area2D" to="Spike2" method="_on_Area2D_body_entered"]
 [connection signal="body_entered" from="Spike3/Area2D" to="Spike3" method="_on_Area2D_body_entered"]
@@ -459,5 +462,4 @@ position = Vector2( 396, -69 )
 [connection signal="body_entered" from="Spike6/Area2D" to="Spike6" method="_on_Area2D_body_entered"]
 [connection signal="body_entered" from="Spike7/Area2D" to="Spike7" method="_on_Area2D_body_entered"]
 [connection signal="body_entered" from="Spike8/Area2D" to="Spike8" method="_on_Area2D_body_entered"]
-[connection signal="RestartGame" from="HUD" to="." method="_on_HUD_RestartGame"]
 [connection signal="body_entered" from="saw/Area2D" to="saw" method="_on_Area2D_body_entered"]
