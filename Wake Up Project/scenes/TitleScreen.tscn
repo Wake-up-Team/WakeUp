@@ -1,6 +1,7 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://scripts/TitleScreen.cs" type="Script" id=1]
+[ext_resource path="res://sounds/звук_фон_2.mp3" type="AudioStream" id=2]
 [ext_resource path="res://scenes/OptionsMenuScene.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Fonts/ConnectionII.otf" type="DynamicFontData" id=4]
 
@@ -180,6 +181,11 @@ custom_styles/normal = SubResource( 7 )
 text = "Quit"
 
 [node name="OptionsMenu" parent="." instance=ExtResource( 3 )]
+
+[node name="MusicTitleScreen" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+volume_db = -27.092
+autoplay = true
 
 [connection signal="button_up" from="MarginContainer/VBoxContainer/Buttons/Play/PlayBtn" to="." method="_on_PlayBtn_button_up"]
 [connection signal="button_up" from="MarginContainer/VBoxContainer/Buttons/Options/OptionsBtn" to="." method="_on_OptionsBtn_button_up"]
