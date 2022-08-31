@@ -65,9 +65,9 @@ enabled = true
 cast_to = Vector2( 0, 5 )
 
 [node name="Light2D" type="Light2D" parent="."]
+position = Vector2( 0, 8 )
 texture = ExtResource( 5 )
 texture_scale = 0.5
-energy = 0.7
-shadow_enabled = true
+energy = 0.6
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
