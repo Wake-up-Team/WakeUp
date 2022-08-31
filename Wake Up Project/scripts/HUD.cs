@@ -90,6 +90,7 @@ public class HUD : CanvasLayer
         Resume();
         GetNode<Button>("MarginContainer/VBoxContainer/ResumeButton").Hide();
         GetNode<Button>("MarginContainer/VBoxContainer/PauseMenuButton").Hide();
+        GetNode<Button>("MarginContainer/VBoxContainer/RestartButton").Hide();
     }
 
     private void _on_PauseMenuButton_pressed()
@@ -100,6 +101,10 @@ public class HUD : CanvasLayer
 
     private void _on_RestartButton_pressed()
     {
+        if (GetTree().Paused)
+        {
+            Resume();
+        }
         EmitSignal("RestartGame");
     }
 

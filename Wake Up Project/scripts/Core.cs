@@ -51,7 +51,7 @@ public class Core : Node2D
 
     private void _on_HUD_RestartGame()
     {
-        HidePosthumousMenu();
+        HideAllHudContent();
         GetNode<HUD>("HUD").ShowAllHearts();
         _score = 0;
 
@@ -63,6 +63,7 @@ public class Core : Node2D
 
     private void ShowPauseMenu()
     {
+        GetNode<Button>("HUD/MarginContainer/VBoxContainer/RestartButton").Show();
         GetNode<Button>("HUD/MarginContainer/VBoxContainer/ResumeButton").Show();
         GetNode<Button>("HUD/MarginContainer/VBoxContainer/PauseMenuButton").Show();
         GetNode<Button>("HUD/MarginContainer/VBoxContainer/ResumeButton").GrabFocus();
@@ -70,6 +71,7 @@ public class Core : Node2D
 
     private void HidePauseMenu()
     {
+        GetNode<Button>("HUD/MarginContainer/VBoxContainer/RestartButton").Hide();
         GetNode<Button>("HUD/MarginContainer/VBoxContainer/ResumeButton").Hide();
         GetNode<Button>("HUD/MarginContainer/VBoxContainer/PauseMenuButton").Hide();
     }

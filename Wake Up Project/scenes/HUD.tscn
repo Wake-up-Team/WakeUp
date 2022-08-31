@@ -10,22 +10,18 @@ size = 64
 font_data = ExtResource( 1 )
 
 [sub_resource type="AtlasTexture" id=2]
-flags = 4
 atlas = ExtResource( 3 )
 region = Rect2( 0, 0, 8, 8 )
 
 [sub_resource type="AtlasTexture" id=3]
-flags = 4
 atlas = ExtResource( 3 )
 region = Rect2( 8, 0, 8, 8 )
 
 [sub_resource type="AtlasTexture" id=4]
-flags = 4
 atlas = ExtResource( 3 )
 region = Rect2( 16, 0, 8, 8 )
 
 [sub_resource type="AtlasTexture" id=5]
-flags = 4
 atlas = ExtResource( 3 )
 region = Rect2( 24, 0, 8, 8 )
 
@@ -101,6 +97,7 @@ position = Vector2( 39, 37 )
 scale = Vector2( 9.4375, 7.5625 )
 frames = SubResource( 8 )
 animation = "spinning"
+frame = 1
 playing = true
 
 [node name="ScoreLabel" type="Label" parent="MarginContainer/VBoxContainer/Score"]
