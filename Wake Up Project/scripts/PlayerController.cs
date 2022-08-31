@@ -115,6 +115,7 @@ public class PlayerController : KinematicBody2D
             animatedPlayerSprite.Play("default death");
             GD.Print("Player dead");
         }
+        GetNode<AudioStreamPlayer>("TakeDamageSound").Play();
     }
 
     private void _on_AnimatedSprite_animation_finished()
