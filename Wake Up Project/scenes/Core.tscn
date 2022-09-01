@@ -250,7 +250,6 @@ script = ExtResource( 26 )
 [node name="HUD" parent="." instance=ExtResource( 28 )]
 
 [node name="background" type="Sprite" parent="."]
-visible = false
 position = Vector2( -215, -361 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 42 )
@@ -440,7 +439,7 @@ __meta__ = {
 position = Vector2( -1, 0 )
 frames = SubResource( 13 )
 animation = "saw"
-frame = 2
+frame = 3
 playing = true
 
 [node name="Area2D" type="Area2D" parent="saw"]
