@@ -7,8 +7,6 @@ public class Core : Node2D
     public Position2D RespPos;
     private int _score = 0;
 
-    public Vector2 ScreenSize; // Size of the game window.
-
     private void HideAllHudContent()
     {
         GetNode<HUD>("HUD").HideAllContent();
@@ -16,7 +14,6 @@ public class Core : Node2D
 
     public override void _Ready()
     {
-        ScreenSize = GetViewportRect().Size;
         HideAllHudContent();
     }
 
