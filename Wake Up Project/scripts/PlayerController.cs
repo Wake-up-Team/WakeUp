@@ -128,11 +128,4 @@ public class PlayerController : KinematicBody2D
             EmitSignal(nameof(Death));
         }
     }
-
-    public void RespawnPlayer(Vector2 spawnPosition)
-    {
-        Position = spawnPosition;
-        Show();
-        health = 3;
-    }
 }

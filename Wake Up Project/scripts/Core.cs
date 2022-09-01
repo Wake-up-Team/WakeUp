@@ -20,26 +20,12 @@ public class Core : Node2D
         HideAllHudContent();
     }
 
-
-    public void RespawnPlayer(Vector2 spawnPosition)
-    {
-        PlayerController playerController = GetNode<PlayerController>("Player");
-        playerController.RespawnPlayer(spawnPosition);
-    }
-
     private void ShowPosthumousMenu()
     {
         GetNode<MarginContainer>("HUD/MarginContainer/VBoxContainer/Score").Show();
         GetNode<Button>("HUD/MarginContainer/VBoxContainer/RestartButton").Show();
         GetNode<Button>("HUD/MarginContainer/VBoxContainer/BackToMenuButton").Show();
         GetNode<Button>("HUD/MarginContainer/VBoxContainer/RestartButton").GrabFocus();
-    }
-
-    private void HidePosthumousMenu()
-    {
-        GetNode<MarginContainer>("HUD/MarginContainer/VBoxContainer/Score").Hide();
-        GetNode<Button>("HUD/MarginContainer/VBoxContainer/RestartButton").Hide();
-        GetNode<Button>("HUD/MarginContainer/VBoxContainer/BackToMenuButton").Hide();
     }
 
     private void _on_Player_Death()
@@ -51,14 +37,7 @@ public class Core : Node2D
 
     private void _on_HUD_RestartGame()
     {
-        HideAllHudContent();
-        GetNode<HUD>("HUD").ShowAllHearts();
-        _score = 0;
-
-        Vector2 spawnPosition = GetNode<Position2D>("RespPos").Position;
-        RespawnPlayer(spawnPosition);
-
-        var hud = GetNode<HUD>("HUD");
+        GetNode<SceneSwitcher>("/root/SceneSwitcher").SwitchScene("res://scenes/Core.tscn");
     }
 
     private void ShowPauseMenu()
