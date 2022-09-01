@@ -18,7 +18,6 @@ config/icon="res://icon.png"
 
 GlobalOptions="*res://scripts/GlobalOptions.cs"
 SceneSwitcher="*res://scripts/SceneSwitcher.cs"
-MusicScene="*res://scenes/MusicScene.tscn"
 
 [display]
 
