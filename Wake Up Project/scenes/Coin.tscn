@@ -132,9 +132,9 @@ script = ExtResource( 4 )
 [node name="Rotation" type="Sprite" parent="."]
 texture = ExtResource( 1 )
 hframes = 4
-frame = 1
 
 [node name="Collected" type="Sprite" parent="."]
+visible = false
 texture = ExtResource( 2 )
 hframes = 6
 
@@ -149,3 +149,4 @@ shape = SubResource( 1 )
 stream = ExtResource( 3 )
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

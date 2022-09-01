@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=2]
+[gd_scene load_steps=65 format=2]
 
 [ext_resource path="res://Sprites/player/running/3.png" type="Texture" id=1]
 [ext_resource path="res://Sprites/tiles/upper.png" type="Texture" id=2]
@@ -33,6 +33,7 @@
 [ext_resource path="res://Sprites/bariers/pila3.png" type="Texture" id=31]
 [ext_resource path="res://Sprites/bariers/pila2.png" type="Texture" id=32]
 [ext_resource path="res://scripts/saw.cs" type="Script" id=33]
+[ext_resource path="res://scenes/Coin.tscn" type="PackedScene" id=34]
 [ext_resource path="res://scenes/ghost.tscn" type="PackedScene" id=35]
 [ext_resource path="res://scenes/Spike.tscn" type="PackedScene" id=36]
 [ext_resource path="res://Sprites/tiles/platform/left platform part.png" type="Texture" id=37]
@@ -490,7 +491,7 @@ __meta__ = {
 position = Vector2( -1, 0 )
 frames = SubResource( 13 )
 animation = "saw"
-frame = 2
+frame = 1
 playing = true
 
 [node name="Area2D" type="Area2D" parent="saw"]
@@ -507,6 +508,12 @@ position = Vector2( 396, -69 )
 stream = ExtResource( 44 )
 volume_db = -27.112
 autoplay = true
+
+[node name="Coin" parent="." instance=ExtResource( 34 )]
+position = Vector2( 4, -46 )
+
+[node name="Coin2" parent="." instance=ExtResource( 34 )]
+position = Vector2( 47, -49 )
 
 [connection signal="CoinCollected" from="Player" to="." method="_on_Player_CoinCollected"]
 [connection signal="DamageTaken" from="Player" to="." method="_on_Player_DamageTaken"]

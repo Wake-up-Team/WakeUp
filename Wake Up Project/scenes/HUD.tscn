@@ -93,11 +93,10 @@ margin_bottom = 155.0
 custom_constants/margin_left = 100
 
 [node name="SpinningCoin" type="AnimatedSprite" parent="MarginContainer/VBoxContainer/Score"]
-position = Vector2( 39, 37 )
+position = Vector2( 39, 30 )
 scale = Vector2( 9.4375, 7.5625 )
 frames = SubResource( 8 )
 animation = "spinning"
-frame = 2
 playing = true
 
 [node name="ScoreLabel" type="Label" parent="MarginContainer/VBoxContainer/Score"]
