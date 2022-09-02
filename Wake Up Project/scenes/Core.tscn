@@ -257,20 +257,20 @@ animations = [ {
 "name": "TakeDamage",
 "speed": 15.0
 }, {
-"frames": [ ExtResource( 14 ), ExtResource( 13 ) ],
-"loop": false,
-"name": "Jump",
-"speed": 3.0
+"frames": [ ExtResource( 24 ), ExtResource( 23 ), ExtResource( 25 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ) ],
+"loop": true,
+"name": "default death",
+"speed": 10.0
 }, {
 "frames": [ ExtResource( 8 ), ExtResource( 5 ), ExtResource( 1 ), ExtResource( 6 ) ],
 "loop": true,
 "name": "running",
 "speed": 15.0
 }, {
-"frames": [ ExtResource( 24 ), ExtResource( 23 ), ExtResource( 25 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ) ],
-"loop": true,
-"name": "default death",
-"speed": 10.0
+"frames": [ ExtResource( 14 ), ExtResource( 13 ) ],
+"loop": false,
+"name": "Jump",
+"speed": 3.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=12]
@@ -310,6 +310,7 @@ tile_data = PoolIntArray( -1572878, 0, 0, -1572877, 0, 0, -1572876, 0, 0, -15728
 [node name="Player" type="KinematicBody2D" parent="."]
 pause_mode = 1
 position = Vector2( -42, -233 )
+collision_mask = 3
 script = ExtResource( 12 )
 __meta__ = {
 "_edit_group_": true
@@ -490,6 +491,7 @@ __meta__ = {
 position = Vector2( -1, 0 )
 frames = SubResource( 13 )
 animation = "saw"
+frame = 1
 playing = true
 
 [node name="Area2D" type="Area2D" parent="saw"]

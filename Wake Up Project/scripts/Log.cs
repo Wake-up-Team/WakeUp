@@ -1,6 +1,6 @@
 using Godot;
 
-public class Log : Area2D
+public class Log : StaticBody2D
 {
     private AnimationPlayer _animationPlayer;
 
