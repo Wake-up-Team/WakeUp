@@ -93,11 +93,10 @@ margin_bottom = 155.0
 custom_constants/margin_left = 100
 
 [node name="SpinningCoin" type="AnimatedSprite" parent="MarginContainer/VBoxContainer/Score"]
-position = Vector2( 39, 37 )
+position = Vector2( 39, 30 )
 scale = Vector2( 9.4375, 7.5625 )
 frames = SubResource( 8 )
 animation = "spinning"
-frame = 1
 playing = true
 
 [node name="ScoreLabel" type="Label" parent="MarginContainer/VBoxContainer/Score"]
@@ -108,10 +107,24 @@ custom_fonts/font = SubResource( 9 )
 text = "temp text"
 autowrap = true
 
-[node name="RestartButton" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="ResumeButton" type="Button" parent="MarginContainer/VBoxContainer"]
+pause_mode = 2
 margin_top = 180.0
 margin_right = 824.0
 margin_bottom = 245.0
+focus_neighbour_top = NodePath("../PauseMenuButton")
+focus_neighbour_bottom = NodePath("../PauseMenuButton")
+custom_fonts/font = SubResource( 10 )
+custom_styles/hover = SubResource( 11 )
+custom_styles/pressed = SubResource( 12 )
+custom_styles/focus = SubResource( 6 )
+custom_styles/normal = SubResource( 13 )
+text = "Resume"
+
+[node name="RestartButton" type="Button" parent="MarginContainer/VBoxContainer"]
+margin_top = 270.0
+margin_right = 824.0
+margin_bottom = 335.0
 focus_neighbour_top = NodePath("../BackToMenuButton")
 focus_neighbour_bottom = NodePath("../BackToMenuButton")
 custom_fonts/font = SubResource( 10 )
@@ -122,9 +135,9 @@ custom_styles/normal = SubResource( 13 )
 text = "Restart"
 
 [node name="BackToMenuButton" type="Button" parent="MarginContainer/VBoxContainer"]
-margin_top = 270.0
+margin_top = 360.0
 margin_right = 824.0
-margin_bottom = 335.0
+margin_bottom = 425.0
 focus_neighbour_top = NodePath("../RestartButton")
 focus_neighbour_bottom = NodePath("../RestartButton")
 custom_fonts/font = SubResource( 7 )
@@ -133,20 +146,6 @@ custom_styles/pressed = SubResource( 12 )
 custom_styles/focus = SubResource( 6 )
 custom_styles/normal = SubResource( 13 )
 text = "Back to menu"
-
-[node name="ResumeButton" type="Button" parent="MarginContainer/VBoxContainer"]
-pause_mode = 2
-margin_top = 360.0
-margin_right = 824.0
-margin_bottom = 425.0
-focus_neighbour_top = NodePath("../PauseMenuButton")
-focus_neighbour_bottom = NodePath("../PauseMenuButton")
-custom_fonts/font = SubResource( 10 )
-custom_styles/hover = SubResource( 11 )
-custom_styles/pressed = SubResource( 12 )
-custom_styles/focus = SubResource( 6 )
-custom_styles/normal = SubResource( 13 )
-text = "Resume"
 
 [node name="PauseMenuButton" type="Button" parent="MarginContainer/VBoxContainer"]
 pause_mode = 2
@@ -196,8 +195,8 @@ margin_bottom = 13.0
 texture = ExtResource( 4 )
 stretch_mode = 1
 
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ResumeButton" to="." method="_on_ResumeButton_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/RestartButton" to="." method="_on_RestartButton_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/BackToMenuButton" to="." method="_on_BackToMenuButton_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/ResumeButton" to="." method="_on_ResumeButton_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/PauseMenuButton" to="." method="_on_PauseMenuButton_pressed"]
 [connection signal="timeout" from="MessageTimer" to="." method="_on_MessageTimer_timeout"]
