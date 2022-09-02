@@ -138,6 +138,8 @@ public class PlayerController : KinematicBody2D
             GD.Print("Anim finished");
             Hide();
             EmitSignal(nameof(Death));
+            CollisionShape2D shape = GetNode<CollisionShape2D>("CollisionShape2D");
+            shape.QueueFree();
         }
     }
 }
