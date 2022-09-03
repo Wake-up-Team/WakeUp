@@ -10,9 +10,10 @@ public class SceneSwitcher : Node
         CurrentScene = root.GetChild(root.GetChildCount() - 1);
     }
 
-    public void SwitchScene(string nextScenePath)
+    public async void SwitchScene(string nextScenePath)
     {
         CurrentScene.QueueFree();
+        await ToSignal(GetTree().CreateTimer(0.00000001f), "timeout");
         var nextScene = (PackedScene)GD.Load(nextScenePath);
         CurrentScene = nextScene.Instance();
         GetTree().Root.AddChild(CurrentScene);

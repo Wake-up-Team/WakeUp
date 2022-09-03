@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=2]
+[gd_scene load_steps=50 format=2]
 
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Sprites/tiles/upper.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://sounds/TakeDamageMem.wav" type="AudioStream" id=5]
 [ext_resource path="res://scenes/Coin.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/Log.tscn" type="PackedScene" id=7]
+[ext_resource path="res://sounds/звук_фон_1.mp3" type="AudioStream" id=8]
 [ext_resource path="res://Sprites/bariers/spike.png" type="Texture" id=11]
 [ext_resource path="res://scripts/Spike.cs" type="Script" id=15]
 [ext_resource path="res://scripts/Core.cs" type="Script" id=26]
@@ -450,7 +451,6 @@ __meta__ = {
 position = Vector2( -1, 0 )
 frames = SubResource( 13 )
 animation = "saw"
-frame = 3
 playing = true
 
 [node name="Area2D" type="Area2D" parent="saw"]
@@ -464,7 +464,8 @@ pause_mode = 1
 position = Vector2( 396, -69 )
 
 [node name="MusicCoreScreen" type="AudioStreamPlayer" parent="."]
-volume_db = -27.112
+stream = ExtResource( 8 )
+volume_db = 10.8
 autoplay = true
 
 [node name="Log" parent="." instance=ExtResource( 7 )]
