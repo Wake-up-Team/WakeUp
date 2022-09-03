@@ -48,7 +48,6 @@ public class HUD : CanvasLayer
         GetNode<Button>("MarginContainer/VBoxContainer/ResumeButton").Hide();
         GetNode<Button>("MarginContainer/VBoxContainer/PauseMenuButton").Hide();
         GetNode<Button>("MarginContainer/VBoxContainer/RestartButton").Hide();
-        GetNode<Button>("MarginContainer/VBoxContainer/BackToMenuButton").Hide();
     }
 
     public void ShowMessage(string text)

@@ -21,7 +21,7 @@ public class Core : Node2D
     {
         GetNode<MarginContainer>("HUD/MarginContainer/VBoxContainer/Score").Show();
         GetNode<Button>("HUD/MarginContainer/VBoxContainer/RestartButton").Show();
-        GetNode<Button>("HUD/MarginContainer/VBoxContainer/BackToMenuButton").Show();
+        GetNode<Button>("HUD/MarginContainer/VBoxContainer/PauseMenuButton").Show();
         GetNode<Button>("HUD/MarginContainer/VBoxContainer/RestartButton").GrabFocus();
     }
 
