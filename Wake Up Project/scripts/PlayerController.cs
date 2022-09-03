@@ -17,6 +17,8 @@ public class PlayerController : KinematicBody2D
     private float acceleration = 0.25f;
     private float friction = 0.5f;
 
+    private int impulse = 5;
+
     private bool isInAir = false;
 
     private AnimatedSprite animatedPlayerSprite;
@@ -44,7 +46,7 @@ public class PlayerController : KinematicBody2D
     }
 
 
-    public override void _Process(float delta)
+    public override void _PhysicsProcess(float delta)
     {
 
         if (health != 0)
@@ -86,7 +88,11 @@ public class PlayerController : KinematicBody2D
 
                 if (IsOnFloor())
                 {
-                    if (Input.IsActionJustPressed("jump"))
+                    if(GetNode<RayCast2D>("DownRaycast").IsColliding() && Input.IsActionJustPressed("move_down")) {
+                        Position = new Vector2(Position.x, Position.y +1);
+                        GD.Print("Platform detected");
+                    }
+                    else if (Input.IsActionJustPressed("jump"))
                     {
                         velocity.y -= jumpHeigth;
                         animatedPlayerSprite.Play("Jump");
@@ -122,7 +128,13 @@ public class PlayerController : KinematicBody2D
                     isTakingDamage = false;
                 }
             }
-            velocity = MoveAndSlide(velocity, Vector2.Up);
+            velocity = MoveAndSlide(velocity, Vector2.Up, false, 4, 0.785398f, false);
+            for (int i = 0; i < GetSlideCount(); i++) {
+                var collision = GetSlideCollision(i);
+                if (((Node)collision.Collider) is MovableBlock) {
+                    ((RigidBody2D)collision.Collider).ApplyCentralImpulse(-collision.Normal*impulse);
+                } 
+            }
         }
 
     }
@@ -153,13 +165,8 @@ public class PlayerController : KinematicBody2D
             GD.Print("Anim finished");
             Hide();
             EmitSignal(nameof(Death));
+            CollisionShape2D shape = GetNode<CollisionShape2D>("CollisionShape2D");
+            shape.QueueFree();
         }
-    }
-
-    public void RespawnPlayer(Vector2 spawnPosition)
-    {
-        Position = spawnPosition;
-        Show();
-        health = 3;
     }
 }
