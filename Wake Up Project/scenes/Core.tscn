@@ -465,7 +465,7 @@ position = Vector2( 396, -69 )
 
 [node name="MusicCoreScreen" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
-volume_db = 10.8
+volume_db = -26.0
 autoplay = true
 
 [node name="Log" parent="." instance=ExtResource( 7 )]
