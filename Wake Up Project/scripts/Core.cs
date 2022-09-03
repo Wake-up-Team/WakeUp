@@ -72,6 +72,7 @@ public class Core : Node2D
     private void _on_Player_CoinCollected()
     {
         _score++;
+        GetNode<Label>("HUD/Score/ScoreLabel").Text = _score.ToString();
     }
 
     private void _on_Player_DamageTaken(int numberOfHeartsToHide)
