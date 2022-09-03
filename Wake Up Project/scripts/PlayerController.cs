@@ -26,7 +26,15 @@ public class PlayerController : KinematicBody2D
     private bool isTakingDamage = false;
 
     private int health = 3;
+    
+    private float shootTimer = 1f;
+    
+    private float shootTimerReset = 1f;
 
+    private bool isAbleToShoot = true;
+    [Export]
+    public PackedScene Fireball;
+    
     [Signal]
     public delegate void Death();
 
@@ -43,6 +51,25 @@ public class PlayerController : KinematicBody2D
         {
             velocity.y += gravity * delta;
             direction = 0;
+            if (Input.IsActionJustPressed("fire"))
+            {
+                if(isAbleToShoot)
+                {
+                    GD.Print("fire");
+                    isAbleToShoot = false;
+                    shootTimer = shootTimerReset;
+                }
+            }
+
+            if(shootTimer <= 0)
+            {
+                isAbleToShoot = true;
+            }
+            else 
+            {
+                shootTimer -= delta;
+            }
+
             if (!isTakingDamage)
             {
                 if (Input.IsActionPressed("move_left"))
