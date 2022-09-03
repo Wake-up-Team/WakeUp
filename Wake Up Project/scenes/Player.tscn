@@ -80,6 +80,7 @@ position = Vector2( 0, 2 )
 texture = ExtResource( 19 )
 texture_scale = 0.75
 energy = 0.7
+shadow_enabled = true
 
 [node name="DownRaycast" type="RayCast2D" parent="."]
 enabled = true
