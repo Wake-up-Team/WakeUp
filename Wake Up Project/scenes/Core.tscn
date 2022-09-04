@@ -252,14 +252,14 @@ pause_mode = 2
 position = Vector2( 96, 165 )
 script = ExtResource( 26 )
 
-[node name="CanvasModulate" type="CanvasModulate" parent="."]
-process_priority = 1
-color = Color( 0.313726, 0.313726, 0.313726, 1 )
-
 [node name="HUD" parent="." instance=ExtResource( 28 )]
 
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+light_mask = 15
+color = Color( 0.313726, 0.313726, 0.313726, 1 )
+
 [node name="background" type="Sprite" parent="."]
-position = Vector2( -215, -361 )
+position = Vector2( -323, -399 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 42 )
 centered = false
