@@ -266,6 +266,11 @@ centered = false
 [node name="FlashLight" parent="." instance=ExtResource( 46 )]
 position = Vector2( -41, -36 )
 
+[node name="Door" parent="." instance=ExtResource( 9 )]
+pause_mode = 1
+position = Vector2( 3, -11 )
+scale = Vector2( 3, 3 )
+
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource( 2 )
 cell_size = Vector2( 16, 16 )
@@ -301,11 +306,6 @@ position = Vector2( 63, 0 )
 
 [node name="OneWayPlatform" parent="." instance=ExtResource( 44 )]
 position = Vector2( -39, -18 )
-
-[node name="Door" parent="." instance=ExtResource( 9 )]
-pause_mode = 1
-position = Vector2( 3, -11 )
-scale = Vector2( 3, 3 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( -43, -233 )

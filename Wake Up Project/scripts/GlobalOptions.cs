@@ -34,4 +34,9 @@ public class GlobalOptions : Node
     {
         AudioServer.SetBusVolumeDb(0, value);
     }
+
+    public void TurnOffTheSound(bool turnOffTheSound)
+    {
+        AudioServer.SetBusMute(0, turnOffTheSound);
+    }
 }

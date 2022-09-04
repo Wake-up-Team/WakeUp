@@ -9,17 +9,22 @@ public class OptionsMenu : Popup
         _globalOptions = GlobalOptions.GetInstance;
     }
 
-    public void _on_DisplayModeBtn_item_selected(int index)
+    private void _on_DisplayModeBtn_item_selected(int index)
     {
         _globalOptions.UpdateDisplayMode(index == 1);
     }
 
-    public void _on_VsyncBtn_toggled(bool buttonIsPressed)
+    private void _on_VsyncBtn_toggled(bool buttonIsPressed)
     {
         _globalOptions.EnableVsync(buttonIsPressed);
     }
 
-    public void _on_VolumeSlider_value_changed(float value)
+    private void _on_TurnOffBtn_toggled(bool buttonIsPressed)
+    {
+        _globalOptions.TurnOffTheSound(buttonIsPressed);
+    }
+
+    private void _on_VolumeSlider_value_changed(float value)
     {
         _globalOptions.UpdateVolume(value);
     }

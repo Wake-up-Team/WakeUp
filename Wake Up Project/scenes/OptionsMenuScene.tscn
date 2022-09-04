@@ -20,6 +20,7 @@ size = 26
 font_data = ExtResource( 1 )
 
 [node name="OptionsMenu" type="Popup"]
+visible = true
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -42,6 +43,7 @@ anchor_bottom = 1.0
 tab_align = 0
 
 [node name="Video" type="Tabs" parent="OptionsTabs"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -103,7 +105,6 @@ margin_bottom = 113.0
 size_flags_horizontal = 10
 
 [node name="Audio" type="Tabs" parent="OptionsTabs"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -127,28 +128,43 @@ __meta__ = {
 [node name="AudioOptions" type="GridContainer" parent="OptionsTabs/Audio/MarginContainer"]
 margin_left = 25.0
 margin_top = 25.0
-margin_right = 667.0
+margin_right = 689.0
 margin_bottom = 439.0
 custom_constants/vseparation = 23
 columns = 2
 
 [node name="VolumeLbl" type="Label" parent="OptionsTabs/Audio/MarginContainer/AudioOptions"]
-margin_right = 92.0
+margin_right = 260.0
 margin_bottom = 27.0
 custom_fonts/font = SubResource( 4 )
 text = "Volume"
 
 [node name="VolumeSlider" type="HSlider" parent="OptionsTabs/Audio/MarginContainer/AudioOptions"]
-margin_left = 242.0
-margin_right = 642.0
+margin_left = 264.0
+margin_right = 664.0
 margin_bottom = 27.0
 rect_min_size = Vector2( 400, 0 )
 size_flags_horizontal = 10
 size_flags_vertical = 1
-min_value = -40.0
-max_value = 2.0
+min_value = -30.0
+max_value = 0.0
 value = -20.0
+
+[node name="SoundLbl" type="Label" parent="OptionsTabs/Audio/MarginContainer/AudioOptions"]
+margin_top = 56.0
+margin_right = 260.0
+margin_bottom = 83.0
+custom_fonts/font = SubResource( 3 )
+text = "Turn off the sound"
+
+[node name="TurnOffBtn" type="CheckButton" parent="OptionsTabs/Audio/MarginContainer/AudioOptions"]
+margin_left = 588.0
+margin_top = 50.0
+margin_right = 664.0
+margin_bottom = 90.0
+size_flags_horizontal = 10
 
 [connection signal="item_selected" from="OptionsTabs/Video/MarginContainer/VideoOptions/DisplayModeBtn" to="." method="_on_DisplayModeBtn_item_selected"]
 [connection signal="toggled" from="OptionsTabs/Video/MarginContainer/VideoOptions/VsyncBtn" to="." method="_on_VsyncBtn_toggled"]
 [connection signal="value_changed" from="OptionsTabs/Audio/MarginContainer/AudioOptions/VolumeSlider" to="." method="_on_VolumeSlider_value_changed"]
+[connection signal="toggled" from="OptionsTabs/Audio/MarginContainer/AudioOptions/TurnOffBtn" to="." method="_on_TurnOffBtn_toggled"]
