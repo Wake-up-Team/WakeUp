@@ -17,6 +17,7 @@ public class Door : Area2D
         {
             _animationPlayer.Play("open");
             _theDoorIsOpen = true;
+            GetNode<AudioStreamPlayer2D>("Opening").Play();
         }
     }
 

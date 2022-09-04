@@ -11,5 +11,5 @@ dest_files=[ "res://.import/звук_эффект(открытие двери, �
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0
