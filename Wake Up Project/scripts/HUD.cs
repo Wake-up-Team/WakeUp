@@ -32,15 +32,6 @@ public class HUD : CanvasLayer
         }
     }
 
-    public void ShowAllHearts()
-    {
-        foreach (TextureRect heart in _hpHearts)
-        {
-            heart.Show();
-        }
-        _lastVisibleHeartIndex = _hpHearts.Length - 1;
-    }
-
     public void HideAllContent()
     {
         GetNode<Label>("MarginContainer/VBoxContainer/Message").Hide();
@@ -54,7 +45,6 @@ public class HUD : CanvasLayer
         var message = GetNode<Label>("MarginContainer/VBoxContainer/Message");
         message.Text = text;
         message.Show();
-        GetNode<Timer>("MessageTimer").Start();
     }
 
     public void ShowGameOver()
@@ -105,10 +95,5 @@ public class HUD : CanvasLayer
     {
         var sceneSwitcher = GetNode<SceneSwitcher>("/root/SceneSwitcher");
         sceneSwitcher.SwitchScene("res://scenes/TitleScreen.tscn");
-    }
-
-    private void _on_MessageTimer_timeout()
-    {
-        GetNode<Label>("MarginContainer/VBoxContainer/Message").Hide();
     }
 }

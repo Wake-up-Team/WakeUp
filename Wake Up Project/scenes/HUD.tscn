@@ -123,10 +123,6 @@ custom_styles/focus = SubResource( 6 )
 custom_styles/normal = SubResource( 13 )
 text = "Menu"
 
-[node name="MessageTimer" type="Timer" parent="."]
-wait_time = 2.0
-one_shot = true
-
 [node name="Score" type="MarginContainer" parent="."]
 margin_top = 54.0
 margin_right = 300.0
@@ -138,7 +134,7 @@ position = Vector2( 24, 18 )
 scale = Vector2( 6.60938, 5.66406 )
 frames = SubResource( 8 )
 animation = "spinning"
-frame = 3
+frame = 1
 playing = true
 
 [node name="ScoreLabel" type="Label" parent="Score"]
@@ -181,4 +177,3 @@ stretch_mode = 1
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ResumeButton" to="." method="_on_ResumeButton_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/RestartButton" to="." method="_on_RestartButton_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/PauseMenuButton" to="." method="_on_PauseMenuButton_pressed"]
-[connection signal="timeout" from="MessageTimer" to="." method="_on_MessageTimer_timeout"]
