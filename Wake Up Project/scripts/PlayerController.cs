@@ -153,4 +153,12 @@ public class PlayerController : KinematicBody2D
             shape.QueueFree();
         }
     }
+
+    private void _on_FallZone_body_entered(object body) {
+        
+        if (body is PlayerController && body is KinematicBody2D)
+        {
+            TakeDamage(3);
+        }
+    }
 }
