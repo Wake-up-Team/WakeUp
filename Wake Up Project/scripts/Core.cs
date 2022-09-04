@@ -19,7 +19,6 @@ public class Core : Node2D
 
     private void ShowPosthumousMenu()
     {
-        GetNode<MarginContainer>("HUD/MarginContainer/VBoxContainer/Score").Show();
         GetNode<Button>("HUD/MarginContainer/VBoxContainer/RestartButton").Show();
         GetNode<Button>("HUD/MarginContainer/VBoxContainer/PauseMenuButton").Show();
         GetNode<Button>("HUD/MarginContainer/VBoxContainer/RestartButton").GrabFocus();
@@ -29,7 +28,6 @@ public class Core : Node2D
     {
         ShowPosthumousMenu();
         GetNode<HUD>("HUD").ShowGameOver();
-        GetNode<HUD>("HUD").SetScore(_score);
     }
 
     private void _on_HUD_RestartGame()
