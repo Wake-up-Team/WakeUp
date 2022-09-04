@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Elevator-Music-Gaming-Background-Music-_HD_.mp3-b81f4b9e04d6b6399a10691c241cbc82.mp3str"
+
+[deps]
+
+source_file="res://sounds/elevator/Elevator-Music-Gaming-Background-Music-_HD_.mp3"
+dest_files=[ "res://.import/Elevator-Music-Gaming-Background-Music-_HD_.mp3-b81f4b9e04d6b6399a10691c241cbc82.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
