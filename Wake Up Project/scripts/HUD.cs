@@ -43,7 +43,6 @@ public class HUD : CanvasLayer
 
     public void HideAllContent()
     {
-        GetNode<MarginContainer>("MarginContainer/VBoxContainer/Score").Hide();
         GetNode<Label>("MarginContainer/VBoxContainer/Message").Hide();
         GetNode<Button>("MarginContainer/VBoxContainer/ResumeButton").Hide();
         GetNode<Button>("MarginContainer/VBoxContainer/PauseMenuButton").Hide();
@@ -61,11 +60,6 @@ public class HUD : CanvasLayer
     public void ShowGameOver()
     {
         ShowMessage("Game Over! Try again!");
-    }
-
-    public void SetScore(int score)
-    {
-        GetNode<Label>("MarginContainer/VBoxContainer/Score/ScoreLabel").Text = score.ToString();
     }
 
     private void SwitchScene(string nextScenePath)
