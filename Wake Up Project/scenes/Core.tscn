@@ -305,7 +305,7 @@ position = Vector2( -39, -18 )
 
 [node name="Door" parent="." instance=ExtResource( 9 )]
 pause_mode = 1
-position = Vector2( 1047, -104 )
+position = Vector2( 3, -11 )
 scale = Vector2( 3, 3 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
@@ -458,7 +458,7 @@ __meta__ = {
 position = Vector2( -1, 0 )
 frames = SubResource( 13 )
 animation = "saw"
-frame = 1
+frame = 3
 playing = true
 
 [node name="Area2D" type="Area2D" parent="saw"]
