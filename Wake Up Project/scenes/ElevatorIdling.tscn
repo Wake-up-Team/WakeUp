@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://sounds/elevator/elevator music.mp3" type="AudioStream" id=1]
+[ext_resource path="res://Sprites/elevator idling/elevator idling3.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/elevator idling/elevator idling1.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/elevator idling/elevator idling2.png" type="Texture" id=4]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "elevator idling",
+"speed": 5.0
+} ]
+
+[node name="Elevator idling" type="Node2D"]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+animation = "elevator idling"
+frame = 2
+playing = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 1 )
