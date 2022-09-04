@@ -12,11 +12,28 @@ public class SceneSwitcher : Node
 
     public async void SwitchScene(string nextScenePath)
     {
-        CurrentScene.QueueFree();
+        if (CurrentScene != null)
+        {
+            CurrentScene.QueueFree();
+        }
         await ToSignal(GetTree().CreateTimer(0.00000001f), "timeout");
         var nextScene = (PackedScene)GD.Load(nextScenePath);
         CurrentScene = nextScene.Instance();
         GetTree().Root.AddChild(CurrentScene);
         GetTree().CurrentScene = CurrentScene;
+    }
+
+    public async void SwitchSceneWithDoor(string nextScenePath = "res://scenes/TitleScreen.tscn")
+    {
+        CurrentScene.QueueFree();
+        CurrentScene = null;
+
+        var elevatorScene = (PackedScene)GD.Load("res://scenes/ElevatorIdling.tscn");
+        var elevatorInstance = elevatorScene.Instance();
+        GetTree().Root.AddChild(elevatorInstance);
+        await ToSignal(GetTree().CreateTimer(6), "timeout");
+
+        elevatorInstance.QueueFree();
+        SwitchScene(nextScenePath);
     }
 }

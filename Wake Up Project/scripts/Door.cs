@@ -5,6 +5,9 @@ public class Door : Area2D
 {
     private AnimationPlayer _animationPlayer;
 
+    [Export]
+    private string _pathToTheSceneToWhichTheDoorLeads = "res://scenes/TitleScreen.tscn";
+    
     private bool _theDoorIsOpen = false;
     public override void _Ready()
     {
@@ -37,7 +40,7 @@ public class Door : Area2D
             if (_theDoorIsOpen && eventKey.Pressed && eventKey.Scancode == (int)KeyList.J)
             {
                 var sceneSwitcher = GetNode<SceneSwitcher>("/root/SceneSwitcher");
-                sceneSwitcher.SwitchScene("res://scenes/TitleScreen.tscn");
+                sceneSwitcher.SwitchSceneWithDoor(_pathToTheSceneToWhichTheDoorLeads);
             }
         }
     }
