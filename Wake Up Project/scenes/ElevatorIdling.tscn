@@ -1,9 +1,12 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://sounds/elevator/elevator music.mp3" type="AudioStream" id=1]
+[ext_resource path="res://sounds/elevator/Elevator-Music-Gaming-Background-Music-_HD_.mp3" type="AudioStream" id=1]
 [ext_resource path="res://Sprites/elevator idling/elevator idling3.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/elevator idling/elevator idling1.png" type="Texture" id=3]
 [ext_resource path="res://Sprites/elevator idling/elevator idling2.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/lights/light (1).png" type="Texture" id=5]
+[ext_resource path="res://Sprites/elevator idling/elevator bg.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/elevator idling/floor.png" type="Texture" id=7]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -14,6 +17,10 @@ animations = [ {
 } ]
 
 [node name="Elevator idling" type="Node2D"]
+position = Vector2( 0, 1 )
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color( 0.313726, 0.313726, 0.313726, 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
@@ -23,3 +30,24 @@ playing = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 1 )
+autoplay = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+zoom = Vector2( 0.1, 0.1 )
+
+[node name="Light2D" type="Light2D" parent="."]
+position = Vector2( 0, -7 )
+texture = ExtResource( 5 )
+texture_scale = 0.8
+energy = 0.8
+
+[node name="bg" type="Sprite" parent="."]
+position = Vector2( 0, 2 )
+scale = Vector2( 1.76563, 1 )
+z_index = -1
+texture = ExtResource( 6 )
+
+[node name="floor" type="Sprite" parent="."]
+position = Vector2( 0, 4 )
+texture = ExtResource( 7 )
