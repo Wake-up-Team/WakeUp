@@ -7,7 +7,7 @@ public class Door : Area2D
 
     [Export]
     private string _pathToTheSceneToWhichTheDoorLeads = "res://scenes/TitleScreen.tscn";
-    
+
     private bool _theDoorIsOpen = false;
     public override void _Ready()
     {
@@ -19,7 +19,6 @@ public class Door : Area2D
         if (body is PlayerController)
         {
             _animationPlayer.Play("open");
-            _theDoorIsOpen = true;
             GetNode<AudioStreamPlayer2D>("Opening").Play();
         }
     }
@@ -37,11 +36,19 @@ public class Door : Area2D
     {
         if (inputEvent is InputEventKey eventKey)
         {
-            if (_theDoorIsOpen && eventKey.Pressed && eventKey.Scancode == (int)KeyList.J)
+            if (_theDoorIsOpen == true && eventKey.Pressed && eventKey.Scancode == (int)KeyList.J)
             {
                 var sceneSwitcher = GetNode<SceneSwitcher>("/root/SceneSwitcher");
                 sceneSwitcher.SwitchSceneWithDoor(_pathToTheSceneToWhichTheDoorLeads);
             }
+        }
+    }
+
+    private void _on_AnimationPlayer_animation_finished(string animationName)
+    {
+        if (animationName == "open")
+        {
+            _theDoorIsOpen = true;
         }
     }
 }
