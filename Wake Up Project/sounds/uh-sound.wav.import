@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/TakeDamageMem.wav-94aac96da18fbc1f6ccba9e193961cf8.sample"
+path="res://.import/uh-sound.wav-95e177eafe3f808eb69cac53c69866f5.sample"
 
 [deps]
 
-source_file="res://sounds/TakeDamageMem.wav"
-dest_files=[ "res://.import/TakeDamageMem.wav-94aac96da18fbc1f6ccba9e193961cf8.sample" ]
+source_file="res://sounds/uh-sound.wav"
+dest_files=[ "res://.import/uh-sound.wav-95e177eafe3f808eb69cac53c69866f5.sample" ]
 
 [params]
 

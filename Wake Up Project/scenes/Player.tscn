@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://scripts/PlayerController.cs" type="Script" id=1]
 [ext_resource path="res://Sprites/player/jump/4.png" type="Texture" id=2]
@@ -21,6 +21,8 @@
 [ext_resource path="res://Sprites/lights/light (1).png" type="Texture" id=19]
 [ext_resource path="res://Sprites/death/default/1.png" type="Texture" id=20]
 [ext_resource path="res://Sprites/death/default/3.png" type="Texture" id=21]
+[ext_resource path="res://sounds/after-death-sound.wav" type="AudioStream" id=22]
+[ext_resource path="res://sounds/uh-sound.wav" type="AudioStream" id=23]
 
 [sub_resource type="RectangleShape2D" id=11]
 extents = Vector2( 6, 9.5 )
@@ -85,5 +87,13 @@ shadow_enabled = true
 [node name="DownRaycast" type="RayCast2D" parent="."]
 enabled = true
 cast_to = Vector2( 0, 20 )
+
+[node name="DeathSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 22 )
+volume_db = -8.887
+
+[node name="TakeDamageSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 23 )
+volume_db = 2.313
 
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
