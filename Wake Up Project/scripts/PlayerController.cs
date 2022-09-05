@@ -34,6 +34,8 @@ public class PlayerController : KinematicBody2D
     private float shootTimerReset = 1f;
 
     private bool isAbleToShoot = true;
+    private bool directionForFireball = true;
+    private Position2D positionOfGun;
     [Export]
     public PackedScene Fireball;
     
@@ -43,6 +45,7 @@ public class PlayerController : KinematicBody2D
     public override void _Ready()
     {
         animatedPlayerSprite = GetNode<AnimatedSprite>("AnimatedSprite");
+        positionOfGun = GetNode<Position2D>("GunRight");
     }
 
 
@@ -57,7 +60,16 @@ public class PlayerController : KinematicBody2D
             {
                 if(isAbleToShoot)
                 {
-                    GD.Print("fire");
+                    GD.Print("fire" + (GetGlobalMousePosition() - this.GetGlobalPosition()));
+                    if (new Vector2(GetGlobalMousePosition() - this.GetGlobalPosition()).x < 0)
+                        positionOfGun = GetNode<Position2D>("GunLeft");
+                    else
+                        positionOfGun = GetNode<Position2D>("GunRight");
+
+                    positionOfGun.LookAt(GetGlobalMousePosition());
+                    Fireball fireball = Fireball.Instance() as Fireball;
+                    Owner.AddChild(fireball);
+                    fireball.GlobalTransform = positionOfGun.GlobalTransform;
                     isAbleToShoot = false;
                     shootTimer = shootTimerReset;
                 }
@@ -76,12 +88,15 @@ public class PlayerController : KinematicBody2D
             {
                 if (Input.IsActionPressed("move_left"))
                 {
+                    directionForFireball = true;
+                    positionOfGun = GetNode<Position2D>("GunLeft");
                     direction = -1;
-                    animatedPlayerSprite.FlipH = true;
-
+                    animatedPlayerSprite.FlipH = true;    
                 }
                 if (Input.IsActionPressed("move_right"))
                 {
+                    directionForFireball = false;
+                    positionOfGun = GetNode<Position2D>("GunRight");
                     direction = 1;
                     animatedPlayerSprite.FlipH = false;
                 }

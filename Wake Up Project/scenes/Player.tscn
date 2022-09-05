@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://scripts/PlayerController.cs" type="Script" id=1]
 [ext_resource path="res://Sprites/player/jump/4.png" type="Texture" id=2]
@@ -21,6 +21,7 @@
 [ext_resource path="res://Sprites/lights/light (1).png" type="Texture" id=19]
 [ext_resource path="res://Sprites/death/default/1.png" type="Texture" id=20]
 [ext_resource path="res://Sprites/death/default/3.png" type="Texture" id=21]
+[ext_resource path="res://scenes/Fireball.tscn" type="PackedScene" id=22]
 
 [sub_resource type="RectangleShape2D" id=11]
 extents = Vector2( 6, 9.5 )
@@ -37,15 +38,15 @@ animations = [ {
 "name": "TakeDamage",
 "speed": 15.0
 }, {
-"frames": [ ExtResource( 3 ), ExtResource( 2 ) ],
-"loop": false,
-"name": "Jump",
-"speed": 3.0
-}, {
 "frames": [ ExtResource( 20 ), ExtResource( 11 ), ExtResource( 21 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ],
 "loop": true,
 "name": "default death",
 "speed": 10.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 2 ) ],
+"loop": false,
+"name": "Jump",
+"speed": 3.0
 }, {
 "frames": [ ExtResource( 16 ), ExtResource( 12 ), ExtResource( 18 ), ExtResource( 14 ) ],
 "loop": true,
@@ -60,6 +61,7 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }
+Fireball = ExtResource( 22 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -1, 5.5 )
@@ -84,5 +86,14 @@ energy = 0.7
 [node name="DownRaycast" type="RayCast2D" parent="."]
 enabled = true
 cast_to = Vector2( 0, 20 )
+
+[node name="GunLeft" type="Position2D" parent="."]
+position = Vector2( -8, 6 )
+
+[node name="GunRight" type="Position2D" parent="."]
+position = Vector2( 8, 6 )
+
+[node name="Fireball" parent="." instance=ExtResource( 22 )]
+visible = false
 
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]

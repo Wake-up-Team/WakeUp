@@ -306,7 +306,7 @@ position = Vector2( -39, -18 )
 
 [node name="TakeDamageSound" type="AudioStreamPlayer" parent="Player"]
 stream = ExtResource( 5 )
-volume_db = -10.487
+volume_db = 21.849
 
 [node name="Spike" parent="." instance=ExtResource( 36 )]
 
@@ -451,6 +451,7 @@ __meta__ = {
 position = Vector2( -1, 0 )
 frames = SubResource( 13 )
 animation = "saw"
+frame = 2
 playing = true
 
 [node name="Area2D" type="Area2D" parent="saw"]
