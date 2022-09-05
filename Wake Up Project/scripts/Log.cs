@@ -11,7 +11,7 @@ public class Log : StaticBody2D
 
     private void _on_Log_body_entered(Node body)
     {
-        if (body is PlayerController)
+        if (body is PlayerController || body is Fireball)
         {
             _animationPlayer.Play("burning");
         }
