@@ -13,6 +13,7 @@ public class Coin : Area2D
     {
         if (body is PlayerController player)
         {
+            GetNode<CollisionShape2D>("CollisionShape2D").QueueFree();
             GetNode<Sprite>("Rotation").Hide();
             GetNode<Sprite>("Collected").Show();
             _animationPlayer.Play("collected");

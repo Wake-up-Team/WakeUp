@@ -103,8 +103,9 @@ public class PlayerController : KinematicBody2D
 
                 if (IsOnFloor())
                 {
-                    if(GetNode<RayCast2D>("DownRaycast").IsColliding() && Input.IsActionJustPressed("move_down")) {
-                        Position = new Vector2(Position.x, Position.y +1);
+                    if (GetNode<RayCast2D>("DownRaycast").IsColliding() && Input.IsActionJustPressed("move_down"))
+                    {
+                        Position = new Vector2(Position.x, Position.y + 1);
                         GD.Print("Platform detected");
                     }
                     else if (Input.IsActionJustPressed("jump"))
@@ -144,11 +145,13 @@ public class PlayerController : KinematicBody2D
                 }
             }
             velocity = MoveAndSlide(velocity, Vector2.Up, false, 4, 0.785398f, false);
-            for (int i = 0; i < GetSlideCount(); i++) {
+            for (int i = 0; i < GetSlideCount(); i++)
+            {
                 var collision = GetSlideCollision(i);
-                if (((Node)collision.Collider) is MovableBlock) {
-                    ((RigidBody2D)collision.Collider).ApplyCentralImpulse(-collision.Normal*impulse);
-                } 
+                if (((Node)collision.Collider) is MovableBlock)
+                {
+                    ((RigidBody2D)collision.Collider).ApplyCentralImpulse(-collision.Normal * impulse);
+                }
             }
         }
 
@@ -169,7 +172,15 @@ public class PlayerController : KinematicBody2D
             animatedPlayerSprite.Play("default death");
             GD.Print("Player dead");
         }
-        GetNode<AudioStreamPlayer>("TakeDamageSound").Play();
+
+        if (health < 1)
+        {
+            GetNode<AudioStreamPlayer>("DeathSound").Play();
+        }
+        else
+        {
+            GetNode<AudioStreamPlayer>("TakeDamageSound").Play();
+        }
     }
 
     private void _on_AnimatedSprite_animation_finished()
@@ -182,6 +193,14 @@ public class PlayerController : KinematicBody2D
             EmitSignal(nameof(Death));
             CollisionShape2D shape = GetNode<CollisionShape2D>("CollisionShape2D");
             shape.QueueFree();
+        }
+    }
+
+    private void _on_FallZone_body_entered(object body) {
+        
+        if (body is PlayerController && body is KinematicBody2D)
+        {
+            TakeDamage(3);
         }
     }
 }
