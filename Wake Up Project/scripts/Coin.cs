@@ -17,6 +17,7 @@ public class Coin : Area2D
             GetNode<Sprite>("Rotation").Hide();
             GetNode<Sprite>("Collected").Show();
             _animationPlayer.Play("collected");
+            player.NumberOfCollectedCoins++;
             player.EmitSignal("CoinCollected");
         }
     }

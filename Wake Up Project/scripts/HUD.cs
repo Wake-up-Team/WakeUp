@@ -31,6 +31,11 @@ public class HUD : CanvasLayer
         _lastVisibleHeartIndex = _hpHearts.Length - 1;
     }
 
+    public void SetScore(int currentScore, int maxScore)
+    {
+        GetNode<Label>("Score/ScoreLabel").Text = currentScore.ToString() + "/" + maxScore.ToString();
+    }
+
     private void HideHeart(int index)
     {
         _hpHearts[index].Hide();

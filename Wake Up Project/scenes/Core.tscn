@@ -1465,9 +1465,6 @@ position = Vector2( 1257, -171 )
 position = Vector2( 1160, -91 )
 
 [node name="Coin13" parent="Coins" instance=ExtResource( 6 )]
-position = Vector2( 1125, -87 )
-
-[node name="Coin14" parent="Coins" instance=ExtResource( 6 )]
 position = Vector2( 1143, -89 )
 
 [node name="Movable Block" parent="." instance=ExtResource( 43 )]
@@ -1476,7 +1473,6 @@ position = Vector2( 28, 0 )
 [node name="Door" parent="." instance=ExtResource( 9 )]
 pause_mode = 1
 position = Vector2( 1352, -151 )
-scale = Vector2( 3, 3 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( -43, -233 )
@@ -1496,7 +1492,7 @@ __meta__ = {
 position = Vector2( -1, 0 )
 frames = SubResource( 13 )
 animation = "saw"
-frame = 2
+frame = 3
 playing = true
 
 [node name="Area2D" type="Area2D" parent="saw"]
