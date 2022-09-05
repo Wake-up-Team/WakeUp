@@ -35,11 +35,6 @@ animations = [ {
 "name": "idle",
 "speed": 6.0
 }, {
-"frames": [ ExtResource( 6 ), ExtResource( 4 ), ExtResource( 17 ) ],
-"loop": true,
-"name": "TakeDamage",
-"speed": 15.0
-}, {
 "frames": [ ExtResource( 16 ), ExtResource( 12 ), ExtResource( 18 ), ExtResource( 14 ) ],
 "loop": true,
 "name": "running",
@@ -54,6 +49,11 @@ animations = [ {
 "loop": true,
 "name": "default death",
 "speed": 10.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 4 ), ExtResource( 17 ) ],
+"loop": true,
+"name": "TakeDamage",
+"speed": 15.0
 } ]
 
 [node name="Player" type="KinematicBody2D"]
@@ -90,10 +90,10 @@ enabled = true
 cast_to = Vector2( 0, 20 )
 
 [node name="GunLeft" type="Position2D" parent="."]
-position = Vector2( -10, 5 )
+position = Vector2( -13, 5 )
 
 [node name="GunRight" type="Position2D" parent="."]
-position = Vector2( 8, 6 )
+position = Vector2( 11, 6 )
 
 [node name="DeathSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 23 )
