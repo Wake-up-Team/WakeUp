@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/HUD.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/background.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/CanvasModulate.tscn" type="PackedScene" id=8]
+[ext_resource path="res://sounds/звук_фон_1.mp3" type="AudioStream" id=15]
+
+[node name="Core3" type="Node2D"]
+
+[node name="HUD" parent="." instance=ExtResource( 3 )]
+
+[node name="CanvasModulate" parent="." instance=ExtResource( 8 )]
+
+[node name="background" parent="." instance=ExtResource( 6 )]
+visible = false
+scale = Vector2( 2.23333, 2 )
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( -16, -219 )
+
+[node name="MusicCoreScreen" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 15 )
+volume_db = -26.0
+autoplay = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/CanvasModulate.tscn" type="PackedScene" id=2]
@@ -11,7 +11,6 @@
 [ext_resource path="res://Sprites/bariers/spike.png" type="Texture" id=11]
 [ext_resource path="res://scripts/Spike.cs" type="Script" id=15]
 [ext_resource path="res://scripts/Core.cs" type="Script" id=26]
-[ext_resource path="res://scenes/RespPos.tscn" type="PackedScene" id=27]
 [ext_resource path="res://scenes/HUD.tscn" type="PackedScene" id=28]
 [ext_resource path="res://Sprites/bariers/pila4.png" type="Texture" id=29]
 [ext_resource path="res://Sprites/bariers/pila1.png" type="Texture" id=30]
@@ -49,6 +48,7 @@ script = ExtResource( 26 )
 [node name="CanvasModulate" parent="." instance=ExtResource( 2 )]
 
 [node name="background" parent="." instance=ExtResource( 4 )]
+position = Vector2( -461, -808 )
 scale = Vector2( 2.23333, 2 )
 
 [node name="FlashLight" parent="." instance=ExtResource( 46 )]
@@ -1266,9 +1266,6 @@ position = Vector2( 1352, -151 )
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( -43, -233 )
 
-[node name="RespPos" parent="." instance=ExtResource( 27 )]
-position = Vector2( -43, -228 )
-
 [node name="saw" type="Node2D" parent="."]
 pause_mode = 1
 position = Vector2( 325, -188 )
@@ -1281,6 +1278,7 @@ __meta__ = {
 position = Vector2( -1, 0 )
 frames = SubResource( 13 )
 animation = "saw"
+frame = 2
 playing = true
 
 [node name="Area2D" type="Area2D" parent="saw"]
