@@ -4,7 +4,7 @@
 [ext_resource path="res://scripts/ClosingDoor.cs" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 10, 21 )
+extents = Vector2( 24, 24 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "close"
@@ -65,12 +65,13 @@ script = ExtResource( 2 )
 scale = Vector2( 3, 3 )
 texture = ExtResource( 1 )
 hframes = 5
+frame = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 3 )
 shape = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/close = SubResource( 2 )
 
 [connection signal="body_exited" from="." to="." method="_on_ClosingDoor_body_exited"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

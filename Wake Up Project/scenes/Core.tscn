@@ -44,6 +44,7 @@ position = Vector2( 96, 165 )
 script = ExtResource( 26 )
 
 [node name="HUD" parent="." instance=ExtResource( 28 )]
+_sceneToRestartPath = "res://scenes/Core.tscn"
 
 [node name="CanvasModulate" parent="." instance=ExtResource( 2 )]
 
@@ -1299,7 +1300,6 @@ position = Vector2( -161, 261 )
 position = Vector2( 1565.25, -45 )
 shape = SubResource( 26 )
 
-[connection signal="RestartGame" from="HUD" to="." method="_on_HUD_RestartGame"]
 [connection signal="body_entered" from="Spikes/UpperSpikes/Spike9/Area2D" to="Spikes/UpperSpikes/Spike9" method="_on_Area2D_body_entered"]
 [connection signal="body_entered" from="Spikes/UpperSpikes/Spike10/Area2D" to="Spikes/UpperSpikes/Spike10" method="_on_Area2D_body_entered"]
 [connection signal="body_entered" from="Spikes/UpperSpikes/Spike11/Area2D" to="Spikes/UpperSpikes/Spike11" method="_on_Area2D_body_entered"]
