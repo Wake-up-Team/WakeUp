@@ -27,7 +27,7 @@ public class Core : Node2D
     private void _on_Player_Death()
     {
         ShowPosthumousMenu();
-        GetNode<HUD>("HUD").ShowGameOver();
+        GetNode<HUD>("HUD").ShowGameOverMessage();
     }
 
     private void _on_HUD_RestartGame()

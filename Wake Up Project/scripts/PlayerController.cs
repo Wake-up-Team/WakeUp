@@ -28,9 +28,9 @@ public class PlayerController : KinematicBody2D
     private bool isTakingDamage = false;
 
     private int health = 3;
-    
+
     private float shootTimer = 1f;
-    
+
     private float shootTimerReset = 1f;
 
     private bool isAbleToShoot = true;
@@ -38,7 +38,7 @@ public class PlayerController : KinematicBody2D
     private Position2D positionOfGun;
     [Export]
     public PackedScene Fireball;
-    
+
     [Signal]
     public delegate void Death();
 
@@ -58,10 +58,10 @@ public class PlayerController : KinematicBody2D
             direction = 0;
             if (Input.IsActionJustPressed("fire"))
             {
-                if(isAbleToShoot)
+                if (isAbleToShoot)
                 {
-                    GD.Print("fire" + (GetGlobalMousePosition() - this.GetGlobalPosition()));
-                    if (new Vector2(GetGlobalMousePosition() - this.GetGlobalPosition()).x < 0)
+                    GD.Print("fire" + (GetGlobalMousePosition() - this.GlobalPosition));
+                    if (new Vector2(GetGlobalMousePosition() - this.GlobalPosition).x < 0)
                         positionOfGun = GetNode<Position2D>("GunLeft");
                     else
                         positionOfGun = GetNode<Position2D>("GunRight");
@@ -75,11 +75,11 @@ public class PlayerController : KinematicBody2D
                 }
             }
 
-            if(shootTimer <= 0)
+            if (shootTimer <= 0)
             {
                 isAbleToShoot = true;
             }
-            else 
+            else
             {
                 shootTimer -= delta;
             }
@@ -91,7 +91,7 @@ public class PlayerController : KinematicBody2D
                     directionForFireball = true;
                     positionOfGun = GetNode<Position2D>("GunLeft");
                     direction = -1;
-                    animatedPlayerSprite.FlipH = true;    
+                    animatedPlayerSprite.FlipH = true;
                 }
                 if (Input.IsActionPressed("move_right"))
                 {
@@ -196,8 +196,9 @@ public class PlayerController : KinematicBody2D
         }
     }
 
-    private void _on_FallZone_body_entered(object body) {
-        
+    private void _on_FallZone_body_entered(object body)
+    {
+
         if (body is PlayerController && body is KinematicBody2D)
         {
             TakeDamage(3);
