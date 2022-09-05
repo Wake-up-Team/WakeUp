@@ -51,6 +51,10 @@ public class PlayerController : KinematicBody2D
         positionOfGun = GetNode<Position2D>("GunRight");
     }
 
+    public bool IsAlive()
+    {
+        return health > 0;
+    }
 
     public override void _PhysicsProcess(float delta)
     {
