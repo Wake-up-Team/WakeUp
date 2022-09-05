@@ -262,6 +262,11 @@ centered = false
 [node name="FlashLight" parent="." instance=ExtResource( 46 )]
 position = Vector2( -41, -36 )
 
+[node name="Log" parent="." instance=ExtResource( 7 )]
+position = Vector2( 1128, -77 )
+rotation = -0.0994838
+scale = Vector2( 2.1, 1 )
+
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource( 2 )
 cell_size = Vector2( 16, 16 )
@@ -1456,6 +1461,15 @@ position = Vector2( 1176, -107 )
 [node name="Coin11" parent="Coins" instance=ExtResource( 6 )]
 position = Vector2( 1257, -171 )
 
+[node name="Coin12" parent="Coins" instance=ExtResource( 6 )]
+position = Vector2( 1160, -91 )
+
+[node name="Coin13" parent="Coins" instance=ExtResource( 6 )]
+position = Vector2( 1125, -87 )
+
+[node name="Coin14" parent="Coins" instance=ExtResource( 6 )]
+position = Vector2( 1143, -89 )
+
 [node name="Movable Block" parent="." instance=ExtResource( 43 )]
 position = Vector2( 28, 0 )
 
@@ -1482,7 +1496,7 @@ __meta__ = {
 position = Vector2( -1, 0 )
 frames = SubResource( 13 )
 animation = "saw"
-frame = 3
+frame = 1
 playing = true
 
 [node name="Area2D" type="Area2D" parent="saw"]
@@ -1495,11 +1509,6 @@ shape = SubResource( 14 )
 stream = ExtResource( 8 )
 volume_db = -26.0
 autoplay = true
-
-[node name="Log" parent="." instance=ExtResource( 7 )]
-position = Vector2( 1125, -81 )
-rotation = -0.0994838
-scale = Vector2( 2.1, 1 )
 
 [node name="FallZone" type="Area2D" parent="."]
 position = Vector2( -161, 261 )

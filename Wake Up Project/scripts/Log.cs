@@ -14,6 +14,10 @@ public class Log : StaticBody2D
         if (body is PlayerController || body is Fireball)
         {
             _animationPlayer.Play("burning");
+            if (body is PlayerController player)
+            {
+                player.TakeDamage(1);
+            }
         }
     }
 
