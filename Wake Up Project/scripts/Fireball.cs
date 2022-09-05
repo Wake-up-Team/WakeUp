@@ -25,7 +25,7 @@ public class Fireball : RigidBody2D
 
     private bool MustDisappear(Node enteredBody)
     {
-        return enteredBody is TileMap || enteredBody is Log || enteredBody is MovableBlock;
+        return enteredBody is TileMap || enteredBody is Log || enteredBody is LogWithoutDamage || enteredBody is MovableBlock;
     }
 
     private void _on_Area2D_body_entered(Node body)
