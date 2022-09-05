@@ -11,7 +11,6 @@ public class PlayerController : KinematicBody2D
     private Vector2 velocity = new Vector2();
 
     public int NumberOfCollectedCoins { get; set; } = 0;
-
     public bool HasEnoughCoinsToOpenTheDoor { get; set; } = false;
 
     private int speed = 100;
