@@ -81,6 +81,7 @@ margin_bottom = 65.0
 custom_colors/font_color = Color( 0.898039, 0.0156863, 0.0156863, 1 )
 custom_fonts/font = SubResource( 1 )
 align = 1
+autowrap = true
 
 [node name="ResumeButton" type="Button" parent="MarginContainer/VBoxContainer"]
 pause_mode = 2
@@ -144,7 +145,7 @@ position = Vector2( 24, 18 )
 scale = Vector2( 6.60938, 5.66406 )
 frames = SubResource( 8 )
 animation = "spinning"
-frame = 1
+frame = 3
 playing = true
 
 [node name="ScoreLabel" type="Label" parent="Score"]

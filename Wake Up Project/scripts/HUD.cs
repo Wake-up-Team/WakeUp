@@ -8,14 +8,32 @@ public class HUD : CanvasLayer
 
     private TextureRect[] _hpHearts = new TextureRect[3];
 
+    private string[] _gameOverText = new string[]
+    {
+        "Game Over.",
+        "Noob, learn to play and try again.",
+        "Cry baby.",
+        "Goof.",
+        "U are soo dumb! Better delete the game.",
+        "Even my grandma plays better.",
+        "Call ur mom and ask her to play for u.",
+        "U are a disgrace to the humanity."
+    };
+
     private int _lastVisibleHeartIndex;
 
     public override void _Ready()
     {
+        GD.Randomize();
         _hpHearts[0] = GetNode<TextureRect>("HBoxContainer/heart1");
         _hpHearts[1] = GetNode<TextureRect>("HBoxContainer/heart2");
         _hpHearts[2] = GetNode<TextureRect>("HBoxContainer/heart3");
         _lastVisibleHeartIndex = _hpHearts.Length - 1;
+    }
+
+    public void SetScore(int currentScore, int maxScore)
+    {
+        GetNode<Label>("Score/ScoreLabel").Text = currentScore.ToString() + "/" + maxScore.ToString();
     }
 
     private void HideHeart(int index)
@@ -47,9 +65,10 @@ public class HUD : CanvasLayer
         message.Show();
     }
 
-    public void ShowGameOver()
+    public void ShowGameOverMessage()
     {
-        ShowMessage("Game Over! Try again!");
+        int index = new Random().Next(0, _gameOverText.Length);
+        ShowMessage(_gameOverText[index]);
     }
 
     private void SwitchScene(string nextScenePath)

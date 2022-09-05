@@ -7,14 +7,22 @@ public class Core : Node2D
     public Position2D RespPos;
     private int _score = 0;
 
+    private int _numberOfCoinsToUnlockTheDoor;
+
     private void HideAllHudContent()
     {
         GetNode<HUD>("HUD").HideAllContent();
     }
 
+    private void SetScoreInHUD(int score)
+    {
+        GetNode<HUD>("HUD").SetScore(score, _numberOfCoinsToUnlockTheDoor);
+    }
+
     public override void _Ready()
     {
         HideAllHudContent();
+        _numberOfCoinsToUnlockTheDoor = GetNode<Node2D>("Coins").GetChildCount();
     }
 
     private void ShowPosthumousMenu()
@@ -27,7 +35,7 @@ public class Core : Node2D
     private void _on_Player_Death()
     {
         ShowPosthumousMenu();
-        GetNode<HUD>("HUD").ShowGameOver();
+        GetNode<HUD>("HUD").ShowGameOverMessage();
     }
 
     private void _on_HUD_RestartGame()
@@ -70,7 +78,11 @@ public class Core : Node2D
     private void _on_Player_CoinCollected()
     {
         _score++;
-        GetNode<Label>("HUD/Score/ScoreLabel").Text = _score.ToString();
+        SetScoreInHUD(_score);
+        if (_score == _numberOfCoinsToUnlockTheDoor)
+        {
+            GetNode<PlayerController>("Player").HasEnoughCoinsToOpenTheDoor = true;
+        }
     }
 
     private void _on_Player_DamageTaken(int numberOfHeartsToHide)
