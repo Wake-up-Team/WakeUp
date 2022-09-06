@@ -28,7 +28,7 @@ position = Vector2( 96, 165 )
 script = ExtResource( 26 )
 
 [node name="HUD" parent="." instance=ExtResource( 28 )]
-_sceneToRestartPath = null
+_sceneToRestartPath = "res://scenes/Core.tscn"
 
 [node name="CanvasModulate" parent="." instance=ExtResource( 2 )]
 
