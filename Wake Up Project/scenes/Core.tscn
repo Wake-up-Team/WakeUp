@@ -1279,7 +1279,6 @@ __meta__ = {
 position = Vector2( -1, 0 )
 frames = SubResource( 13 )
 animation = "saw"
-frame = 1
 playing = true
 
 [node name="Area2D" type="Area2D" parent="saw"]
