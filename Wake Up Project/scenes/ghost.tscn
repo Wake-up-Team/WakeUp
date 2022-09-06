@@ -30,7 +30,7 @@ script = ExtResource( 4 )
 position = Vector2( 0, 5 )
 frames = SubResource( 15 )
 animation = "ghost"
-frame = 1
+frame = 2
 playing = true
 
 [node name="RayCastBottomLeft" type="RayCast2D" parent="."]
