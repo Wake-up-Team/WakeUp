@@ -67,6 +67,7 @@ position = Vector2( 96, 165 )
 script = SubResource( 28 )
 
 [node name="HUD" parent="." instance=ExtResource( 28 )]
+_sceneToRestartPath = null
 
 [node name="CanvasModulate" parent="." instance=ExtResource( 2 )]
 visible = false

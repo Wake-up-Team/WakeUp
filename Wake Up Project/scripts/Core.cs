@@ -38,11 +38,6 @@ public class Core : Node2D
         GetNode<HUD>("HUD").ShowGameOverMessage();
     }
 
-    private void _on_HUD_RestartGame()
-    {
-        GetNode<SceneSwitcher>("/root/SceneSwitcher").SwitchScene("res://scenes/Core.tscn");
-    }
-
     private void ShowPauseMenu()
     {
         GetNode<Button>("HUD/MarginContainer/VBoxContainer/RestartButton").Show();
@@ -60,7 +55,7 @@ public class Core : Node2D
 
     public override void _UnhandledInput(InputEvent inputEvent)
     {
-        if (inputEvent.IsActionPressed("pause"))
+        if (inputEvent.IsActionPressed("pause") && GetNode<PlayerController>("Player").IsAlive())
         {
             if (GetTree().Paused == false)
             {

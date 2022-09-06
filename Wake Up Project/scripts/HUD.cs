@@ -6,6 +6,9 @@ public class HUD : CanvasLayer
     [Signal]
     public delegate void RestartGame();
 
+    [Export]
+    private string _sceneToRestartPath;
+
     private TextureRect[] _hpHearts = new TextureRect[3];
 
     private string[] _gameOverText = new string[]
@@ -107,7 +110,7 @@ public class HUD : CanvasLayer
         {
             Resume();
         }
-        EmitSignal("RestartGame");
+        SwitchScene(_sceneToRestartPath);
     }
 
     private void _on_BackToMenuButton_pressed()
