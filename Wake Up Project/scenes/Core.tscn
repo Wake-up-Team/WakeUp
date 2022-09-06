@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/CanvasModulate.tscn" type="PackedScene" id=2]
@@ -11,7 +11,6 @@
 [ext_resource path="res://Sprites/bariers/spike.png" type="Texture" id=11]
 [ext_resource path="res://scripts/Spike.cs" type="Script" id=15]
 [ext_resource path="res://scripts/Core.cs" type="Script" id=26]
-[ext_resource path="res://scenes/RespPos.tscn" type="PackedScene" id=27]
 [ext_resource path="res://scenes/HUD.tscn" type="PackedScene" id=28]
 [ext_resource path="res://scenes/Spike.tscn" type="PackedScene" id=36]
 [ext_resource path="res://scenes/MovableBlock.tscn" type="PackedScene" id=43]
@@ -1250,9 +1249,6 @@ _pathToTheSceneToWhichTheDoorLeads = "res://scenes/Core2.tscn"
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( -43, -233 )
-
-[node name="RespPos" parent="." instance=ExtResource( 27 )]
-position = Vector2( -43, -228 )
 
 [node name="MusicCoreScreen" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
