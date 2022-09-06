@@ -284,6 +284,8 @@ tile_data = PoolIntArray( -2621591, 0, 0, -2621590, 0, 0, -2621589, 0, 0, -26215
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( -297, -175 )
 collision_mask = 3
+isFireballAvailable = true
+isLightningAvailable = true
 
 [node name="Spikes" type="Node2D" parent="."]
 

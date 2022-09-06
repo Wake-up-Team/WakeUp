@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Sprites/ghost/ghost1.png" type="Texture" id=1]
 [ext_resource path="res://Sprites/ghost/ghost2.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/ghost/ghost3.png" type="Texture" id=3]
 [ext_resource path="res://scripts/ghost.cs" type="Script" id=4]
 [ext_resource path="res://Sprites/lights/light (1).png" type="Texture" id=5]
+[ext_resource path="res://sounds/звук_смерть_1.mp3" type="AudioStream" id=6]
 
 [sub_resource type="SpriteFrames" id=15]
 animations = [ {
@@ -29,7 +30,6 @@ script = ExtResource( 4 )
 position = Vector2( 0, 5 )
 frames = SubResource( 15 )
 animation = "ghost"
-frame = 1
 playing = true
 
 [node name="RayCastBottomLeft" type="RayCast2D" parent="."]
@@ -69,5 +69,9 @@ position = Vector2( 0, 8 )
 texture = ExtResource( 5 )
 texture_scale = 0.5
 energy = 0.6
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+volume_db = -10.0
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
