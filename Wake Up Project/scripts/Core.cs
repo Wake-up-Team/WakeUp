@@ -21,6 +21,8 @@ public class Core : Node2D
 
     public override void _Ready()
     {
+        var aim = ResourceLoader.Load("res://Images/aim.png");
+        Input.SetCustomMouseCursor(aim);
         HideAllHudContent();
         _numberOfCoinsToUnlockTheDoor = GetNode<Node2D>("Coins").GetChildCount();
     }
@@ -57,6 +59,8 @@ public class Core : Node2D
     {
         if (inputEvent.IsActionPressed("pause") && GetNode<PlayerController>("Player").IsAlive())
         {
+            var aim = ResourceLoader.Load("res://Images/Cursor1.png");
+            Input.SetCustomMouseCursor(aim);
             if (GetTree().Paused == false)
             {
                 GetNode<HUD>("HUD").Pause();
