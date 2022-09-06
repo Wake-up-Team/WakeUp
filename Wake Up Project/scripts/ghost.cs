@@ -35,15 +35,18 @@ public class ghost : KinematicBody2D
     public override void _Process(float delta)
     {
         velocity.y += gravity * delta;
-        if(velocity.y > gravity) {
+        if (velocity.y > gravity)
+        {
             velocity.y = gravity;
-        }    
+        }
 
-        if(!RayCastBottomRight.IsColliding() || RayCastMidRight.IsColliding()) {
+        if (!RayCastBottomRight.IsColliding() || RayCastMidRight.IsColliding())
+        {
             velocity.x = -speed;
             sprite.FlipH = true;
-        } 
-        if(!RayCastBottomLeft.IsColliding() || RayCastMidLeft.IsColliding()) {
+        }
+        if (!RayCastBottomLeft.IsColliding() || RayCastMidLeft.IsColliding())
+        {
             velocity.x = speed;
             sprite.FlipH = false;
         }
@@ -59,12 +62,14 @@ public class ghost : KinematicBody2D
         }
     }
 
-    public void _on_Area2D_body_entered(object body) {
+    public void _on_Area2D_body_entered(object body)
+    {
         if (body is Lightning lightning)
         {
             GetNode<AudioStreamPlayer>("AudioStreamPlayer").Play();
             velocity = MoveAndSlide(new Vector2(0, -50), Vector2.Up);
             TakeDamage(1);
+            lightning.QueueFree();
         }
         if (body is PlayerController playerController && body is KinematicBody2D)
         {
