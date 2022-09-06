@@ -3,7 +3,6 @@ using Godot.Collections;
 
 public class MovablePlatform : Node2D
 {
-
     private Tween tween;
 
     private int indexOfPosition;
