@@ -5,7 +5,7 @@
 [ext_resource path="res://Sprites/ghost/ghost3.png" type="Texture" id=3]
 [ext_resource path="res://scripts/ghost.cs" type="Script" id=4]
 [ext_resource path="res://Sprites/lights/light (1).png" type="Texture" id=5]
-[ext_resource path="res://sounds/звук_смерть_1.mp3" type="AudioStream" id=6]
+[ext_resource path="res://sounds/звук_смерть_1испр.wav" type="AudioStream" id=6]
 
 [sub_resource type="SpriteFrames" id=15]
 animations = [ {
@@ -30,6 +30,7 @@ script = ExtResource( 4 )
 position = Vector2( 0, 5 )
 frames = SubResource( 15 )
 animation = "ghost"
+frame = 2
 playing = true
 
 [node name="RayCastBottomLeft" type="RayCast2D" parent="."]

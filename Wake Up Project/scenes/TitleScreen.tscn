@@ -184,7 +184,7 @@ text = "Quit"
 
 [node name="MusicTitleScreen" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )
-volume_db = -27.092
+volume_db = -30.0
 autoplay = true
 
 [connection signal="button_up" from="MarginContainer/VBoxContainer/Buttons/Play/PlayBtn" to="." method="_on_PlayBtn_button_up"]

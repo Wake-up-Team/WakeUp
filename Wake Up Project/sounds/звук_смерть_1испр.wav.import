@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/звук_смерть_1испр.wav-b176d5711435c7354058764a55442085.sample"
+
+[deps]
+
+source_file="res://sounds/звук_смерть_1испр.wav"
+dest_files=[ "res://.import/звук_смерть_1испр.wav-b176d5711435c7354058764a55442085.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
