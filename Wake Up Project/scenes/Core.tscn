@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/CanvasModulate.tscn" type="PackedScene" id=2]
@@ -11,7 +11,6 @@
 [ext_resource path="res://Sprites/bariers/spike.png" type="Texture" id=11]
 [ext_resource path="res://scripts/Spike.cs" type="Script" id=15]
 [ext_resource path="res://scripts/Core.cs" type="Script" id=26]
-[ext_resource path="res://scenes/RespPos.tscn" type="PackedScene" id=27]
 [ext_resource path="res://scenes/HUD.tscn" type="PackedScene" id=28]
 [ext_resource path="res://scenes/Spike.tscn" type="PackedScene" id=36]
 [ext_resource path="res://scenes/MovableBlock.tscn" type="PackedScene" id=43]
@@ -29,10 +28,12 @@ position = Vector2( 96, 165 )
 script = ExtResource( 26 )
 
 [node name="HUD" parent="." instance=ExtResource( 28 )]
+_sceneToRestartPath = "res://scenes/Core.tscn"
 
 [node name="CanvasModulate" parent="." instance=ExtResource( 2 )]
 
 [node name="background" parent="." instance=ExtResource( 4 )]
+position = Vector2( -461, -808 )
 scale = Vector2( 2.23333, 2 )
 
 [node name="FlashLight" parent="." instance=ExtResource( 46 )]
@@ -1251,8 +1252,26 @@ _pathToTheSceneToWhichTheDoorLeads = "res://scenes/Core2.tscn"
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( -43, -233 )
 
-[node name="RespPos" parent="." instance=ExtResource( 27 )]
-position = Vector2( -43, -228 )
+[node name="saw" type="Node2D" parent="."]
+pause_mode = 1
+position = Vector2( 325, -188 )
+script = ExtResource( 33 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="saw"]
+position = Vector2( -1, 0 )
+frames = SubResource( 13 )
+animation = "saw"
+frame = 2
+playing = true
+
+[node name="Area2D" type="Area2D" parent="saw"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="saw/Area2D"]
+position = Vector2( -1, 0 )
+shape = SubResource( 14 )
 
 [node name="MusicCoreScreen" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
@@ -1266,7 +1285,6 @@ position = Vector2( -161, 261 )
 position = Vector2( 1565.25, -45 )
 shape = SubResource( 26 )
 
-[connection signal="RestartGame" from="HUD" to="." method="_on_HUD_RestartGame"]
 [connection signal="body_entered" from="Spikes/UpperSpikes/Spike9/Area2D" to="Spikes/UpperSpikes/Spike9" method="_on_Area2D_body_entered"]
 [connection signal="body_entered" from="Spikes/UpperSpikes/Spike10/Area2D" to="Spikes/UpperSpikes/Spike10" method="_on_Area2D_body_entered"]
 [connection signal="body_entered" from="Spikes/UpperSpikes/Spike11/Area2D" to="Spikes/UpperSpikes/Spike11" method="_on_Area2D_body_entered"]
