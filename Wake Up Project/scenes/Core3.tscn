@@ -168,6 +168,9 @@ position = Vector2( 711, -39 )
 [node name="FlashLight42" parent="FlashLights" instance=ExtResource( 46 )]
 position = Vector2( 361, 25 )
 
+[node name="FlashLight43" parent="FlashLights" instance=ExtResource( 46 )]
+position = Vector2( -300, -55 )
+
 [node name="LogsWithDamage" type="Node2D" parent="."]
 
 [node name="Log" parent="LogsWithDamage" instance=ExtResource( 10 )]
