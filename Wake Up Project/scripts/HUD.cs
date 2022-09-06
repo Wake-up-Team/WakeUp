@@ -19,7 +19,7 @@ public class HUD : CanvasLayer
         "Goof.",
         "U are soo dumb! Better delete the game.",
         "Even my grandma plays better.",
-        "Call ur mom and ask her to play for u.",
+        "Call ur mommy and ask her to play for u.",
         "U are a disgrace to the humanity."
     };
 
