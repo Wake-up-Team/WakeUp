@@ -87,6 +87,8 @@ public class HUD : CanvasLayer
 
     public void Resume()
     {
+        var aim = ResourceLoader.Load("res://Images/aim.png");
+        Input.SetCustomMouseCursor(aim);
         GetTree().Paused = false;
     }
 

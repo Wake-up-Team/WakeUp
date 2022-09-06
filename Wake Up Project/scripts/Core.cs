@@ -59,8 +59,8 @@ public class Core : Node2D
     {
         if (inputEvent.IsActionPressed("pause") && GetNode<PlayerController>("Player").IsAlive())
         {
-            var aim = ResourceLoader.Load("res://Images/Cursor1.png");
-            Input.SetCustomMouseCursor(aim);
+            var сursor = ResourceLoader.Load("res://Images/Cursor1.png");
+            Input.SetCustomMouseCursor(сursor);
             if (GetTree().Paused == false)
             {
                 GetNode<HUD>("HUD").Pause();
