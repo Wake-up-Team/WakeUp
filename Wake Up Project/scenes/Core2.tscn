@@ -13,47 +13,10 @@
 [ext_resource path="res://scenes/OneWayPlatform.tscn" type="PackedScene" id=11]
 [ext_resource path="res://scripts/MovablePlatform.cs" type="Script" id=12]
 [ext_resource path="res://scenes/ClosingDoor.tscn" type="PackedScene" id=13]
+[ext_resource path="res://scripts/Core.cs" type="Script" id=14]
 [ext_resource path="res://scenes/HUD.tscn" type="PackedScene" id=28]
 [ext_resource path="res://scenes/Spike.tscn" type="PackedScene" id=36]
 [ext_resource path="res://scenes/FlashLight.tscn" type="PackedScene" id=46]
-
-[sub_resource type="CSharpScript" id=28]
-script/source = "using Godot;
-using Godot.Collections;
-
-public class MovablePlatform : Node2D
-{
-
-    private Tween tween;
-
-    private int indexOfPosition;
-
-    private KinematicBody2D platformBody;
-
-    private Array movementPositions;
-
-    public override void _Ready()
-    {
-        movementPositions = GetNode<Node>(\"MovementPositions\").GetChildren();
-        tween = GetNode<Tween>(\"PlatformBody/Tween\");
-        platformBody = GetNode<KinematicBody2D>(\"PlatformBody\");
-        _on_Tween_tween_completed(null, null);
-    }
-
-    private void _on_Tween_tween_completed(object obj, NodePath path)
-    {
-        indexOfPosition++;
-        if (indexOfPosition > movementPositions.Count - 1)
-        {
-            indexOfPosition = 0;
-        }
-        Position2D movePosition = movementPositions[indexOfPosition] as Position2D;
-        int moveSpeed = 30;
-        tween.InterpolateProperty(platformBody, \"position\", platformBody.Position, movePosition.Position, movePosition.Position.DistanceTo(platformBody.Position) / moveSpeed, Tween.TransitionType.Linear, Tween.EaseType.InOut);
-        tween.Start();
-    }
-}
-"
 
 [sub_resource type="RectangleShape2D" id=27]
 extents = Vector2( 16, 8 )
@@ -64,7 +27,7 @@ extents = Vector2( 568.875, 50 )
 [node name="Core" type="Node2D"]
 pause_mode = 2
 position = Vector2( 96, 165 )
-script = SubResource( 28 )
+script = ExtResource( 14 )
 
 [node name="HUD" parent="." instance=ExtResource( 28 )]
 _sceneToRestartPath = null
