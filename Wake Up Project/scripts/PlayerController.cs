@@ -36,11 +36,18 @@ public class PlayerController : KinematicBody2D
 
     private float shootTimerReset = 1f;
 
+
     private bool isAbleToShoot = true;
     private bool directionForFireball = true;
     private Position2D positionOfGun;
     [Export]
-    public PackedScene Fireball;
+    private PackedScene Fireball;
+    [Export]
+    private PackedScene Lightning;
+    [Export]
+    private bool isFireballAvailable;
+    [Export]
+    private bool isLightningAvailable;
 
     [Signal]
     public delegate void Death();
@@ -63,7 +70,25 @@ public class PlayerController : KinematicBody2D
         {
             velocity.y += gravity * delta;
             direction = 0;
-            if (Input.IsActionJustPressed("fire"))
+            if (Input.IsActionJustPressed("lightning") && isLightningAvailable)
+            {
+                if (isAbleToShoot)
+                {
+                    GD.Print("fire" + (GetGlobalMousePosition() - this.GlobalPosition));
+                    if (new Vector2(GetGlobalMousePosition() - this.GlobalPosition).x < 0)
+                        positionOfGun = GetNode<Position2D>("GunLeft");
+                    else
+                        positionOfGun = GetNode<Position2D>("GunRight");
+
+                    positionOfGun.LookAt(GetGlobalMousePosition());
+                    Lightning lightning = Lightning.Instance() as Lightning;
+                    Owner.AddChild(lightning);
+                    lightning.GlobalTransform = positionOfGun.GlobalTransform;
+                    isAbleToShoot = false;
+                    shootTimer = shootTimerReset;
+                }
+            }
+            if (Input.IsActionJustPressed("fire") && isFireballAvailable)
             {
                 if (isAbleToShoot)
                 {

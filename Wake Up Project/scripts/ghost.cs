@@ -17,6 +17,7 @@ public class ghost : KinematicBody2D
     private int gravity = 200;
 
     private int speed = 25;
+    private int health = 3;
 
     private AnimatedSprite sprite;
 
@@ -49,7 +50,22 @@ public class ghost : KinematicBody2D
         MoveAndSlide(velocity, Vector2.Up);
     }
 
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
+        if (health < 1)
+        {
+            QueueFree();
+        }
+    }
+
     public void _on_Area2D_body_entered(object body) {
+        if (body is Lightning lightning)
+        {
+            GetNode<AudioStreamPlayer>("AudioStreamPlayer").Play();
+            velocity = MoveAndSlide(new Vector2(0, -50), Vector2.Up);
+            TakeDamage(1);
+        }
         if (body is PlayerController playerController && body is KinematicBody2D)
         {
             playerController.TakeDamage(3);
