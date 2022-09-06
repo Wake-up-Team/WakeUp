@@ -55,7 +55,7 @@ public class Core : Node2D
 
     public override void _UnhandledInput(InputEvent inputEvent)
     {
-        if (inputEvent.IsActionPressed("pause"))
+        if (inputEvent.IsActionPressed("pause") && GetNode<PlayerController>("Player").IsAlive())
         {
             if (GetTree().Paused == false)
             {
