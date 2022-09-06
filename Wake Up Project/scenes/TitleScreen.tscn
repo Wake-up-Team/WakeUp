@@ -181,7 +181,6 @@ custom_styles/normal = SubResource( 7 )
 text = "Quit"
 
 [node name="OptionsMenu" parent="." instance=ExtResource( 3 )]
-visible = false
 
 [node name="MusicTitleScreen" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )

@@ -3,8 +3,7 @@ public class TitleScreen : Control
 {
     public override void _Ready()
     {
-        Button playBtn = GetNode<Button>("MarginContainer/VBoxContainer/Buttons/Play/PlayBtn");
-        playBtn.GrabFocus();
+        GetNode<Button>("MarginContainer/VBoxContainer/Buttons/About/AboutBtn").GrabFocus();
     }
 
     private void SwitchScene(string nextScenePath)

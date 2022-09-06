@@ -33,4 +33,9 @@ public class AboutScene : Control
     {
         SwitchScene("res://scenes/TitleScreen.tscn");
     }
+
+    private void _on_ReadAboutButton_pressed()
+    {
+        GetNode<Popup>("GameInfo").PopupCentered();
+    }
 }
