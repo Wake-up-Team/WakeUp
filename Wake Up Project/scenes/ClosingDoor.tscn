@@ -1,16 +1,14 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Images/doors-Sheet.png" type="Texture" id=1]
-[ext_resource path="res://scripts/Door.cs" type="Script" id=2]
-[ext_resource path="res://sounds/звук_эффект(открытие двери, окончание уровня).mp3" type="AudioStream" id=3]
-[ext_resource path="res://Fonts/small_pixel.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://scripts/ClosingDoor.cs" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 10, 21 )
+extents = Vector2( 24, 24 )
 
 [sub_resource type="Animation" id=2]
-resource_name = "open"
-length = 1.5
+resource_name = "close"
+length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -21,7 +19,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 0, 1, 2, 3, 4 ]
+"values": [ 4, 3, 2, 1, 0 ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite:self_modulate")
@@ -60,38 +58,20 @@ tracks/3/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="DynamicFont" id=3]
-size = 6
-font_data = ExtResource( 4 )
-
-[node name="Door" type="Area2D"]
+[node name="ClosingDoor" type="Area2D"]
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 3, 3 )
 texture = ExtResource( 1 )
 hframes = 5
+frame = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 3 )
 shape = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/open = SubResource( 2 )
+anims/close = SubResource( 2 )
 
-[node name="Opening" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 3 )
-
-[node name="Label" type="Label" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -39.0
-margin_top = -33.0
-margin_right = 40.0
-margin_bottom = -22.0
-custom_fonts/font = SubResource( 3 )
-align = 1
-
-[connection signal="body_entered" from="." to="." method="_on_Door_body_entered"]
-[connection signal="body_exited" from="." to="." method="_on_Door_body_exited"]
+[connection signal="body_exited" from="." to="." method="_on_ClosingDoor_body_exited"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

@@ -148,12 +148,13 @@ shape = SubResource( 1 )
 
 [node name="CoinCollected" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 3 )
+volume_db = -10.4
 
 [node name="Light2D" type="Light2D" parent="."]
 texture = ExtResource( 5 )
 texture_scale = 0.1
 color = Color( 0.980392, 0.945098, 0.0313726, 1 )
-energy = 0.8
+energy = 0.5
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

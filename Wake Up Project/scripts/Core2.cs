@@ -1,8 +1,8 @@
 using Godot;
+using System;
 
-public class Core : Node2D
+public class Core2 : Node2D
 {
-
     [Export]
     public Position2D RespPos;
     private int _score = 0;
@@ -21,8 +21,6 @@ public class Core : Node2D
 
     public override void _Ready()
     {
-        var aim = ResourceLoader.Load("res://Images/aim.png");
-        Input.SetCustomMouseCursor(aim);
         HideAllHudContent();
         _numberOfCoinsToUnlockTheDoor = GetNode<Node2D>("Coins").GetChildCount();
     }
@@ -38,6 +36,11 @@ public class Core : Node2D
     {
         ShowPosthumousMenu();
         GetNode<HUD>("HUD").ShowGameOverMessage();
+    }
+
+    private void _on_HUD_RestartGame()
+    {
+        GetNode<SceneSwitcher>("/root/SceneSwitcher").SwitchScene("res://scenes/Core.tscn");
     }
 
     private void ShowPauseMenu()
@@ -57,10 +60,8 @@ public class Core : Node2D
 
     public override void _UnhandledInput(InputEvent inputEvent)
     {
-        if (inputEvent.IsActionPressed("pause") && GetNode<PlayerController>("Player").IsAlive())
+        if (inputEvent.IsActionPressed("pause"))
         {
-            var aim = ResourceLoader.Load("res://Images/Cursor1.png");
-            Input.SetCustomMouseCursor(aim);
             if (GetTree().Paused == false)
             {
                 GetNode<HUD>("HUD").Pause();

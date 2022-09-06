@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Sprites/fullblackBG.png" type="Texture" id=1]
+
+[node name="background" type="Sprite"]
+position = Vector2( -287, -401 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 1 )
+centered = false
