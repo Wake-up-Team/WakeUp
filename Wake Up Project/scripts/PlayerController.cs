@@ -169,7 +169,6 @@ public class PlayerController : KinematicBody2D
     {
         EmitSignal("DamageTaken", damage);
         health -= damage;
-        GD.Print("health: " + health);
         animatedPlayerSprite.Play("TakeDamage");
         velocity = MoveAndSlide(new Vector2(800f * -direction, -120), Vector2.Up);
         isTakingDamage = true;
@@ -177,7 +176,6 @@ public class PlayerController : KinematicBody2D
         {
             health = 0;
             animatedPlayerSprite.Play("default death");
-            GD.Print("Player dead");
         }
 
         if (health < 1)
@@ -195,7 +193,6 @@ public class PlayerController : KinematicBody2D
         if (animatedPlayerSprite.Animation == "default death")
         {
             animatedPlayerSprite.Stop();
-            GD.Print("Anim finished");
             Hide();
             EmitSignal(nameof(Death));
             CollisionShape2D shape = GetNode<CollisionShape2D>("CollisionShape2D");
