@@ -23,7 +23,7 @@ public class SceneSwitcher : Node
         GetTree().CurrentScene = CurrentScene;
     }
 
-    public async void SwitchSceneWithDoor(string nextScenePath = "res://scenes/TitleScreen.tscn")
+    public async void SwitchSceneWithElevatorAnimation(string nextScenePath = "res://scenes/TitleScreen.tscn")
     {
         CurrentScene.QueueFree();
         CurrentScene = null;

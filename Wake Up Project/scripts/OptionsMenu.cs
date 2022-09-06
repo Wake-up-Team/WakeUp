@@ -28,15 +28,4 @@ public class OptionsMenu : Popup
     {
         _globalOptions.UpdateVolume(value);
     }
-
-    public override void _UnhandledInput(InputEvent @event)
-    {
-        if (@event is InputEventKey eventKey)
-        {
-            if (eventKey.Pressed && eventKey.Scancode == (int)KeyList.Escape)
-            {
-                Hide();
-            }
-        }
-    }
 }

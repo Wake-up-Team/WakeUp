@@ -1,23 +1,18 @@
 using Godot;
 public class TitleScreen : Control
 {
+    private SceneSwitcher _sceneSwitcher;
     public override void _Ready()
     {
         var сursor = ResourceLoader.Load("res://Images/Cursor1.png");
         Input.SetCustomMouseCursor(сursor);
-        Button playBtn = GetNode<Button>("MarginContainer/VBoxContainer/Buttons/Play/PlayBtn");
-        playBtn.GrabFocus();
-    }
-
-    private void SwitchScene(string nextScenePath)
-    {
-        var sceneSwitcher = GetNode<SceneSwitcher>("/root/SceneSwitcher");
-        sceneSwitcher.SwitchScene(nextScenePath);
+        GetNode<Button>("MarginContainer/VBoxContainer/Buttons/About/AboutBtn").GrabFocus();
+        _sceneSwitcher = GetNode<SceneSwitcher>("/root/SceneSwitcher");
     }
 
     public void _on_PlayBtn_button_up()
     {
-        SwitchScene("res://scenes/Core.tscn");
+        _sceneSwitcher.SwitchSceneWithElevatorAnimation("res://scenes/Core.tscn");
     }
 
     public void _on_OptionsBtn_button_up()
@@ -27,7 +22,7 @@ public class TitleScreen : Control
 
     public void _on_AboutBtn_button_up()
     {
-        SwitchScene("res://scenes/AboutScene.tscn");
+        _sceneSwitcher.SwitchScene("res://scenes/AboutScene.tscn");
     }
 
     public void _on_QuitBtn_button_up()

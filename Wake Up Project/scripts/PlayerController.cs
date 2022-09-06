@@ -92,11 +92,14 @@ public class PlayerController : KinematicBody2D
             {
                 if (isAbleToShoot)
                 {
-                    GD.Print("fire" + (GetGlobalMousePosition() - this.GlobalPosition));
                     if (new Vector2(GetGlobalMousePosition() - this.GlobalPosition).x < 0)
+                    {
                         positionOfGun = GetNode<Position2D>("GunLeft");
+                    }
                     else
+                    {
                         positionOfGun = GetNode<Position2D>("GunRight");
+                    }
 
                     positionOfGun.LookAt(GetGlobalMousePosition());
                     Fireball fireball = Fireball.Instance() as Fireball;

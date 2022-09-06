@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Fonts/ConnectionII.otf" type="DynamicFontData" id=1]
+
+[sub_resource type="DynamicFont" id=2]
+size = 37
+font_data = ExtResource( 1 )
+
+[node name="GameInfo" type="Popup"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Background" type="ColorRect" parent="."]
+anchor_right = 1.032
+anchor_bottom = 1.036
+margin_right = -33.312
+margin_bottom = -21.6
+color = Color( 0.247059, 0.286275, 0.529412, 1 )
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 25
+custom_constants/margin_left = 25
+
+[node name="Info" type="Label" parent="MarginContainer"]
+margin_left = 25.0
+margin_top = 55.0
+margin_right = 999.0
+margin_bottom = 544.0
+custom_colors/font_color = Color( 0.984314, 0.984314, 0.0392157, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "There are three levels in the game. Controls are standard: esc - pause; A - run to the left; S - if you are standing on a special type of platform, then by pressing S, you will fall through it; D - run to the right, space - jump. To pass the level you need to collect all the coins on the map. From the second level, you will be able to use a fireball (LMB) to burn logs. At the third level, lightning will become available (RMB), which can deal damage to ghosts. Ghosts appear at the second level, but they cannot be damaged.
+Press 'esc' to exit."
+autowrap = true
