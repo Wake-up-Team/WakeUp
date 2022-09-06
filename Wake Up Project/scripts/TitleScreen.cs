@@ -3,6 +3,8 @@ public class TitleScreen : Control
 {
     public override void _Ready()
     {
+        var сursor = ResourceLoader.Load("res://Images/Cursor1.png");
+        Input.SetCustomMouseCursor(сursor);
         Button playBtn = GetNode<Button>("MarginContainer/VBoxContainer/Buttons/Play/PlayBtn");
         playBtn.GrabFocus();
     }
