@@ -62,7 +62,7 @@ public class Door : Area2D
             if (IsAllowedToUseTheDoor() && eventKey.Pressed && eventKey.Scancode == (int)KeyList.J)
             {
                 var sceneSwitcher = GetNode<SceneSwitcher>("/root/SceneSwitcher");
-                sceneSwitcher.SwitchSceneWithDoor(_pathToTheSceneToWhichTheDoorLeads);
+                sceneSwitcher.SwitchSceneWithElevatorAnimation(_pathToTheSceneToWhichTheDoorLeads);
             }
         }
     }
