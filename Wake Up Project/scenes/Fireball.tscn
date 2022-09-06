@@ -16,18 +16,18 @@ animations = [ {
 } ]
 
 [sub_resource type="CircleShape2D" id=2]
-radius = 7.07107
+radius = 6.0
 
 [sub_resource type="CircleShape2D" id=3]
-radius = 7.0
+radius = 6.0
 
 [node name="Fireball" type="RigidBody2D"]
 gravity_scale = 0.0
 script = ExtResource( 4 )
 
 [node name="AnimatedFireball" type="AnimatedSprite" parent="."]
-position = Vector2( -1.75, 1 )
-scale = Vector2( 2.0625, 2 )
+position = Vector2( 0, 1 )
+scale = Vector2( 1.4375, 1.625 )
 frames = SubResource( 1 )
 animation = "Fire"
 
