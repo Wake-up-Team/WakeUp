@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/CanvasModulate.tscn" type="PackedScene" id=2]
@@ -28,7 +28,7 @@ position = Vector2( 96, 165 )
 script = ExtResource( 26 )
 
 [node name="HUD" parent="." instance=ExtResource( 28 )]
-_sceneToRestartPath = "res://scenes/Core.tscn"
+_sceneToRestartPath = null
 
 [node name="CanvasModulate" parent="." instance=ExtResource( 2 )]
 
@@ -1251,26 +1251,6 @@ _pathToTheSceneToWhichTheDoorLeads = "res://scenes/Core2.tscn"
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( -43, -233 )
-
-[node name="saw" type="Node2D" parent="."]
-pause_mode = 1
-position = Vector2( 325, -188 )
-script = ExtResource( 33 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="saw"]
-position = Vector2( -1, 0 )
-frames = SubResource( 13 )
-animation = "saw"
-playing = true
-
-[node name="Area2D" type="Area2D" parent="saw"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="saw/Area2D"]
-position = Vector2( -1, 0 )
-shape = SubResource( 14 )
 
 [node name="MusicCoreScreen" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
