@@ -1,15 +1,6 @@
 using Godot;
-using System;
 
 public class MovableBlock : RigidBody2D
 {
-    public override void _Ready()
-    {
-        
-    }
-
-    public override void _IntegrateForces(Physics2DDirectBodyState state)
-    {
-        
-    }
+    // This script was created just to use 'is MovableBlock' keyword in other scripts.
 }

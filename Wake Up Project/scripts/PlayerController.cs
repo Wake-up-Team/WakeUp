@@ -8,132 +8,135 @@ public class PlayerController : KinematicBody2D
     [Signal]
     public delegate void DamageTaken(int numberOfHeartsToHide);
 
-    private Vector2 velocity = new Vector2();
-
     public int NumberOfCollectedCoins { get; set; } = 0;
     public bool HasEnoughCoinsToOpenTheDoor { get; set; } = false;
 
-    private int speed = 100;
-    private int gravity = 400;
-    private int jumpHeigth = 200;
-
-    private float acceleration = 0.25f;
-    private float friction = 0.5f;
-
-    private int impulse = 5;
-
-    private bool isInAir = false;
-
-    private AnimatedSprite animatedPlayerSprite;
-
-    private int direction = 0;
-
-    private bool isTakingDamage = false;
-
-    private int health = 3;
-
-    private float shootTimer = 1f;
-
-    private float shootTimerReset = 1f;
+    private Vector2 _velocity = new Vector2();
+    private int _speed = 100;
+    private int _gravity = 400;
+    private int _jumpHeigth = 200;
+    private float _acceleration = 0.25f;
+    private float _friction = 0.5f;
+    private int _impulse = 5;
+    private int _direction = 0;
 
 
-    private bool isAbleToShoot = true;
-    private bool directionForFireball = true;
-    private Position2D positionOfGun;
+    private bool _isInAir = false;
+    private bool _isTakingDamage = false;
+    private int _health = 3;
+
+
+    private float _shootTimer = 1f;
+    private float _shootTimerReset = 1f;
+    private bool _isAbleToShoot = true;
+    private bool _directionForFireball = true;
+    private Position2D _positionOfGun;
+
     [Export]
-    private PackedScene Fireball;
+    private PackedScene _fireball;
+
     [Export]
-    private PackedScene Lightning;
+    private PackedScene _lightning;
+
     [Export]
-    private bool isFireballAvailable;
+    private bool _isFireballAvailable;
+
     [Export]
-    private bool isLightningAvailable;
+    private bool _isLightningAvailable;
 
     [Signal]
     public delegate void Death();
 
+    private AnimatedSprite _animatedPlayerSprite;
+
     public override void _Ready()
     {
-        animatedPlayerSprite = GetNode<AnimatedSprite>("AnimatedSprite");
-        positionOfGun = GetNode<Position2D>("GunRight");
+        _animatedPlayerSprite = GetNode<AnimatedSprite>("AnimatedSprite");
+        _positionOfGun = GetNode<Position2D>("GunRight");
     }
 
     public bool IsAlive()
     {
-        return health > 0;
+        return _health > 0;
     }
 
     public override void _PhysicsProcess(float delta)
     {
 
-        if (health != 0)
+        if (_health != 0)
         {
-            velocity.y += gravity * delta;
-            direction = 0;
-            if (Input.IsActionJustPressed("lightning") && isLightningAvailable)
+            _velocity.y += _gravity * delta;
+            _direction = 0;
+            if (Input.IsActionJustPressed("lightning") && _isLightningAvailable)
             {
-                if (isAbleToShoot)
+                if (_isAbleToShoot)
                 {
                     GD.Print("fire" + (GetGlobalMousePosition() - this.GlobalPosition));
                     if (new Vector2(GetGlobalMousePosition() - this.GlobalPosition).x < 0)
-                        positionOfGun = GetNode<Position2D>("GunLeft");
+                    {
+                        _positionOfGun = GetNode<Position2D>("GunLeft");
+                    }
                     else
-                        positionOfGun = GetNode<Position2D>("GunRight");
+                    {
+                        _positionOfGun = GetNode<Position2D>("GunRight");
+                    }
 
-                    positionOfGun.LookAt(GetGlobalMousePosition());
-                    Lightning lightning = Lightning.Instance() as Lightning;
+                    _positionOfGun.LookAt(GetGlobalMousePosition());
+                    Lightning lightning = _lightning.Instance() as Lightning;
                     Owner.AddChild(lightning);
-                    lightning.GlobalTransform = positionOfGun.GlobalTransform;
-                    isAbleToShoot = false;
-                    shootTimer = shootTimerReset;
+                    lightning.GlobalTransform = _positionOfGun.GlobalTransform;
+                    _isAbleToShoot = false;
+                    _shootTimer = _shootTimerReset;
                 }
             }
-            if (Input.IsActionJustPressed("fire") && isFireballAvailable)
+
+            if (Input.IsActionJustPressed("fire") && _isFireballAvailable)
             {
-                if (isAbleToShoot)
+                if (_isAbleToShoot)
                 {
                     if (new Vector2(GetGlobalMousePosition() - this.GlobalPosition).x < 0)
                     {
-                        positionOfGun = GetNode<Position2D>("GunLeft");
+                        _positionOfGun = GetNode<Position2D>("GunLeft");
                     }
                     else
                     {
-                        positionOfGun = GetNode<Position2D>("GunRight");
+                        _positionOfGun = GetNode<Position2D>("GunRight");
                     }
 
-                    positionOfGun.LookAt(GetGlobalMousePosition());
-                    Fireball fireball = Fireball.Instance() as Fireball;
+                    _positionOfGun.LookAt(GetGlobalMousePosition());
+                    Fireball fireball = _fireball.Instance() as Fireball;
                     Owner.AddChild(fireball);
-                    fireball.GlobalTransform = positionOfGun.GlobalTransform;
-                    isAbleToShoot = false;
-                    shootTimer = shootTimerReset;
+                    fireball.GlobalTransform = _positionOfGun.GlobalTransform;
+                    _isAbleToShoot = false;
+                    _shootTimer = _shootTimerReset;
                 }
             }
 
-            if (shootTimer <= 0)
+            if (_shootTimer <= 0)
             {
-                isAbleToShoot = true;
+                _isAbleToShoot = true;
             }
             else
             {
-                shootTimer -= delta;
+                _shootTimer -= delta;
             }
 
-            if (!isTakingDamage)
+            if (!_isTakingDamage)
             {
                 if (Input.IsActionPressed("move_left"))
                 {
-                    directionForFireball = true;
-                    positionOfGun = GetNode<Position2D>("GunLeft");
-                    direction = -1;
-                    animatedPlayerSprite.FlipH = true;
+                    _directionForFireball = true;
+                    _positionOfGun = GetNode<Position2D>("GunLeft");
+                    _direction = -1;
+                    _animatedPlayerSprite.FlipH = true;
                 }
+
                 if (Input.IsActionPressed("move_right"))
                 {
-                    directionForFireball = false;
-                    positionOfGun = GetNode<Position2D>("GunRight");
-                    direction = 1;
-                    animatedPlayerSprite.FlipH = false;
+                    _directionForFireball = false;
+                    _positionOfGun = GetNode<Position2D>("GunRight");
+                    _direction = 1;
+                    _animatedPlayerSprite.FlipH = false;
                 }
 
                 if (IsOnFloor())
@@ -145,47 +148,45 @@ public class PlayerController : KinematicBody2D
                     }
                     else if (Input.IsActionJustPressed("jump"))
                     {
-                        velocity.y -= jumpHeigth;
-                        animatedPlayerSprite.Play("Jump");
-                        isInAir = true;
+                        _velocity.y -= _jumpHeigth;
+                        _animatedPlayerSprite.Play("Jump");
+                        _isInAir = true;
                     }
                     else
                     {
-                        isInAir = false;
+                        _isInAir = false;
                     }
                 }
             }
 
-
-
-            if (direction != 0)
+            if (_direction != 0)
             {
-                velocity.x = Mathf.Lerp(velocity.x, direction * speed, acceleration);
-                if (!isInAir)
+                _velocity.x = Mathf.Lerp(_velocity.x, _direction * _speed, _acceleration);
+                if (!_isInAir)
                 {
-                    animatedPlayerSprite.Play("running");
+                    _animatedPlayerSprite.Play("running");
                 }
             }
             else
             {
-                velocity.x = Mathf.Lerp(velocity.x, 0, friction);
-
-                if (velocity.x < 5 && velocity.x > -5)
+                _velocity.x = Mathf.Lerp(_velocity.x, 0, _friction);
+                if (_velocity.x < 5 && _velocity.x > -5)
                 {
-                    if (!isInAir && !isTakingDamage && IsOnFloor())
+                    if (!_isInAir && !_isTakingDamage && IsOnFloor())
                     {
-                        animatedPlayerSprite.Play("idle");
+                        _animatedPlayerSprite.Play("idle");
                     }
-                    isTakingDamage = false;
+                    _isTakingDamage = false;
                 }
             }
-            velocity = MoveAndSlide(velocity, Vector2.Up, false, 4, 0.785398f, false);
+
+            _velocity = MoveAndSlide(_velocity, Vector2.Up, false, 4, 0.785398f, false);
             for (int i = 0; i < GetSlideCount(); i++)
             {
                 var collision = GetSlideCollision(i);
                 if (((Node)collision.Collider) is MovableBlock)
                 {
-                    ((RigidBody2D)collision.Collider).ApplyCentralImpulse(-collision.Normal * impulse);
+                    ((RigidBody2D)collision.Collider).ApplyCentralImpulse(-collision.Normal * _impulse);
                 }
             }
         }
@@ -196,17 +197,17 @@ public class PlayerController : KinematicBody2D
     public void TakeDamage(int damage)
     {
         EmitSignal("DamageTaken", damage);
-        health -= damage;
-        animatedPlayerSprite.Play("TakeDamage");
-        velocity = MoveAndSlide(new Vector2(800f * -direction, -120), Vector2.Up);
-        isTakingDamage = true;
-        if (health <= 0)
+        _health -= damage;
+        _animatedPlayerSprite.Play("TakeDamage");
+        _velocity = MoveAndSlide(new Vector2(800f * -_direction, -120), Vector2.Up);
+        _isTakingDamage = true;
+        if (_health <= 0)
         {
-            health = 0;
-            animatedPlayerSprite.Play("default death");
+            _health = 0;
+            _animatedPlayerSprite.Play("default death");
         }
 
-        if (health < 1)
+        if (_health < 1)
         {
             GetNode<AudioStreamPlayer>("DeathSound").Play();
         }
@@ -218,9 +219,9 @@ public class PlayerController : KinematicBody2D
 
     private void _on_AnimatedSprite_animation_finished()
     {
-        if (animatedPlayerSprite.Animation == "default death")
+        if (_animatedPlayerSprite.Animation == "default death")
         {
-            animatedPlayerSprite.Stop();
+            _animatedPlayerSprite.Stop();
             Hide();
             EmitSignal(nameof(Death));
             CollisionShape2D shape = GetNode<CollisionShape2D>("CollisionShape2D");
@@ -230,7 +231,6 @@ public class PlayerController : KinematicBody2D
 
     private void _on_FallZone_body_entered(object body)
     {
-
         if (body is PlayerController && body is KinematicBody2D)
         {
             TakeDamage(3);

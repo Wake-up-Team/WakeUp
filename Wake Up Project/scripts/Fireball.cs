@@ -1,23 +1,22 @@
 using Godot;
-using System;
 
 public class Fireball : RigidBody2D
 {
-    private int speed = 150;
-    private float lifeSpan = 2;
-    private AnimatedSprite animatedFireballSprite;
+    private int _speed = 150;
+    private float _lifeSpan = 2;
+    private AnimatedSprite _animatedFireballSprite;
 
     public override void _Ready()
     {
-        animatedFireballSprite = GetNode<AnimatedSprite>("AnimatedFireball");
+        _animatedFireballSprite = GetNode<AnimatedSprite>("AnimatedFireball");
     }
 
     public override void _Process(float delta)
     {
-        animatedFireballSprite.Play();
-        Position += Transform.x * delta * speed;
-        lifeSpan -= delta;
-        if (lifeSpan < 0)
+        _animatedFireballSprite.Play();
+        Position += Transform.x * delta * _speed;
+        _lifeSpan -= delta;
+        if (_lifeSpan < 0)
         {
             QueueFree();
         }

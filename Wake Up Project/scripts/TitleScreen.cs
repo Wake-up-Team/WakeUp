@@ -1,7 +1,9 @@
 using Godot;
+
 public class TitleScreen : Control
 {
     private SceneSwitcher _sceneSwitcher;
+
     public override void _Ready()
     {
         var сursor = ResourceLoader.Load("res://Images/Cursor1.png");

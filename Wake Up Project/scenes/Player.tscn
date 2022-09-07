@@ -41,6 +41,11 @@ animations = [ {
 "name": "TakeDamage",
 "speed": 15.0
 }, {
+"frames": [ ExtResource( 3 ), ExtResource( 2 ) ],
+"loop": false,
+"name": "Jump",
+"speed": 3.0
+}, {
 "frames": [ ExtResource( 20 ), ExtResource( 11 ), ExtResource( 21 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ],
 "loop": true,
 "name": "default death",
@@ -50,11 +55,6 @@ animations = [ {
 "loop": true,
 "name": "running",
 "speed": 15.0
-}, {
-"frames": [ ExtResource( 3 ), ExtResource( 2 ) ],
-"loop": false,
-"name": "Jump",
-"speed": 3.0
 } ]
 
 [node name="Player" type="KinematicBody2D"]
@@ -64,8 +64,8 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }
-Fireball = ExtResource( 22 )
-Lightning = ExtResource( 25 )
+_fireball = ExtResource( 22 )
+_lightning = ExtResource( 25 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -1, 5.5 )

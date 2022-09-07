@@ -3,32 +3,30 @@ using Godot.Collections;
 
 public class MovablePlatform : Node2D
 {
-    private Tween tween;
-
-    private int indexOfPosition;
-
-    private KinematicBody2D platformBody;
-
-    private Array movementPositions;
+    private Tween _tween;
+    private KinematicBody2D _platformBody;
+    private Array _movementPositions;
 
     public override void _Ready()
     {
-        movementPositions = GetNode<Node>("MovementPositions").GetChildren();
-        tween = GetNode<Tween>("PlatformBody/Tween");
-        platformBody = GetNode<KinematicBody2D>("PlatformBody");
+        _movementPositions = GetNode<Node>("MovementPositions").GetChildren();
+        _tween = GetNode<Tween>("PlatformBody/Tween");
+        _platformBody = GetNode<KinematicBody2D>("PlatformBody");
         _on_Tween_tween_completed(null, null);
     }
 
+    private int _indexOfPosition;
+
     private void _on_Tween_tween_completed(object obj, NodePath path)
     {
-        indexOfPosition++;
-        if (indexOfPosition > movementPositions.Count - 1)
+        _indexOfPosition++;
+        if (_indexOfPosition > _movementPositions.Count - 1)
         {
-            indexOfPosition = 0;
+            _indexOfPosition = 0;
         }
-        Position2D movePosition = movementPositions[indexOfPosition] as Position2D;
+        Position2D movePosition = _movementPositions[_indexOfPosition] as Position2D;
         int moveSpeed = 30;
-        tween.InterpolateProperty(platformBody, "position", platformBody.Position, movePosition.Position, movePosition.Position.DistanceTo(platformBody.Position) / moveSpeed, Tween.TransitionType.Linear, Tween.EaseType.InOut);
-        tween.Start();
+        _tween.InterpolateProperty(_platformBody, "position", _platformBody.Position, movePosition.Position, movePosition.Position.DistanceTo(_platformBody.Position) / moveSpeed, Tween.TransitionType.Linear, Tween.EaseType.InOut);
+        _tween.Start();
     }
 }

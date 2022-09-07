@@ -2,11 +2,9 @@ using Godot;
 
 public class GlobalOptions : Node
 {
-    [Signal]
-    public delegate void BrightnessChanged(float value);
+    private GlobalOptions() { }
 
     private static GlobalOptions s_instance = new GlobalOptions();
-    private GlobalOptions() { }
     public static GlobalOptions GetInstance
     {
         get

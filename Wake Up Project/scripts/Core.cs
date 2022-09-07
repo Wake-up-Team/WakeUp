@@ -2,21 +2,16 @@ using Godot;
 
 public class Core : Node2D
 {
-
-    [Export]
-    public Position2D RespPos;
-    private int _score = 0;
-
     private int _numberOfCoinsToUnlockTheDoor;
-
-    private void HideAllHudContent()
-    {
-        GetNode<HUD>("HUD").HideAllContent();
-    }
 
     private void SetScoreInHUD(int score)
     {
         GetNode<HUD>("HUD").SetScore(score, _numberOfCoinsToUnlockTheDoor);
+    }
+
+    private void HideAllHudContent()
+    {
+        GetNode<HUD>("HUD").HideAllContent();
     }
 
     public override void _Ready()
@@ -73,6 +68,8 @@ public class Core : Node2D
             }
         }
     }
+
+    private int _score = 0;
 
     private void _on_Player_CoinCollected()
     {

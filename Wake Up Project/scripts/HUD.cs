@@ -9,9 +9,7 @@ public class HUD : CanvasLayer
     [Export]
     private string _sceneToRestartPath;
 
-    private TextureRect[] _hpHearts = new TextureRect[3];
-
-    private string[] _gameOverText = new string[]
+    private string[] _gameOverMessages = new string[]
     {
         "Game Over.",
         "Noob, learn to play and try again.",
@@ -23,6 +21,7 @@ public class HUD : CanvasLayer
         "U are a disgrace to the humanity."
     };
 
+    private TextureRect[] _hpHearts = new TextureRect[3];
     private int _lastVisibleHeartIndex;
 
     public override void _Ready()
@@ -70,14 +69,8 @@ public class HUD : CanvasLayer
 
     public void ShowGameOverMessage()
     {
-        int index = new Random().Next(0, _gameOverText.Length);
-        ShowMessage(_gameOverText[index]);
-    }
-
-    private void SwitchScene(string nextScenePath)
-    {
-        var sceneSwitcher = GetNode<SceneSwitcher>("/root/SceneSwitcher");
-        sceneSwitcher.SwitchScene(nextScenePath);
+        int index = new Random().Next(0, _gameOverMessages.Length);
+        ShowMessage(_gameOverMessages[index]);
     }
 
     public void Pause()
@@ -92,12 +85,10 @@ public class HUD : CanvasLayer
         GetTree().Paused = false;
     }
 
-    private void _on_ResumeButton_pressed()
+    private void SwitchScene(string nextScenePath)
     {
-        Resume();
-        GetNode<Button>("MarginContainer/VBoxContainer/ResumeButton").Hide();
-        GetNode<Button>("MarginContainer/VBoxContainer/PauseMenuButton").Hide();
-        GetNode<Button>("MarginContainer/VBoxContainer/RestartButton").Hide();
+        var sceneSwitcher = GetNode<SceneSwitcher>("/root/SceneSwitcher");
+        sceneSwitcher.SwitchScene(nextScenePath);
     }
 
     private void _on_PauseMenuButton_pressed()
@@ -115,9 +106,11 @@ public class HUD : CanvasLayer
         SwitchScene(_sceneToRestartPath);
     }
 
-    private void _on_BackToMenuButton_pressed()
+    private void _on_ResumeButton_pressed()
     {
-        var sceneSwitcher = GetNode<SceneSwitcher>("/root/SceneSwitcher");
-        sceneSwitcher.SwitchScene("res://scenes/TitleScreen.tscn");
+        Resume();
+        GetNode<Button>("MarginContainer/VBoxContainer/ResumeButton").Hide();
+        GetNode<Button>("MarginContainer/VBoxContainer/PauseMenuButton").Hide();
+        GetNode<Button>("MarginContainer/VBoxContainer/RestartButton").Hide();
     }
 }

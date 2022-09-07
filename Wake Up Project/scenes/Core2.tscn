@@ -403,7 +403,7 @@ _pathToTheSceneToWhichTheDoorLeads = "res://scenes/Core3.tscn"
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( -238, -111 )
 z_index = 1
-isFireballAvailable = true
+_isFireballAvailable = true
 
 [node name="MusicCoreScreen" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )

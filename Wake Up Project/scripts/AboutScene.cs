@@ -13,11 +13,6 @@ public class AboutScene : Control
         sceneSwitcher.SwitchScene(nextScenePath);
     }
 
-    public void _on_ContactBtn_button_up()
-    {
-        OS.ShellOpen("https://t.me/t1vlas");
-    }
-
     public override void _UnhandledInput(InputEvent @event)
     {
         if (@event is InputEventKey eventKey)
@@ -27,6 +22,11 @@ public class AboutScene : Control
                 SwitchScene("res://scenes/TitleScreen.tscn");
             }
         }
+    }
+
+    private void _on_ContactBtn_button_up()
+    {
+        OS.ShellOpen("https://t.me/t1vlas");
     }
 
     private void _on_BackButton_pressed()

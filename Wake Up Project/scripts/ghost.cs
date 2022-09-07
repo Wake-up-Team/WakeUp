@@ -1,62 +1,56 @@
 using Godot;
-using System;
 
 public class ghost : KinematicBody2D
 {
+    private RayCast2D _rayCastBottomLeft;
+    private RayCast2D _rayCastBottomRight;
+    private RayCast2D _rayCastMidLeft;
+    private RayCast2D _rayCastMidRight;
 
-    RayCast2D RayCastBottomLeft;
+    private Vector2 _velocity;
+    private int _gravity = 200;
+    private int _speed = 25;
+    private int _health = 3;
 
-    RayCast2D RayCastBottomRight;
-
-    RayCast2D RayCastMidLeft;
-
-    RayCast2D RayCastMidRight;
-
-    private Vector2 velocity;
-
-    private int gravity = 200;
-
-    private int speed = 25;
-    private int health = 3;
-
-    private AnimatedSprite sprite;
+    private AnimatedSprite _sprite;
 
     public override void _Ready()
     {
-        RayCastBottomLeft = GetNode<RayCast2D>("RayCastBottomLeft");
-        RayCastBottomRight = GetNode<RayCast2D>("RayCastBottomRight");
-        RayCastMidLeft = GetNode<RayCast2D>("RayCastMidLeft");
-        RayCastMidRight = GetNode<RayCast2D>("RayCastMidRight");
-        sprite = GetNode<AnimatedSprite>("AnimatedSprite");
-        velocity.x = speed;
+        _rayCastBottomLeft = GetNode<RayCast2D>("RayCastBottomLeft");
+        _rayCastBottomRight = GetNode<RayCast2D>("RayCastBottomRight");
+        _rayCastMidLeft = GetNode<RayCast2D>("RayCastMidLeft");
+        _rayCastMidRight = GetNode<RayCast2D>("RayCastMidRight");
+        _sprite = GetNode<AnimatedSprite>("AnimatedSprite");
+        _velocity.x = _speed;
 
     }
 
     public override void _Process(float delta)
     {
-        velocity.y += gravity * delta;
-        if (velocity.y > gravity)
+        _velocity.y += _gravity * delta;
+        if (_velocity.y > _gravity)
         {
-            velocity.y = gravity;
+            _velocity.y = _gravity;
         }
 
-        if (!RayCastBottomRight.IsColliding() || RayCastMidRight.IsColliding())
+        if (!_rayCastBottomRight.IsColliding() || _rayCastMidRight.IsColliding())
         {
-            velocity.x = -speed;
-            sprite.FlipH = true;
+            _velocity.x = -_speed;
+            _sprite.FlipH = true;
         }
-        if (!RayCastBottomLeft.IsColliding() || RayCastMidLeft.IsColliding())
+
+        if (!_rayCastBottomLeft.IsColliding() || _rayCastMidLeft.IsColliding())
         {
-            velocity.x = speed;
-            sprite.FlipH = false;
+            _velocity.x = _speed;
+            _sprite.FlipH = false;
         }
-        MoveAndSlide(velocity, Vector2.Up);
+        MoveAndSlide(_velocity, Vector2.Up);
     }
 
     public void TakeDamage(int damage)
     {
-        health -= damage;
-        if (health < 1)
+        _health -= damage;
+        if (_health < 1)
         {
             QueueFree();
         }
@@ -67,10 +61,11 @@ public class ghost : KinematicBody2D
         if (body is Lightning lightning)
         {
             GetNode<AudioStreamPlayer>("AudioStreamPlayer").Play();
-            velocity = MoveAndSlide(new Vector2(0, -50), Vector2.Up);
+            _velocity = MoveAndSlide(new Vector2(0, -50), Vector2.Up);
             TakeDamage(1);
             lightning.QueueFree();
         }
+
         if (body is PlayerController playerController && body is KinematicBody2D)
         {
             playerController.TakeDamage(3);

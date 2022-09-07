@@ -146,7 +146,6 @@ position = Vector2( 24, 18 )
 scale = Vector2( 6.60938, 5.66406 )
 frames = SubResource( 8 )
 animation = "spinning"
-frame = 2
 playing = true
 
 [node name="ScoreLabel" type="Label" parent="Score"]

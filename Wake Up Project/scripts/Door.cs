@@ -2,13 +2,10 @@ using Godot;
 
 public class Door : Area2D
 {
-    private AnimationPlayer _animationPlayer;
-
     [Export]
     private string _pathToTheSceneToWhichTheDoorLeads = "res://scenes/TitleScreen.tscn";
 
-    private bool _theDoorIsOpen = false;
-    private bool _thePlayerHasEnoughCoins = false;
+    private AnimationPlayer _animationPlayer;
 
     public override void _Ready()
     {
@@ -27,6 +24,9 @@ public class Door : Area2D
         }
         GetNode<Label>("Label").Show();
     }
+
+    private bool _thePlayerHasEnoughCoins = false;
+    private bool _theDoorIsOpen = false;
 
     public void _on_Door_body_entered(Node body)
     {

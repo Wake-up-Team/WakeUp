@@ -1,10 +1,10 @@
 using Godot;
-using System;
 
 public class ElevatorIdling : Node2D
 {
     private AnimationPlayer _animationPlayer;
     private AnimationPlayer _musicAnimationPlayer;
+
     public override void _Ready()
     {
         _animationPlayer = GetNode<AnimationPlayer>("AnimationPlayer");

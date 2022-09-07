@@ -2,31 +2,31 @@ using Godot;
 
 public class SceneSwitcher : Node
 {
-    public Node CurrentScene { get; set; }
+    private Node _currentScene { get; set; }
 
     public override void _Ready()
     {
         Viewport root = GetTree().Root;
-        CurrentScene = root.GetChild(root.GetChildCount() - 1);
+        _currentScene = root.GetChild(root.GetChildCount() - 1);
     }
 
     public async void SwitchScene(string nextScenePath)
     {
-        if (CurrentScene != null)
+        if (_currentScene != null)
         {
-            CurrentScene.QueueFree();
+            _currentScene.QueueFree();
         }
         await ToSignal(GetTree().CreateTimer(0.00000001f), "timeout");
         var nextScene = (PackedScene)GD.Load(nextScenePath);
-        CurrentScene = nextScene.Instance();
-        GetTree().Root.AddChild(CurrentScene);
-        GetTree().CurrentScene = CurrentScene;
+        _currentScene = nextScene.Instance();
+        GetTree().Root.AddChild(_currentScene);
+        GetTree().CurrentScene = _currentScene;
     }
 
     public async void SwitchSceneWithElevatorAnimation(string nextScenePath = "res://scenes/TitleScreen.tscn")
     {
-        CurrentScene.QueueFree();
-        CurrentScene = null;
+        _currentScene.QueueFree();
+        _currentScene = null;
 
         var elevatorScene = (PackedScene)GD.Load("res://scenes/ElevatorIdling.tscn");
         var elevatorInstance = elevatorScene.Instance();
