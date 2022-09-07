@@ -94,7 +94,7 @@ public class HUD : CanvasLayer
 
     public void Resume()
     {
-        var aim = ResourceLoader.Load("res://Images/aim.png");
+        var aim = ResourceLoader.Load("res://Images/Cursors/aim.png");
         Input.SetCustomMouseCursor(aim);
         GetTree().Paused = false;
     }

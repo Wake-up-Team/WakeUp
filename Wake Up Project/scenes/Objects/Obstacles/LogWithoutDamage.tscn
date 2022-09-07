@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://Images/log-without-damage-Sheet.png" type="Texture" id=1]
+[ext_resource path="res://Images/Logs/LogWithoutDamage/log-without-damage-Sheet.png" type="Texture" id=1]
 [ext_resource path="res://sounds/flash-of-flame.wav" type="AudioStream" id=2]
 [ext_resource path="res://scripts/Objects/Obstacles/LogWithoutDamage.cs" type="Script" id=3]
 

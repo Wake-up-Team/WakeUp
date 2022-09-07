@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Images/health-heart-Sheet.png" type="Texture" id=1]
+[ext_resource path="res://Images/Hearts/HealthHeart/health-heart-Sheet.png" type="Texture" id=1]
 [ext_resource path="res://sounds/health-heart-collected.mp3" type="AudioStream" id=2]
 [ext_resource path="res://scripts/Objects/SpecialItems/HealthHeart.cs" type="Script" id=3]
 

@@ -36,20 +36,20 @@ animations = [ {
 "name": "idle",
 "speed": 6.0
 }, {
-"frames": [ ExtResource( 3 ), ExtResource( 2 ) ],
-"loop": false,
-"name": "Jump",
-"speed": 3.0
+"frames": [ ExtResource( 20 ), ExtResource( 11 ), ExtResource( 21 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "default death",
+"speed": 10.0
 }, {
 "frames": [ ExtResource( 16 ), ExtResource( 12 ), ExtResource( 18 ), ExtResource( 14 ) ],
 "loop": true,
 "name": "running",
 "speed": 15.0
 }, {
-"frames": [ ExtResource( 20 ), ExtResource( 11 ), ExtResource( 21 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ],
-"loop": true,
-"name": "default death",
-"speed": 10.0
+"frames": [ ExtResource( 3 ), ExtResource( 2 ) ],
+"loop": false,
+"name": "Jump",
+"speed": 3.0
 }, {
 "frames": [ ExtResource( 6 ), ExtResource( 4 ), ExtResource( 17 ) ],
 "loop": true,

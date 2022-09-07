@@ -1,11 +1,11 @@
 [gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://Images/lightning1.png" type="Texture" id=1]
-[ext_resource path="res://Images/lightning3.png" type="Texture" id=2]
-[ext_resource path="res://Images/lightning6.png" type="Texture" id=3]
-[ext_resource path="res://Images/lightning2.png" type="Texture" id=4]
-[ext_resource path="res://Images/lightning4.png" type="Texture" id=5]
-[ext_resource path="res://Images/lightning5.png" type="Texture" id=6]
+[ext_resource path="res://Images/Lightning/lightning1.png" type="Texture" id=1]
+[ext_resource path="res://Images/Lightning/lightning3.png" type="Texture" id=2]
+[ext_resource path="res://Images/Lightning/lightning6.png" type="Texture" id=3]
+[ext_resource path="res://Images/Lightning/lightning2.png" type="Texture" id=4]
+[ext_resource path="res://Images/Lightning/lightning4.png" type="Texture" id=5]
+[ext_resource path="res://Images/Lightning/lightning5.png" type="Texture" id=6]
 [ext_resource path="res://scripts/Shooting/Lightning.cs" type="Script" id=7]
 [ext_resource path="res://sounds/lightning.wav" type="AudioStream" id=8]
 

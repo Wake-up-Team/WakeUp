@@ -2,8 +2,8 @@
 
 [ext_resource path="res://Fonts/ConnectionII.otf" type="DynamicFontData" id=1]
 [ext_resource path="res://scripts/UserInterface/HUD.cs" type="Script" id=2]
-[ext_resource path="res://Images/coins.png" type="Texture" id=3]
-[ext_resource path="res://Images/hp-heart.png" type="Texture" id=4]
+[ext_resource path="res://Images/Coin/coins.png" type="Texture" id=3]
+[ext_resource path="res://Images/Hearts/HpHeart/hp-heart.png" type="Texture" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 64
