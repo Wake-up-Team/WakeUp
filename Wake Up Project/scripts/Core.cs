@@ -85,4 +85,9 @@ public class Core : Node2D
     {
         GetNode<HUD>("HUD").HideNHearts(numberOfHeartsToHide);
     }
+
+    private void _on_Player_HealthIncreased(int numberOfHeartsToShow)
+    {
+        GetNode<HUD>("HUD").ShowNHearts(numberOfHeartsToShow);
+    }
 }

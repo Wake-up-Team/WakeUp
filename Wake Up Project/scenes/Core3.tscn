@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/CanvasModulate.tscn" type="PackedScene" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://scenes/Log.tscn" type="PackedScene" id=10]
 [ext_resource path="res://scenes/MovableBlock.tscn" type="PackedScene" id=11]
 [ext_resource path="res://scenes/Door.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scenes/HealthHeart.tscn" type="PackedScene" id=13]
 [ext_resource path="res://scripts/Core.cs" type="Script" id=26]
 [ext_resource path="res://scenes/HUD.tscn" type="PackedScene" id=28]
 [ext_resource path="res://scenes/Spike.tscn" type="PackedScene" id=36]
@@ -112,7 +113,7 @@ position = Vector2( -961, 473 )
 position = Vector2( -1442, 475 )
 
 [node name="FlashLight24" parent="FlashLights" instance=ExtResource( 46 )]
-position = Vector2( -1385, -39 )
+position = Vector2( -1391, -39 )
 
 [node name="FlashLight25" parent="FlashLights" instance=ExtResource( 46 )]
 position = Vector2( -1304, -313 )
@@ -890,7 +891,19 @@ position = Vector2( -161, 261 )
 position = Vector2( 1024.5, 635 )
 shape = SubResource( 1 )
 
+[node name="HealthHearts" type="Node2D" parent="."]
+
+[node name="HealthHeart" parent="HealthHearts" instance=ExtResource( 13 )]
+position = Vector2( 1210, -85 )
+
+[node name="HealthHeart2" parent="HealthHearts" instance=ExtResource( 13 )]
+position = Vector2( -1314, 475 )
+
+[node name="HealthHeart3" parent="HealthHearts" instance=ExtResource( 13 )]
+position = Vector2( -1381, -37 )
+
 [connection signal="CoinCollected" from="Player" to="." method="_on_Player_CoinCollected"]
 [connection signal="DamageTaken" from="Player" to="." method="_on_Player_DamageTaken"]
 [connection signal="Death" from="Player" to="." method="_on_Player_Death"]
+[connection signal="HealthIncreased" from="Player" to="." method="_on_Player_HealthIncreased"]
 [connection signal="body_entered" from="FallZone" to="Player" method="_on_FallZone_body_entered"]

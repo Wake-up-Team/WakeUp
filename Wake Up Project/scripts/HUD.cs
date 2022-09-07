@@ -52,6 +52,20 @@ public class HUD : CanvasLayer
         }
     }
 
+    private void ShowHeart(int index)
+    {
+        _hpHearts[index].Show();
+    }
+
+    public void ShowNHearts(int numberOfHeartsToShow)
+    {
+        for (int i = 0; i < numberOfHeartsToShow && _lastVisibleHeartIndex < _hpHearts.Length - 1; i++)
+        {
+            ShowHeart(_lastVisibleHeartIndex + 1);
+            _lastVisibleHeartIndex++;
+        }
+    }
+
     public void HideAllContent()
     {
         GetNode<Label>("MarginContainer/VBoxContainer/Message").Hide();

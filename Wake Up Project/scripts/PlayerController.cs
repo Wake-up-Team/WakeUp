@@ -23,8 +23,9 @@ public class PlayerController : KinematicBody2D
 
     private bool _isInAir = false;
     private bool _isTakingDamage = false;
-    private int _health = 3;
-
+    private int _health;
+    public int MaxHealth { get; private set; } = 3;
+    public int CurHealth { get => _health; }
 
     private float _shootTimer = 1f;
     private float _shootTimerReset = 1f;
@@ -53,6 +54,7 @@ public class PlayerController : KinematicBody2D
     {
         _animatedPlayerSprite = GetNode<AnimatedSprite>("AnimatedSprite");
         _positionOfGun = GetNode<Position2D>("GunRight");
+        _health = MaxHealth;
     }
 
     public bool IsAlive()
@@ -235,5 +237,18 @@ public class PlayerController : KinematicBody2D
         {
             TakeDamage(3);
         }
+    }
+
+    [Signal]
+    private delegate void HealthIncreased(int additionalHealthPoints);
+
+    public void IncreaseHealth()
+    {
+        _health += 1;
+        if (_health > MaxHealth)
+        {
+            _health = MaxHealth;
+        }
+        EmitSignal(nameof(HealthIncreased), 1);
     }
 }
