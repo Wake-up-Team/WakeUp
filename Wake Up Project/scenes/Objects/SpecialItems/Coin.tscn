@@ -3,8 +3,9 @@
 [ext_resource path="res://Images/coins.png" type="Texture" id=1]
 [ext_resource path="res://Images/coins-collected.png" type="Texture" id=2]
 [ext_resource path="res://sounds/coin_collected.wav" type="AudioStream" id=3]
-[ext_resource path="res://scripts/Coin.cs" type="Script" id=4]
+[ext_resource path="res://scripts/Objects/SpecialItems/Coin.cs" type="Script" id=4]
 [ext_resource path="res://Sprites/lights/light (1).png" type="Texture" id=5]
+
 
 [sub_resource type="Animation" id=3]
 resource_name = "collected"

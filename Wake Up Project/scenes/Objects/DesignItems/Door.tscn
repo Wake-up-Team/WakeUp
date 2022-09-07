@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Images/doors-Sheet.png" type="Texture" id=1]
-[ext_resource path="res://scripts/Door.cs" type="Script" id=2]
+[ext_resource path="res://scripts/Objects/DesignItems/Door.cs" type="Script" id=2]
 [ext_resource path="res://sounds/звук_эффект(открытие двери, окончание уровня).mp3" type="AudioStream" id=3]
 [ext_resource path="res://Fonts/small_pixel.ttf" type="DynamicFontData" id=4]
 

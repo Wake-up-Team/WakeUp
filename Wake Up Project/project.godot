@@ -16,8 +16,8 @@ config/icon="res://icon.png"
 
 [autoload]
 
-GlobalOptions="*res://scripts/GlobalOptions.cs"
-SceneSwitcher="*res://scripts/SceneSwitcher.cs"
+GlobalOptions="*res://scripts/Other/GlobalOptions.cs"
+SceneSwitcher="*res://scripts/Other/SceneSwitcher.cs"
 
 [display]
 

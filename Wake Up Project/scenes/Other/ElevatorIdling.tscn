@@ -7,7 +7,8 @@
 [ext_resource path="res://Sprites/lights/light (1).png" type="Texture" id=5]
 [ext_resource path="res://Sprites/elevator idling/elevator bg.png" type="Texture" id=6]
 [ext_resource path="res://Sprites/elevator idling/floor.png" type="Texture" id=7]
-[ext_resource path="res://scripts/ElevatorIdling.cs" type="Script" id=8]
+[ext_resource path="res://scripts/Other/ElevatorIdling.cs" type="Script" id=8]
+
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {

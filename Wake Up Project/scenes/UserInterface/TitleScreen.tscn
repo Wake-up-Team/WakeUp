@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=2]
 
-[ext_resource path="res://scripts/TitleScreen.cs" type="Script" id=1]
+[ext_resource path="res://scripts/UserInterface/TitleScreen.cs" type="Script" id=1]
 [ext_resource path="res://sounds/звук_фон_2.mp3" type="AudioStream" id=2]
 [ext_resource path="res://scenes/UserInterface/OptionsMenuScene.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Fonts/ConnectionII.otf" type="DynamicFontData" id=4]
