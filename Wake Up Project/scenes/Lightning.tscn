@@ -24,6 +24,7 @@ extents = Vector2( 10, 1.5 )
 extents = Vector2( 9, 1.5 )
 
 [node name="Lightning" type="RigidBody2D"]
+gravity_scale = 0.0
 script = ExtResource( 7 )
 
 [node name="AnimatedLightning" type="AnimatedSprite" parent="."]
