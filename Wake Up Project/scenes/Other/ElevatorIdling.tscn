@@ -9,7 +9,6 @@
 [ext_resource path="res://Sprites/elevator idling/floor.png" type="Texture" id=7]
 [ext_resource path="res://scripts/Other/ElevatorIdling.cs" type="Script" id=8]
 
-
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 2 ) ],
@@ -47,7 +46,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 1, 2, 3, 4, 5 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ -30.0, -25.0, -20.0, -15.0, -10.0, -5.0 ]
+"values": [ -15.0, -12.0, -9.0, -6.0, -3.0, 0.0 ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("AudioStreamPlayer2D:playing")
@@ -72,7 +71,6 @@ color = Color( 0.313726, 0.313726, 0.313726, 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
 animation = "elevator idling"
-frame = 2
 playing = true
 
 [node name="floor" type="Sprite" parent="."]
@@ -87,11 +85,11 @@ margin_top = -32.0
 margin_right = 58.0
 margin_bottom = 33.0
 rect_min_size = Vector2( 115, 65 )
-color = Color( 0, 0, 0, 0.0627451 )
+color = Color( 0, 0, 0, 1 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 1 )
-volume_db = -16.16
+volume_db = -30.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
