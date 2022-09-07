@@ -14,7 +14,7 @@ public class TitleScreen : Control
 
     public void _on_PlayBtn_button_up()
     {
-        _sceneSwitcher.SwitchSceneWithElevatorAnimation("res://scenes/Core.tscn");
+        _sceneSwitcher.SwitchSceneWithElevatorAnimation("res://scenes/Levels/Core.tscn");
     }
 
     public void _on_OptionsBtn_button_up()
@@ -24,7 +24,7 @@ public class TitleScreen : Control
 
     public void _on_AboutBtn_button_up()
     {
-        _sceneSwitcher.SwitchScene("res://scenes/AboutScene.tscn");
+        _sceneSwitcher.SwitchScene("res://scenes/UserInterface/AboutScene.tscn");
     }
 
     public void _on_QuitBtn_button_up()

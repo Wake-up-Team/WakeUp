@@ -108,7 +108,7 @@ public class HUD : CanvasLayer
     private void _on_PauseMenuButton_pressed()
     {
         Resume();
-        SwitchScene("res://scenes/TitleScreen.tscn");
+        SwitchScene("res://scenes/UserInterface/TitleScreen.tscn");
     }
 
     private void _on_RestartButton_pressed()

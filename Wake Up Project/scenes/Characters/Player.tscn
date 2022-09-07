@@ -21,10 +21,10 @@
 [ext_resource path="res://Sprites/lights/light (1).png" type="Texture" id=19]
 [ext_resource path="res://Sprites/death/default/1.png" type="Texture" id=20]
 [ext_resource path="res://Sprites/death/default/3.png" type="Texture" id=21]
-[ext_resource path="res://scenes/Fireball.tscn" type="PackedScene" id=22]
+[ext_resource path="res://scenes/Shooting/Fireball.tscn" type="PackedScene" id=22]
 [ext_resource path="res://sounds/after-death-sound.wav" type="AudioStream" id=23]
 [ext_resource path="res://sounds/uh-sound.wav" type="AudioStream" id=24]
-[ext_resource path="res://scenes/Lightning.tscn" type="PackedScene" id=25]
+[ext_resource path="res://scenes/Shooting/Lightning.tscn" type="PackedScene" id=25]
 
 [sub_resource type="RectangleShape2D" id=11]
 extents = Vector2( 6, 9.5 )

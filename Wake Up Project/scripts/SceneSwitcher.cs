@@ -23,12 +23,12 @@ public class SceneSwitcher : Node
         GetTree().CurrentScene = _currentScene;
     }
 
-    public async void SwitchSceneWithElevatorAnimation(string nextScenePath = "res://scenes/TitleScreen.tscn")
+    public async void SwitchSceneWithElevatorAnimation(string nextScenePath = "res://scenes/UserInterface/TitleScreen.tscn")
     {
         _currentScene.QueueFree();
         _currentScene = null;
 
-        var elevatorScene = (PackedScene)GD.Load("res://scenes/ElevatorIdling.tscn");
+        var elevatorScene = (PackedScene)GD.Load("res://scenes/Other/ElevatorIdling.tscn");
         var elevatorInstance = elevatorScene.Instance();
         GetTree().Root.AddChild(elevatorInstance);
         await ToSignal(GetTree().CreateTimer(6), "timeout");

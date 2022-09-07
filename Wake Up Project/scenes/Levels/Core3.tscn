@@ -1,22 +1,22 @@
 [gd_scene load_steps=19 format=2]
 
-[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://scenes/CanvasModulate.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/TileMap.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/background.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/ClosingDoor.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scenes/LogWithoutDamage.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scenes/Coin.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/Characters/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/BackGround/CanvasModulate.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/TileMap/TileMap.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/BackGround/background.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/Objects/DesignItems/ClosingDoor.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/Objects/Obstacles/LogWithoutDamage.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/Objects/SpecialItems/Coin.tscn" type="PackedScene" id=7]
 [ext_resource path="res://sounds/звук_фон_1.mp3" type="AudioStream" id=8]
-[ext_resource path="res://scenes/ghost.tscn" type="PackedScene" id=9]
-[ext_resource path="res://scenes/Log.tscn" type="PackedScene" id=10]
-[ext_resource path="res://scenes/MovableBlock.tscn" type="PackedScene" id=11]
-[ext_resource path="res://scenes/Door.tscn" type="PackedScene" id=12]
-[ext_resource path="res://scenes/HealthHeart.tscn" type="PackedScene" id=13]
+[ext_resource path="res://scenes/Characters/ghost.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/Objects/Obstacles/Log.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/Objects/AuxiliaryItems/MovableBlock.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scenes/Objects/DesignItems/Door.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scenes/Objects/SpecialItems/HealthHeart.tscn" type="PackedScene" id=13]
 [ext_resource path="res://scripts/Core.cs" type="Script" id=26]
-[ext_resource path="res://scenes/HUD.tscn" type="PackedScene" id=28]
-[ext_resource path="res://scenes/Spike.tscn" type="PackedScene" id=36]
-[ext_resource path="res://scenes/FlashLight.tscn" type="PackedScene" id=46]
+[ext_resource path="res://scenes/UserInterface/HUD.tscn" type="PackedScene" id=28]
+[ext_resource path="res://scenes/Objects/Obstacles/Spike.tscn" type="PackedScene" id=36]
+[ext_resource path="res://scenes/Objects/DesignItems/FlashLight.tscn" type="PackedScene" id=46]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 1185.5, 50 )
@@ -27,7 +27,7 @@ position = Vector2( 96, 165 )
 script = ExtResource( 26 )
 
 [node name="HUD" parent="." instance=ExtResource( 28 )]
-_sceneToRestartPath = "res://scenes/Core3.tscn"
+_sceneToRestartPath = "res://scenes/Levels/Core3.tscn"
 
 [node name="CanvasModulate" parent="." instance=ExtResource( 2 )]
 
@@ -37,6 +37,7 @@ scale = Vector2( 5.44062, 2.47812 )
 
 [node name="Door" parent="." instance=ExtResource( 12 )]
 position = Vector2( 72, -344 )
+_pathToTheSceneToWhichTheDoorLeads = "res://scenes/UserInterface/TitleScreen.tscn"
 
 [node name="ClosingDoor" parent="." instance=ExtResource( 5 )]
 position = Vector2( -296, -184 )

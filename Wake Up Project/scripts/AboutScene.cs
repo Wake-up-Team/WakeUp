@@ -19,7 +19,7 @@ public class AboutScene : Control
         {
             if (eventKey.Pressed && eventKey.Scancode == (int)KeyList.Escape)
             {
-                SwitchScene("res://scenes/TitleScreen.tscn");
+                SwitchScene("res://scenes/UserInterface/TitleScreen.tscn");
             }
         }
     }
@@ -31,7 +31,7 @@ public class AboutScene : Control
 
     private void _on_BackButton_pressed()
     {
-        SwitchScene("res://scenes/TitleScreen.tscn");
+        SwitchScene("res://scenes/UserInterface/TitleScreen.tscn");
     }
 
     private void _on_ReadAboutButton_pressed()
