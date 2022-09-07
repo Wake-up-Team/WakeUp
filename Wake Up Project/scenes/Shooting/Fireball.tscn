@@ -5,7 +5,7 @@
 [ext_resource path="res://Images/Fireball/fireball3.png" type="Texture" id=3]
 [ext_resource path="res://scripts/Shooting/Fireball.cs" type="Script" id=4]
 [ext_resource path="res://Sprites/lights/light (1).png" type="Texture" id=5]
-[ext_resource path="res://sounds/fireball.wav" type="AudioStream" id=6]
+[ext_resource path="res://sounds/ShootingSounds/fireball.wav" type="AudioStream" id=6]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {

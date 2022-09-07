@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/lightning.wav-d71bd503d8832af2a536c5d6108a4194.sample"
+path="res://.import/fireball.wav-bc2acefed428db5d1a0a8962535e5c77.sample"
 
 [deps]
 
-source_file="res://sounds/lightning.wav"
-dest_files=[ "res://.import/lightning.wav-d71bd503d8832af2a536c5d6108a4194.sample" ]
+source_file="res://sounds/ShootingSounds/fireball.wav"
+dest_files=[ "res://.import/fireball.wav-bc2acefed428db5d1a0a8962535e5c77.sample" ]
 
 [params]
 

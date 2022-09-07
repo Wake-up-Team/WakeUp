@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/coin_collected.wav-245647d9a842b356ba9abc7079aa5c79.sample"
+path="res://.import/lightning.wav-dc6058d111ebaee111b33ab25a6511aa.sample"
 
 [deps]
 
-source_file="res://sounds/coin_collected.wav"
-dest_files=[ "res://.import/coin_collected.wav-245647d9a842b356ba9abc7079aa5c79.sample" ]
+source_file="res://sounds/ShootingSounds/lightning.wav"
+dest_files=[ "res://.import/lightning.wav-dc6058d111ebaee111b33ab25a6511aa.sample" ]
 
 [params]
 

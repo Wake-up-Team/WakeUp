@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/health-heart-collected.mp3-4dac818daf77f9133a21532e403c5ccd.mp3str"
+
+[deps]
+
+source_file="res://sounds/ItemCollectedSounds/health-heart-collected.mp3"
+dest_files=[ "res://.import/health-heart-collected.mp3-4dac818daf77f9133a21532e403c5ccd.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

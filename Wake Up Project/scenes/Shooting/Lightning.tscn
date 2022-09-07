@@ -7,7 +7,7 @@
 [ext_resource path="res://Images/Lightning/lightning4.png" type="Texture" id=5]
 [ext_resource path="res://Images/Lightning/lightning5.png" type="Texture" id=6]
 [ext_resource path="res://scripts/Shooting/Lightning.cs" type="Script" id=7]
-[ext_resource path="res://sounds/lightning.wav" type="AudioStream" id=8]
+[ext_resource path="res://sounds/ShootingSounds/lightning.wav" type="AudioStream" id=8]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {

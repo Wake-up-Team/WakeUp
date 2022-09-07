@@ -5,7 +5,7 @@
 [ext_resource path="res://scripts/UserInterface/AboutScene.cs" type="Script" id=3]
 [ext_resource path="res://Images/TgIcons/darker_icon_tg.png" type="Texture" id=4]
 [ext_resource path="res://scenes/UserInterface/InfoAboutTheGame.tscn" type="PackedScene" id=5]
-[ext_resource path="res://sounds/звук_фон_2.mp3" type="AudioStream" id=6]
+[ext_resource path="res://sounds/BackgroundMusic/title-screen-background-music.mp3" type="AudioStream" id=6]
 
 
 [sub_resource type="DynamicFont" id=3]
