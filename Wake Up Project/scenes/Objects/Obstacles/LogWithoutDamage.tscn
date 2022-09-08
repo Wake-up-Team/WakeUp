@@ -4,9 +4,6 @@
 [ext_resource path="res://sounds/LogBurningSound/log-burning-sound.wav" type="AudioStream" id=2]
 [ext_resource path="res://scripts/Objects/Obstacles/LogWithoutDamage.cs" type="Script" id=3]
 
-
-
-
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 25, 4 )
 
