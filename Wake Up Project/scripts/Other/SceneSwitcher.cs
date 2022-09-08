@@ -1,4 +1,5 @@
 using Godot;
+using System.Collections.Generic;
 
 public class SceneSwitcher : Node
 {
@@ -9,6 +10,12 @@ public class SceneSwitcher : Node
         Viewport root = GetTree().Root;
         _currentScene = root.GetChild(root.GetChildCount() - 1);
     }
+
+    private List<string> _levelsPaths = new List<string>(){
+        "res://scenes/Levels/Core.tscn",
+        "res://scenes/Levels/Core2.tscn",
+        "res://scenes/Levels/Core3.tscn"
+    };
 
     public async void SwitchScene(string nextScenePath)
     {
@@ -21,6 +28,11 @@ public class SceneSwitcher : Node
         _currentScene = nextScene.Instance();
         GetTree().Root.AddChild(_currentScene);
         GetTree().CurrentScene = _currentScene;
+
+        if (_levelsPaths.Contains(nextScenePath))
+        {
+            SaveProgress.GetInstance.LastLevelPlayedPath = nextScenePath;
+        }
     }
 
     public async void SwitchSceneWithElevatorAnimation(string nextScenePath = "res://scenes/UserInterface/TitleScreen.tscn")

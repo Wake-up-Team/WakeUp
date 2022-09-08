@@ -14,7 +14,7 @@ public class TitleScreen : Control
 
     public void _on_PlayBtn_button_up()
     {
-        _sceneSwitcher.SwitchSceneWithElevatorAnimation("res://scenes/Levels/Core.tscn");
+        _sceneSwitcher.SwitchSceneWithElevatorAnimation(SaveProgress.GetInstance.LastLevelPlayedPath);
     }
 
     public void _on_OptionsBtn_button_up()

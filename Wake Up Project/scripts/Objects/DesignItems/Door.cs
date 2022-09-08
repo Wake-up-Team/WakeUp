@@ -61,6 +61,10 @@ public class Door : Area2D
         {
             if (IsAllowedToUseTheDoor() && eventKey.Pressed && eventKey.Scancode == (int)KeyList.J)
             {
+                if (_pathToTheSceneToWhichTheDoorLeads == "res://scenes/TitleScreen.tscn")
+                {
+                    SaveProgress.GetInstance.IsLastLevelCompleted = true;
+                }
                 var sceneSwitcher = GetNode<SceneSwitcher>("/root/SceneSwitcher");
                 sceneSwitcher.SwitchSceneWithElevatorAnimation(_pathToTheSceneToWhichTheDoorLeads);
             }
