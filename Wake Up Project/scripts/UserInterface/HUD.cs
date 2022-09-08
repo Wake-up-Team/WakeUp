@@ -13,12 +13,17 @@ public class HUD : CanvasLayer
     {
         "Game Over.",
         "Noob, learn to play and try again.",
-        "Cry baby.",
+        "Gonna cry?",
         "Goof.",
-        "U are soo dumb! Better delete the game.",
+        "U are so dumb! Better play with dolls.",
         "Even my grandma plays better.",
         "Call ur mommy and ask her to play for u.",
-        "U are a disgrace to the humanity."
+        "U are a disgrace to the humanity.",
+        "Press Alt+F4 to improve ur skill.",
+        "Seriously, again?",
+        "Buddy, u can't be that bad.",
+        "What is wrong with u?",
+        "Better luck next time:)"
     };
 
     private TextureRect[] _hpHearts = new TextureRect[3];
