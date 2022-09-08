@@ -50,10 +50,6 @@ public class ghost : KinematicBody2D
     public void TakeDamage(int damage)
     {
         _health -= damage;
-        if (_health < 1)
-        {
-            QueueFree();
-        }
     }
 
     public void _on_Area2D_body_entered(object body)
@@ -64,11 +60,25 @@ public class ghost : KinematicBody2D
             _velocity = MoveAndSlide(new Vector2(0, -50), Vector2.Up);
             TakeDamage(1);
             lightning.QueueFree();
+            if (_health < 1)
+            {
+                GetNode<CollisionShape2D>("CollisionShape2D").SetDeferred("disabled", true);
+                GetNode<CollisionShape2D>("Area2D/CollisionShape2D").SetDeferred("disabled", true);
+                Hide();
+            }
         }
 
         if (body is PlayerController playerController && body is KinematicBody2D)
         {
             playerController.TakeDamage(3);
+        }
+    }
+
+    private void _on_AudioStreamPlayer_finished()
+    {
+        if (_health < 1)
+        {
+            QueueFree();
         }
     }
 }

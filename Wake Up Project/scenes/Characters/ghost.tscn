@@ -30,7 +30,6 @@ script = ExtResource( 4 )
 position = Vector2( 0, 5 )
 frames = SubResource( 15 )
 animation = "ghost"
-frame = 1
 playing = true
 
 [node name="RayCastBottomLeft" type="RayCast2D" parent="."]
@@ -76,3 +75,4 @@ stream = ExtResource( 6 )
 volume_db = -7.0
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_AudioStreamPlayer_finished"]
