@@ -212,6 +212,7 @@ public class PlayerController : KinematicBody2D
         if (_health < 1)
         {
             GetNode<AudioStreamPlayer>("DeathSound").Play();
+            GetNode<CollisionShape2D>("CollisionShape2D").SetDeferred("disabled", true);
         }
         else
         {
@@ -226,8 +227,6 @@ public class PlayerController : KinematicBody2D
             _animatedPlayerSprite.Stop();
             Hide();
             EmitSignal(nameof(Death));
-            CollisionShape2D shape = GetNode<CollisionShape2D>("CollisionShape2D");
-            shape.QueueFree();
         }
     }
 
