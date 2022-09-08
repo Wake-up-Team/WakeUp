@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/log-without-damage12.png-df473ebcc5468e89e1075c95db52a639.stex"
+path="res://.import/log4.png-425e66fc8b1382c63c9cf81e9e366925.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Images/Logs/LogWithoutDamage/log-without-damage12.png"
-dest_files=[ "res://.import/log-without-damage12.png-df473ebcc5468e89e1075c95db52a639.stex" ]
+source_file="res://Images/LogImages/LogWithDamageImages/log4.png"
+dest_files=[ "res://.import/log4.png-425e66fc8b1382c63c9cf81e9e366925.stex" ]
 
 [params]
 
