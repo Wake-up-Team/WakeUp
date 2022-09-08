@@ -31,11 +31,12 @@ public class SceneSwitcher : Node
 
         if (_levelsPaths.Contains(nextScenePath))
         {
-            SaveProgress.GetInstance.LastLevelPlayedPath = nextScenePath;
+            SaveProgress savedProgress = GetNode<SaveProgress>("/root/SaveProgress");
+            savedProgress.LastLevelPlayedPath = nextScenePath;
         }
     }
 
-    public async void SwitchSceneWithElevatorAnimation(string nextScenePath = "res://scenes/UserInterface/TitleScreen.tscn")
+    public async void SwitchSceneWithElevatorAnimation(string nextScenePath)
     {
         _currentScene.QueueFree();
         _currentScene = null;
