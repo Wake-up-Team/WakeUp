@@ -7,6 +7,7 @@
 extents = Vector2( 16, 16 )
 
 [node name="Movable Block" type="RigidBody2D"]
+mass = 2.0
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
