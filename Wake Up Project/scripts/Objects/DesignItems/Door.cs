@@ -3,7 +3,7 @@ using Godot;
 public class Door : Area2D
 {
     [Export]
-    private string _pathToTheSceneToWhichTheDoorLeads = "res://scenes/TitleScreen.tscn";
+    private string _pathToTheSceneToWhichTheDoorLeads;
 
     private AnimationPlayer _animationPlayer;
 
@@ -61,6 +61,11 @@ public class Door : Area2D
         {
             if (IsAllowedToUseTheDoor() && eventKey.Pressed && eventKey.Scancode == (int)KeyList.J)
             {
+                if (_pathToTheSceneToWhichTheDoorLeads == "res://scenes/UserInterface/TitleScreen.tscn")
+                {
+                    SaveProgress savedProgress = GetNode<SaveProgress>("/root/SaveProgress");
+                    savedProgress.IsLastLevelCompleted = true;
+                }
                 var sceneSwitcher = GetNode<SceneSwitcher>("/root/SceneSwitcher");
                 sceneSwitcher.SwitchSceneWithElevatorAnimation(_pathToTheSceneToWhichTheDoorLeads);
             }

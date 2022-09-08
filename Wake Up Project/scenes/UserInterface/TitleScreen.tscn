@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://scripts/UserInterface/TitleScreen.cs" type="Script" id=1]
 [ext_resource path="res://sounds/BackgroundMusic/title-screen-background-music.mp3" type="AudioStream" id=2]
 [ext_resource path="res://scenes/UserInterface/OptionsMenuScene.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Fonts/ConnectionII.otf" type="DynamicFontData" id=4]
+[ext_resource path="res://scenes/UserInterface/SelectLevelMenu.tscn" type="PackedScene" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 178
@@ -186,6 +187,8 @@ text = "Quit"
 stream = ExtResource( 2 )
 volume_db = -30.0
 autoplay = true
+
+[node name="SelectLevelMenu" parent="." instance=ExtResource( 5 )]
 
 [connection signal="button_up" from="MarginContainer/VBoxContainer/Buttons/Play/PlayBtn" to="." method="_on_PlayBtn_button_up"]
 [connection signal="button_up" from="MarginContainer/VBoxContainer/Buttons/Options/OptionsBtn" to="." method="_on_OptionsBtn_button_up"]

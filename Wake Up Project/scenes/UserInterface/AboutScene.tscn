@@ -7,7 +7,6 @@
 [ext_resource path="res://scenes/UserInterface/InfoAboutTheGame.tscn" type="PackedScene" id=5]
 [ext_resource path="res://sounds/BackgroundMusic/title-screen-background-music.mp3" type="AudioStream" id=6]
 
-
 [sub_resource type="DynamicFont" id=3]
 size = 64
 font_data = ExtResource( 1 )

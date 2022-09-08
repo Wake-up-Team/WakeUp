@@ -1,0 +1,120 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Fonts/ConnectionII.otf" type="DynamicFontData" id=1]
+[ext_resource path="res://scripts/UserInterface/SelectLevelMenu.cs" type="Script" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 50
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 50
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.00392157, 0.00392157, 0.0666667, 0.588235 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.00392157, 0.00392157, 0.0666667, 0.784314 )
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.00392157, 0.00392157, 0.0666667, 0.588235 )
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0.00392157, 0.00392157, 0.0666667, 0.392157 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="SelectLevelMenu" type="PopupMenu"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+
+[node name="Background" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.247059, 0.286275, 0.529412, 1 )
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 50
+custom_constants/margin_top = 75
+custom_constants/margin_left = 50
+custom_constants/margin_bottom = 75
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+margin_left = 50.0
+margin_top = 75.0
+margin_right = 974.0
+margin_bottom = 525.0
+custom_constants/separation = 61
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+margin_right = 924.0
+margin_bottom = 50.0
+custom_colors/font_color = Color( 0.984314, 0.984314, 0.0392157, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Select level or press 'esc'."
+align = 1
+
+[node name="Level1Button" type="Button" parent="MarginContainer/VBoxContainer"]
+margin_top = 111.0
+margin_right = 924.0
+margin_bottom = 183.0
+focus_neighbour_top = NodePath("../Level3Button")
+focus_neighbour_bottom = NodePath("../Level2Button")
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color_focus = Color( 0.984314, 0.984314, 0.0392157, 1 )
+custom_colors/font_color_hover = Color( 0.984314, 0.984314, 0.0392157, 1 )
+custom_colors/font_color_pressed = Color( 0.984314, 0.984314, 0.0392157, 1 )
+custom_fonts/font = SubResource( 2 )
+custom_styles/hover = SubResource( 3 )
+custom_styles/pressed = SubResource( 4 )
+custom_styles/focus = SubResource( 5 )
+custom_styles/normal = SubResource( 6 )
+text = "Level1"
+
+[node name="Level2Button" type="Button" parent="MarginContainer/VBoxContainer"]
+margin_top = 244.0
+margin_right = 924.0
+margin_bottom = 316.0
+focus_neighbour_top = NodePath("../Level1Button")
+focus_neighbour_bottom = NodePath("../Level3Button")
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_colors/font_color_focus = Color( 0.984314, 0.984314, 0.0392157, 1 )
+custom_colors/font_color_hover = Color( 0.984314, 0.984314, 0.0392157, 1 )
+custom_colors/font_color_pressed = Color( 0.984314, 0.984314, 0.0392157, 1 )
+custom_fonts/font = SubResource( 2 )
+custom_styles/hover = SubResource( 3 )
+custom_styles/pressed = SubResource( 4 )
+custom_styles/focus = SubResource( 5 )
+custom_styles/normal = SubResource( 6 )
+text = "Level2"
+
+[node name="Level3Button" type="Button" parent="MarginContainer/VBoxContainer"]
+margin_top = 377.0
+margin_right = 924.0
+margin_bottom = 450.0
+focus_neighbour_top = NodePath("../Level2Button")
+focus_neighbour_bottom = NodePath("../Level1Button")
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_colors/font_color_focus = Color( 0.984314, 0.984314, 0.0392157, 1 )
+custom_colors/font_color_hover = Color( 0.984314, 0.984314, 0.0392157, 1 )
+custom_colors/font_color_pressed = Color( 0.984314, 0.984314, 0.0392157, 1 )
+custom_fonts/font = SubResource( 2 )
+custom_styles/hover = SubResource( 3 )
+custom_styles/pressed = SubResource( 4 )
+custom_styles/focus = SubResource( 5 )
+custom_styles/normal = SubResource( 6 )
+text = "Level3"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Level1Button" to="." method="_on_Level1Button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Level2Button" to="." method="_on_Level2Button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Level3Button" to="." method="_on_Level3Button_pressed"]

@@ -10,24 +10,34 @@ public class TitleScreen : Control
         Input.SetCustomMouseCursor(сursor);
         GetNode<Button>("MarginContainer/VBoxContainer/Buttons/About/AboutBtn").GrabFocus();
         _sceneSwitcher = GetNode<SceneSwitcher>("/root/SceneSwitcher");
+        _savedProgress = GetNode<SaveProgress>("/root/SaveProgress");
     }
 
-    public void _on_PlayBtn_button_up()
+    private SaveProgress _savedProgress;
+
+    private void _on_PlayBtn_button_up()
     {
-        _sceneSwitcher.SwitchSceneWithElevatorAnimation("res://scenes/Levels/Core.tscn");
+        if (_savedProgress.IsLastLevelCompleted)
+        {
+            GetNode<Popup>("SelectLevelMenu").PopupCentered();
+        }
+        else
+        {
+            _sceneSwitcher.SwitchSceneWithElevatorAnimation(_savedProgress.LastLevelPlayedPath);
+        }
     }
 
-    public void _on_OptionsBtn_button_up()
+    private void _on_OptionsBtn_button_up()
     {
         GetNode<Popup>("OptionsMenu").PopupCentered();
     }
 
-    public void _on_AboutBtn_button_up()
+    private void _on_AboutBtn_button_up()
     {
         _sceneSwitcher.SwitchScene("res://scenes/UserInterface/AboutScene.tscn");
     }
 
-    public void _on_QuitBtn_button_up()
+    private void _on_QuitBtn_button_up()
     {
         GetTree().Quit();
     }
