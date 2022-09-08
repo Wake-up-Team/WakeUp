@@ -1,0 +1,193 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://scripts/UserInterface/TitleScreen.cs" type="Script" id=1]
+[ext_resource path="res://sounds/BackgroundMusic/title-screen-background-music.mp3" type="AudioStream" id=2]
+[ext_resource path="res://scenes/UserInterface/OptionsMenuScene.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Fonts/ConnectionII.otf" type="DynamicFontData" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 178
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 50
+font_data = ExtResource( 4 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.00392157, 0.00392157, 0.0666667, 0.588235 )
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.00392157, 0.00392157, 0.0666667, 0.784314 )
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0.00392157, 0.00392157, 0.0666667, 0.588235 )
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0.00392157, 0.00392157, 0.0666667, 0.392157 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id=10]
+bg_color = Color( 0.00392157, 0.00392157, 0.0666667, 0.588235 )
+
+[sub_resource type="StyleBoxFlat" id=8]
+bg_color = Color( 0.00392157, 0.00392157, 0.0666667, 0.588235 )
+
+[sub_resource type="StyleBoxFlat" id=9]
+bg_color = Color( 0.00392157, 0.00392157, 0.0666667, 0.588235 )
+
+[node name="TitleScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -3.0
+script = ExtResource( 1 )
+
+[node name="Background" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.247059, 0.286275, 0.529412, 1 )
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 100
+custom_constants/margin_top = 20
+custom_constants/margin_left = 100
+custom_constants/margin_bottom = 35
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+margin_left = 100.0
+margin_top = 20.0
+margin_right = 924.0
+margin_bottom = 562.0
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+margin_right = 824.0
+margin_bottom = 269.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_colors/font_color = Color( 0.968627, 0.956863, 0.231373, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 8
+custom_constants/shadow_offset_y = -4
+custom_fonts/font = SubResource( 1 )
+text = "Wake up!"
+align = 1
+valign = 1
+
+[node name="Buttons" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+margin_top = 273.0
+margin_right = 824.0
+margin_bottom = 542.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 12
+
+[node name="Play" type="MarginContainer" parent="MarginContainer/VBoxContainer/Buttons"]
+margin_right = 824.0
+margin_bottom = 58.0
+focus_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/margin_right = 100
+custom_constants/margin_left = 100
+
+[node name="PlayBtn" type="Button" parent="MarginContainer/VBoxContainer/Buttons/Play"]
+margin_left = 100.0
+margin_right = 724.0
+margin_bottom = 58.0
+focus_neighbour_top = NodePath("../../Quit/QuitBtn")
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 2 )
+custom_styles/hover = SubResource( 4 )
+custom_styles/pressed = SubResource( 5 )
+custom_styles/focus = SubResource( 6 )
+custom_styles/normal = SubResource( 7 )
+text = "Play"
+
+[node name="Options" type="MarginContainer" parent="MarginContainer/VBoxContainer/Buttons"]
+margin_top = 70.0
+margin_right = 824.0
+margin_bottom = 128.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/margin_right = 100
+custom_constants/margin_left = 100
+
+[node name="OptionsBtn" type="Button" parent="MarginContainer/VBoxContainer/Buttons/Options"]
+margin_left = 100.0
+margin_right = 724.0
+margin_bottom = 58.0
+focus_neighbour_top = NodePath("../../Play/PlayBtn")
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 2 )
+custom_styles/hover = SubResource( 4 )
+custom_styles/pressed = SubResource( 5 )
+custom_styles/focus = SubResource( 10 )
+custom_styles/normal = SubResource( 7 )
+text = "Options"
+
+[node name="About" type="MarginContainer" parent="MarginContainer/VBoxContainer/Buttons"]
+margin_top = 140.0
+margin_right = 824.0
+margin_bottom = 198.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/margin_right = 100
+custom_constants/margin_left = 100
+
+[node name="AboutBtn" type="Button" parent="MarginContainer/VBoxContainer/Buttons/About"]
+margin_left = 100.0
+margin_right = 724.0
+margin_bottom = 58.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 2 )
+custom_styles/hover = SubResource( 4 )
+custom_styles/pressed = SubResource( 5 )
+custom_styles/focus = SubResource( 8 )
+custom_styles/normal = SubResource( 7 )
+text = "About the game"
+
+[node name="Quit" type="MarginContainer" parent="MarginContainer/VBoxContainer/Buttons"]
+margin_top = 210.0
+margin_right = 824.0
+margin_bottom = 269.0
+focus_neighbour_bottom = NodePath("../Play")
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/margin_right = 100
+custom_constants/margin_left = 100
+
+[node name="QuitBtn" type="Button" parent="MarginContainer/VBoxContainer/Buttons/Quit"]
+margin_left = 100.0
+margin_right = 724.0
+margin_bottom = 59.0
+focus_neighbour_bottom = NodePath("../../Play/PlayBtn")
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 2 )
+custom_styles/hover = SubResource( 4 )
+custom_styles/pressed = SubResource( 5 )
+custom_styles/focus = SubResource( 9 )
+custom_styles/normal = SubResource( 7 )
+text = "Quit"
+
+[node name="OptionsMenu" parent="." instance=ExtResource( 3 )]
+
+[node name="MusicTitleScreen" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+volume_db = -30.0
+autoplay = true
+
+[connection signal="button_up" from="MarginContainer/VBoxContainer/Buttons/Play/PlayBtn" to="." method="_on_PlayBtn_button_up"]
+[connection signal="button_up" from="MarginContainer/VBoxContainer/Buttons/Options/OptionsBtn" to="." method="_on_OptionsBtn_button_up"]
+[connection signal="button_up" from="MarginContainer/VBoxContainer/Buttons/About/AboutBtn" to="." method="_on_AboutBtn_button_up"]
+[connection signal="button_up" from="MarginContainer/VBoxContainer/Buttons/Quit/QuitBtn" to="." method="_on_QuitBtn_button_up"]

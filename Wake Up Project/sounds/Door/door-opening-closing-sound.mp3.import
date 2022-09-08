@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/door-opening-closing-sound.mp3-800ce98a53c468009ae8396c4862e858.mp3str"
+
+[deps]
+
+source_file="res://sounds/Door/door-opening-closing-sound.mp3"
+dest_files=[ "res://.import/door-opening-closing-sound.mp3-800ce98a53c468009ae8396c4862e858.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

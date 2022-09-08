@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/lightning.wav-dc6058d111ebaee111b33ab25a6511aa.sample"
+
+[deps]
+
+source_file="res://sounds/ShootingSounds/lightning.wav"
+dest_files=[ "res://.import/lightning.wav-dc6058d111ebaee111b33ab25a6511aa.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
