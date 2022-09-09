@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Images/Hearts/HealthHeart/health-heart-Sheet.png" type="Texture" id=1]
 [ext_resource path="res://sounds/ItemCollectedSounds/health-heart-collected.mp3" type="AudioStream" id=2]
 [ext_resource path="res://scripts/Objects/SpecialItems/HealthHeart.cs" type="Script" id=3]
+[ext_resource path="res://Sprites/lights/light.png" type="Texture" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 5.0
@@ -93,6 +94,11 @@ anims/RESET = SubResource( 2 )
 
 [node name="CollectedSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 2 )
+
+[node name="Light2D" type="Light2D" parent="."]
+texture = ExtResource( 4 )
+texture_scale = 0.1
+energy = 0.6
 
 [connection signal="body_entered" from="." to="." method="_on_HealthHeart_body_entered"]
 [connection signal="finished" from="CollectedSound" to="." method="_on_CollectedSound_finished"]
