@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/ghost1.png-ff1a4ad745a5e21f1151aac667c2b26a.stex"
+path="res://.import/ghostDeath3.png-bafc3d906f4fbd86509efbd71072b7f0.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/ghost/ghost1.png"
-dest_files=[ "res://.import/ghost1.png-ff1a4ad745a5e21f1151aac667c2b26a.stex" ]
+source_file="res://Sprites/ghost/Death/ghostDeath3.png"
+dest_files=[ "res://.import/ghostDeath3.png-bafc3d906f4fbd86509efbd71072b7f0.stex" ]
 
 [params]
 

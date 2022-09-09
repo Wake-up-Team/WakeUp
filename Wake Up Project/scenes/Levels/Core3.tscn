@@ -906,5 +906,4 @@ position = Vector2( -1381, -37 )
 [connection signal="CoinCollected" from="Player" to="." method="_on_Player_CoinCollected"]
 [connection signal="DamageTaken" from="Player" to="." method="_on_Player_DamageTaken"]
 [connection signal="Death" from="Player" to="." method="_on_Player_Death"]
-[connection signal="HealthIncreased" from="Player" to="." method="_on_Player_HealthIncreased"]
 [connection signal="body_entered" from="FallZone" to="Player" method="_on_FallZone_body_entered"]
