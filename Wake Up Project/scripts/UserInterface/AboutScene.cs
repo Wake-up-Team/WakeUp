@@ -26,7 +26,7 @@ public class AboutScene : Control
 
     private void _on_ContactBtn_button_up()
     {
-        OS.ShellOpen("https://t.me/t1vlas");
+        OS.ShellOpen("https://t.me/+MFSwDEo2EXliOTgy");
     }
 
     private void _on_BackButton_pressed()
