@@ -547,6 +547,7 @@ position = Vector2( 444, -245 )
 [connection signal="CoinCollected" from="Player" to="." method="_on_Player_CoinCollected"]
 [connection signal="DamageTaken" from="Player" to="." method="_on_Player_DamageTaken"]
 [connection signal="Death" from="Player" to="." method="_on_Player_Death"]
+[connection signal="HealthIncreased" from="Player" to="." method="_on_Player_HealthIncreased"]
 [connection signal="tween_completed" from="MovablePlatform/PlatformBody/Tween" to="MovablePlatform" method="_on_Tween_tween_completed"]
 [connection signal="tween_completed" from="MovablePlatform2/PlatformBody/Tween" to="MovablePlatform2" method="_on_Tween_tween_completed"]
 [connection signal="tween_completed" from="MovablePlatform3/PlatformBody/Tween" to="MovablePlatform3" method="_on_Tween_tween_completed"]

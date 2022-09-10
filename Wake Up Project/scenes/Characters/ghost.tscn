@@ -17,11 +17,6 @@
 
 [sub_resource type="SpriteFrames" id=15]
 animations = [ {
-"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ) ],
-"loop": true,
-"name": "ghost",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 7 ), ExtResource( 8 ) ],
 "loop": false,
 "name": "TakeDamage",
@@ -31,6 +26,11 @@ animations = [ {
 "loop": false,
 "name": "Death",
 "speed": 10.0
+}, {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "ghost",
+"speed": 5.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=16]
