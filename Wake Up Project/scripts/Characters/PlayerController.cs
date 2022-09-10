@@ -232,7 +232,7 @@ public class PlayerController : KinematicBody2D
 
     private void _on_FallZone_body_entered(object body)
     {
-        if (body is PlayerController && body is KinematicBody2D)
+        if (body is PlayerController)
         {
             TakeDamage(3);
         }

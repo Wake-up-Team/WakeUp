@@ -72,7 +72,7 @@ public class ghost : KinematicBody2D
             lightning.QueueFree();
         }
 
-        if (body is PlayerController playerController && body is KinematicBody2D)
+        if (body is PlayerController playerController)
         {
             playerController.TakeDamage(3);
         }
