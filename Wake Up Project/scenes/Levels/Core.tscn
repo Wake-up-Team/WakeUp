@@ -1255,6 +1255,8 @@ _pathToTheSceneToWhichTheDoorLeads = "res://scenes/Levels/Core2.tscn"
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( -120, 1 )
+_fireball = null
+_lightning = null
 
 [node name="MusicCoreScreen" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )

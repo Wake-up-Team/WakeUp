@@ -56,16 +56,20 @@ public class ghost : KinematicBody2D
     {
         if (body is Lightning lightning)
         {
-            GetNode<AudioStreamPlayer>("AudioStreamPlayer").Play();
-            _velocity = MoveAndSlide(new Vector2(0, -50), Vector2.Up);
             TakeDamage(1);
-            lightning.QueueFree();
             if (_health < 1)
             {
-                GetNode<CollisionShape2D>("CollisionShape2D").SetDeferred("disabled", true);
+                GetNode<AnimatedSprite>("AnimatedSprite").Play("Death");
                 GetNode<CollisionShape2D>("Area2D/CollisionShape2D").SetDeferred("disabled", true);
-                Hide();
+                _velocity = Vector2.Zero;         
             }
+            else
+            {
+                GetNode<AudioStreamPlayer>("AudioStreamPlayer").Play();
+                GetNode<AnimatedSprite>("AnimatedSprite").Play("TakeDamage");
+                _velocity = MoveAndSlide(new Vector2(0, -50), Vector2.Up);
+            }
+            lightning.QueueFree();
         }
 
         if (body is PlayerController playerController && body is KinematicBody2D)
@@ -79,6 +83,20 @@ public class ghost : KinematicBody2D
         if (_health < 1)
         {
             QueueFree();
+        }
+    }
+    private void _on_AnimatedSprite_animation_finished()
+    {
+        if (GetNode<AnimatedSprite>("AnimatedSprite").Animation == "TakeDamage")
+        {
+            GetNode<AnimatedSprite>("AnimatedSprite").Stop();
+            GetNode<AnimatedSprite>("AnimatedSprite").Play("ghost");
+
+        }
+        else if (GetNode<AnimatedSprite>("AnimatedSprite").Animation == "Death")
+        {
+            GetNode<CollisionShape2D>("CollisionShape2D").SetDeferred("disabled", true);
+            Hide();
         }
     }
 }
