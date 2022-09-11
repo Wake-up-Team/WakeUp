@@ -1,0 +1,207 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="AboutScene">
+    <Position X="15.75" Y="9.75" Width="3" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAgACAAACAAAAAAEAIAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>scripts\UserInterface\AboutScene.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ClosingDoor">
+    <Position X="5.5" Y="8.25" Width="4.75" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAIAAAAAAACgA=</HashCode>
+      <FileName>scripts\Objects\DesignItems\ClosingDoor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Coin">
+    <Position X="10.75" Y="0.5" Width="4.75" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAAAAEAAAAAIAAAAAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>scripts\Objects\SpecialItems\Coin.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Core">
+    <Position X="0.75" Y="17.25" Width="4.25" />
+    <TypeIdentifier>
+      <HashCode>QACAAAAAEAAAAgAACAAAAYAQAAAAAAAABAAAAEAAADA=</HashCode>
+      <FileName>scripts\Levels\Core.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Door">
+    <Position X="5.5" Y="4.5" Width="5" />
+    <TypeIdentifier>
+      <HashCode>RAAEEAAAAAAAAAQAAAAAAIAAAgAAAQAAAAAAAAQACAA=</HashCode>
+      <FileName>scripts\Objects\DesignItems\Door.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ElevatorIdling">
+    <Position X="10.75" Y="11" Width="3" />
+    <TypeIdentifier>
+      <HashCode>QAAACAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>scripts\Other\ElevatorIdling.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fireball">
+    <Position X="10.75" Y="5.25" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAABAAAAAgBCAAAAAAAAAAAAAAABgAAAAAAAAA=</HashCode>
+      <FileName>scripts\Shooting\Fireball.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ghost">
+    <Position X="0.75" Y="12.75" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>QAAgAAAABAMAAAAAAACJAAAAASAAAAAABgEAgAAAAAA=</HashCode>
+      <FileName>scripts\Characters\ghost.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GlobalOptions">
+    <Position X="10.75" Y="13.25" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAEAAAAgAAAAAAhAAAIAAAAgAAAAAAAAA=</HashCode>
+      <FileName>scripts\Other\GlobalOptions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HealthHeart">
+    <Position X="10.75" Y="2.75" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAgAAAAAAAQAAAIAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>scripts\Objects\SpecialItems\HealthHeart.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HUD">
+    <Position X="15.75" Y="0.5" Width="3.5" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Delegate Name="HUD.RestartGame">
+        <TypeIdentifier>
+          <NewMemberFileName>scripts\UserInterface\HUD.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>QAIgAYgEACAAABAAIAIUAAAAABAAAAgAAAwAAAoAAAA=</HashCode>
+      <FileName>scripts\UserInterface\HUD.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Lightning">
+    <Position X="10.75" Y="8" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAABAAAAAgACAAAAAAAAAAAAAAABgCAAAAAAAA=</HashCode>
+      <FileName>scripts\Shooting\Lightning.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Log">
+    <Position X="5.5" Y="10.75" Width="4.75" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAEACAA=</HashCode>
+      <FileName>scripts\Objects\Obstacles\Log.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LogWithoutDamage">
+    <Position X="5.5" Y="13" Width="4.75" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAABAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>scripts\Objects\Obstacles\LogWithoutDamage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MovableBlock">
+    <Position X="5.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>scripts\Objects\AuxiliaryItems\MovableBlock.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MovablePlatform">
+    <Position X="5.5" Y="0.5" Width="4.25" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAACAAIAAAAAAACAAAAAAABAAAAAAAAAAAAAA=</HashCode>
+      <FileName>scripts\Objects\AuxiliaryItems\MovablePlatform.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OptionsMenu">
+    <Position X="15.75" Y="7" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAABQAgAAAAAAAAABAAAAAAAAAAE=</HashCode>
+      <FileName>scripts\UserInterface\OptionsMenu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PlayerController">
+    <Position X="0.75" Y="0.5" Width="3.5" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Delegate Name="PlayerController.CoinCollected">
+        <TypeIdentifier>
+          <NewMemberFileName>scripts\Characters\PlayerController.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+      <Delegate Name="PlayerController.DamageTaken">
+        <TypeIdentifier>
+          <NewMemberFileName>scripts\Characters\PlayerController.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+      <Delegate Name="PlayerController.Death">
+        <TypeIdentifier>
+          <NewMemberFileName>scripts\Characters\PlayerController.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+      <Delegate Name="PlayerController.HealthIncreased">
+        <TypeIdentifier>
+          <NewMemberFileName>scripts\Characters\PlayerController.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>YQYAAAIAABMACAAMAACBABAARAhCAAAChAAIgREAQAA=</HashCode>
+      <FileName>scripts\Characters\PlayerController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SaveProgress">
+    <Position X="10.75" Y="16.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>scripts\Other\SaveProgress.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="saw">
+    <Position X="5.5" Y="16.75" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>scripts\Objects\Obstacles\saw.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SceneSwitcher">
+    <Position X="10.75" Y="18.25" Width="4.25" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAAAAAAAAEAAAAAAAAACAAAAAAAICAAAA=</HashCode>
+      <FileName>scripts\Other\SceneSwitcher.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SelectLevelMenu">
+    <Position X="15.75" Y="12.25" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAACAAAAAEAAAAAAAAAAAAAAAYAAAAAAA=</HashCode>
+      <FileName>scripts\UserInterface\SelectLevelMenu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Spike">
+    <Position X="5.5" Y="15.25" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>scripts\Objects\Obstacles\Spike.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TitleScreen">
+    <Position X="15.75" Y="14.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>QAEAAAABCAAAEAAAAAAAAAAAAAAAAAAAAAAAAAgAgAA=</HashCode>
+      <FileName>scripts\UserInterface\TitleScreen.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
