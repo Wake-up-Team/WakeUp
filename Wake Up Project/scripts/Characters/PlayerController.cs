@@ -203,14 +203,11 @@ public class PlayerController : KinematicBody2D
         _animatedPlayerSprite.Play("TakeDamage");
         _velocity = MoveAndSlide(new Vector2(800f * -_direction, -120), Vector2.Up);
         _isTakingDamage = true;
-        if (_health <= 0)
-        {
-            _health = 0;
-            _animatedPlayerSprite.Play("default death");
-        }
 
         if (_health < 1)
         {
+            _health = 0;
+            _animatedPlayerSprite.Play("default death");
             GetNode<AudioStreamPlayer>("DeathSound").Play();
             GetNode<CollisionShape2D>("CollisionShape2D").SetDeferred("disabled", true);
         }
