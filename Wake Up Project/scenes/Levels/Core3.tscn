@@ -555,7 +555,7 @@ position = Vector2( 1415, -83 )
 [node name="Coins" type="Node2D" parent="."]
 
 [node name="Coin" parent="Coins" instance=ExtResource( 7 )]
-position = Vector2( 105, -6 )
+position = Vector2( 103, -5 )
 
 [node name="Coin2" parent="Coins" instance=ExtResource( 7 )]
 position = Vector2( 161, -52 )
@@ -900,6 +900,9 @@ position = Vector2( 886, -373 )
 
 [node name="HealthHeart6" parent="HealthHearts" instance=ExtResource( 13 )]
 position = Vector2( -1587, -214 )
+
+[node name="HealthHeart7" parent="HealthHearts" instance=ExtResource( 13 )]
+position = Vector2( 112, -5 )
 
 [connection signal="CoinCollected" from="Player" to="." method="_on_Player_CoinCollected"]
 [connection signal="DamageTaken" from="Player" to="." method="_on_Player_DamageTaken"]
