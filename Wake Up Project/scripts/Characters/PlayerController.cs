@@ -172,7 +172,8 @@ public class PlayerController : KinematicBody2D
             else
             {
                 _velocity.x = Mathf.Lerp(_velocity.x, 0, _friction);
-                if (_velocity.x < 5 && _velocity.x > -5)
+                int velocityxLimitForPlayingIdleAnimation = 5;
+                if (_velocity.x < velocityxLimitForPlayingIdleAnimation && _velocity.x > -velocityxLimitForPlayingIdleAnimation)
                 {
                     if (!_isInAir && !_isTakingDamage && IsOnFloor())
                     {
